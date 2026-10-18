@@ -2,7 +2,7 @@
 const img = (id) => `https://framerusercontent.com/images/${id}`;
 
 export const profile = {
-  name: 'Helena Diasek',
+  name: 'Mouad Tahri',
   role: 'Digital Designer',
   location: 'Houston, TX',
   year: new Date().getFullYear(),
@@ -32,17 +32,18 @@ export const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/about' },
   { label: 'Playground', to: '/playground' },
+  { label: 'Gallery', to: '/gallery' },
 ];
 
 export const works = [
   {
-    slug: 'r1-gradients',
-    title: 'R1 Gradient',
-    category: 'Product Design',
+    slug: 'eden',
+    title: 'Eden',
+    category: 'Product Rendering',
     year: '2024',
     client: 'Pulse Agency',
     services: 'Brand Design/Product Rendering',
-    cover: img('8lWHRMjdd11kJUyyLWev5bfglg.png?scale-down-to=2048'),
+    cover: '/images/works/eden.webp',
     summary:
       '"R1 Gradients" stands as a testament to the power of vibrant color and seamless transitions in branding and product rendering services.',
     about:
@@ -55,13 +56,13 @@ export const works = [
     ],
   },
   {
-    slug: 'hunt',
-    title: 'HUNT',
-    category: 'UI/UX',
+    slug: 'globalstar',
+    title: 'Globalstar',
+    category: '3D Animation',
     year: '2021',
     client: 'Hunt Agency',
     services: 'Visual Concept Development',
-    cover: img('CgRnNsqdF21sd0QjGGchMmih9c.png'),
+    cover: '/images/works/globalstar.webp',
     summary:
       '"Hunt" dives into the realm of 3D abstract art, offering a collection of mesmerizing render backgrounds and visuals.',
     about:
@@ -74,13 +75,13 @@ export const works = [
     ],
   },
   {
-    slug: 'pz',
-    title: 'Pz Stills',
-    category: 'Branding',
+    slug: 'microsoft',
+    title: 'Microsoft',
+    category: 'Motion Design',
     year: '2023',
     client: 'Multipz Studio',
     services: 'Exhibition Curation/Photographic Art Direction',
-    cover: img('9G3a9gC3QgONGDacoBMlyqGU5i0.jpg'),
+    cover: '/images/works/microsoft.webp',
     summary:
       '"Pz Stills" encapsulates the essence of modern aesthetics through the timeless lens of black and white photography combined with sleek graphic design.',
     about:
@@ -92,13 +93,13 @@ export const works = [
     ],
   },
   {
-    slug: 'h23',
-    title: 'H23',
-    category: 'Visual Identity',
+    slug: 'wilson',
+    title: 'Wilson',
+    category: 'Product Rendering',
     year: '2022',
     client: 'Multpz Studio',
     services: 'Branding and Creative Direction',
-    cover: img('1lKgMSMncdtxxIdtfOz62GUU8.png?scale-down-to=2048'),
+    cover: '/images/works/wilson.webp',
     summary: 'You can write a quick overview about the project and the process.',
     about:
       'H23\'s visual identity is a fusion of strength and sophistication. Clean typography communicates professionalism, while bold imagery reflects a strategic vision. Subtle brand elements, inspired by architecture, add uniqueness. Overall, the visual identity evokes confidence and reliability.',
@@ -123,3 +124,14 @@ export const playground = [
   { title: 'Personal Photography', image: img('PrnTkbZ3iHIVDxBqF6xIGv8FLKI.jpg'), side: 'right' },
   { title: 'Oscar Olsson / Disco Volante', image: img('3PeEhcaMDNujnUJz86bWxo80w.jpg'), side: 'left' },
 ];
+
+// Gallery page: renders from each project, stored in public/images/gallery.
+const galleryCounts = { eden: 8, globalstar: 7, microsoft: 7, wilson: 7 };
+const galleryTitles = { eden: 'Eden', globalstar: 'Globalstar', microsoft: 'Microsoft', wilson: 'Wilson' };
+
+export const gallery = Object.entries(galleryCounts).flatMap(([project, count]) =>
+  Array.from({ length: count }, (_, i) => ({
+    project: galleryTitles[project],
+    image: `/images/gallery/${project}-${String(i + 1).padStart(2, '0')}.webp`,
+  }))
+);

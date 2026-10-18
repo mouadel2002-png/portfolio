@@ -8,6 +8,7 @@ import Cursor from './components/Cursor';
 import Home from './pages/Home';
 import About from './pages/About';
 import Playground from './pages/Playground';
+import Gallery from './pages/Gallery';
 import Work from './pages/Work';
 import NotFound from './pages/NotFound';
 import './App.css';
@@ -28,6 +29,7 @@ function AnimatedRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/playground" element={<Playground />} />
+        <Route path="/gallery" element={<Gallery />} />
         <Route path="/works/:slug" element={<Work />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

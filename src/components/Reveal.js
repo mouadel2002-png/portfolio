@@ -39,7 +39,7 @@ export function MaskLine({ children, delay = 0, className }) {
 export function RevealImage({ src, alt = '', className, ratio }) {
   return (
     <motion.div
-      className={`img-frame ${className || ''}`}
+      className={`img-frame ${ratio ? 'img-frame--fill' : ''} ${className || ''}`}
       style={ratio ? { aspectRatio: ratio } : undefined}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}

@@ -39,6 +39,14 @@ export default function Header() {
   return (
     <>
       <header className={`header ${hidden && !open ? 'header--hidden' : ''}`}>
+        <nav className="header__nav" aria-label="Main">
+          {navLinks.map((link) => (
+            <NavLink key={link.to} to={link.to} end className="header__link">
+              <span className="header__link-dot" />
+              {link.label}
+            </NavLink>
+          ))}
+        </nav>
         <button className="header__theme" onClick={toggle} aria-label="Toggle color theme">
           {theme === 'dark' ? 'DARK MODE' : 'LIGHT MODE'}
           <span className="header__dot" />

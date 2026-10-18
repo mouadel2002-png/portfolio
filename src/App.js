@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 import { ThemeProvider } from './theme';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Cursor from './components/Cursor';
 import Home from './pages/Home';
 import About from './pages/About';
 import Playground from './pages/Playground';
@@ -42,6 +43,7 @@ export default function App() {
         <Header />
         <AnimatedRoutes />
         <Footer />
+        <Cursor />
       </BrowserRouter>
     </ThemeProvider>
   );

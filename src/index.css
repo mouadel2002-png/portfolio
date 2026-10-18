@@ -2,7 +2,7 @@
   --bg: #171717;
   --fg: #ffffff;
   --muted: #b5b5b5;
-  --line: rgba(255, 255, 255, 0.12);
+  --line: #424242;
   --img-bg: #222222;
   --gutter: 30px;
   --gap: 20px;
@@ -46,6 +46,7 @@ h2,
 h3,
 p {
   margin: 0;
+  font-size: inherit;
   font-weight: inherit;
 }
 

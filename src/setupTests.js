@@ -8,9 +8,20 @@ import { TextDecoder, TextEncoder } from 'util';
 // react-router needs these, and CRA's jsdom doesn't provide them.
 Object.assign(global, { TextDecoder, TextEncoder });
 
-// framer-motion's whileInView needs IntersectionObserver.
-global.IntersectionObserver = class {
+// Browser APIs the app uses that jsdom lacks.
+class NoopObserver {
   observe() {}
   unobserve() {}
   disconnect() {}
-};
+}
+global.IntersectionObserver = NoopObserver;
+global.ResizeObserver = NoopObserver;
+
+window.matchMedia =
+  window.matchMedia ||
+  ((query) => ({
+    matches: false,
+    media: query,
+    addEventListener() {},
+    removeEventListener() {},
+  }));

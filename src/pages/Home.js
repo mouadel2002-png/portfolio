@@ -1,22 +1,36 @@
 import { Link } from 'react-router-dom';
 import Page from '../components/Page';
+import FitText from '../components/FitText';
+import { DESKTOP, useMediaQuery } from '../hooks';
 import WorkCard from '../components/WorkCard';
 import { MaskLine, Reveal, RevealImage } from '../components/Reveal';
 import { playground, profile, works } from '../data/site';
 import './pages.css';
 
 export default function Home() {
+  const isDesktop = useMediaQuery(DESKTOP);
+
   return (
     <Page title={`${profile.name} Portfolio`}>
       <section className="hero container">
-        <h1 className="display">
-          <MaskLine>
-            {profile.name} <span className="display__mark">©</span>
-          </MaskLine>
-          <MaskLine className="display__indent" delay={0.12}>
-            {profile.role}
-          </MaskLine>
-        </h1>
+        {isDesktop ? (
+          <h1 className="display">
+            <MaskLine>
+              <FitText>
+                {profile.name} <span className="display__mark">©</span> {profile.role}
+              </FitText>
+            </MaskLine>
+          </h1>
+        ) : (
+          <h1 className="display">
+            <MaskLine>
+              {profile.name} <span className="display__mark">©</span>
+            </MaskLine>
+            <MaskLine className="display__indent" delay={0.12}>
+              {profile.role}
+            </MaskLine>
+          </h1>
+        )}
         <ul className="hero__services">
           {profile.services.map((s, i) => (
             <Reveal as="li" key={s} y={12} delay={0.5 + i * 0.08}>
@@ -63,7 +77,7 @@ export default function Home() {
         <div className="pg-preview__list">
           {playground.slice(0, 3).map((p, i) => (
             <Link to="/playground" key={i} className="pg-preview__item">
-              <RevealImage src={p.image} alt={p.title} ratio="626 / 305" />
+              <RevealImage src={p.image} alt={p.title} className="img-frame--fill img-frame--contain pg-preview__frame" />
             </Link>
           ))}
         </div>

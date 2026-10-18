@@ -17,6 +17,10 @@
   padding-left: 0.18em;
 }
 
+.display--sm {
+  font-size: 8.6vw;
+}
+
 .body-text {
   line-height: 25px;
 }
@@ -96,6 +100,7 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--gap);
+  align-items: start;
 }
 
 .info__right {
@@ -307,7 +312,11 @@
 /* ---------- Responsive ---------- */
 @media (max-width: 809px) {
   .display {
-    font-size: 13vw;
+    font-size: 14vw;
+  }
+
+  .display--sm {
+    font-size: 11vw;
   }
 
   .hero__services {

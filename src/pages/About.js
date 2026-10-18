@@ -7,7 +7,7 @@ export default function About() {
   return (
     <Page title={`About — ${profile.name}`}>
       <section className="about-hero container">
-        <h1 className="display">
+        <h1 className="display display--sm">
           {profile.aboutHeadline.map((line, i) => (
             <MaskLine key={line} delay={i * 0.12} className={i ? 'display__indent' : ''}>
               {line}

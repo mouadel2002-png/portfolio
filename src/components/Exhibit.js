@@ -37,15 +37,13 @@ export default function Exhibit({ images, title }) {
 
   // Deal images into the repeating rows.
   const rows = [];
-  let i = 0;
-  for (let r = 0; i < images.length; r++) {
-    const spec = PATTERN[r % PATTERN.length];
-    const items = spec.items.slice(0, images.length - i).map((slot) => {
-      const img = images[i];
-      const n = i + 2;
+  for (let i = 0, r = 0; i < images.length; r++) {
+    const items = [];
+    for (const slot of PATTERN[r % PATTERN.length].items) {
+      if (i >= images.length) break;
+      items.push({ img: images[i], n: i + 2, slot });
       i += 1;
-      return { img, n, slot };
-    });
+    }
     rows.push(items);
   }
 

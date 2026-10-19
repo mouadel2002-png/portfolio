@@ -259,10 +259,6 @@
   line-height: 25px;
 }
 
-.work__cover {
-  margin-top: 60px;
-}
-
 .work__caption {
   display: flex;
   gap: 20px;
@@ -283,23 +279,88 @@
   grid-column: span 2;
 }
 
-.work__gallery {
+/* Project hero: film or cover, sized to its own ratio (see HeroMedia). */
+.work__hero {
+  margin-top: 60px;
+}
+
+.hero-media {
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+  background: var(--img-bg);
+}
+
+.hero-media video,
+.hero-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.hero-media__sound {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  border-radius: 999px;
+}
+
+.hero-media__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  transition: background-color 0.3s var(--ease);
+}
+
+.hero-media__dot.is-on {
+  background: currentColor;
+}
+
+/* Project images hung like an exhibition wall (layout in Exhibit.js). */
+.exhibit {
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  margin-top: 100px;
+  gap: 140px;
+  margin-top: 140px;
 }
 
-.work__shot {
+.exhibit__row {
+  display: flex;
+  align-items: flex-start;
+}
+
+.exhibit__row.is-pair {
+  justify-content: space-between;
+}
+
+.exhibit__piece {
   margin: 0;
+  flex: none;
 }
 
-.work__shot figcaption {
-  padding-top: 20px;
+.exhibit__piece:hover img {
+  transform: scale(1.03);
 }
 
-.work__shot:nth-child(even) figcaption {
-  text-align: right;
+.exhibit__piece figcaption {
+  padding-top: 14px;
+  font-size: 14px;
+}
+
+.exhibit--stack {
+  gap: 64px;
+  margin-top: 80px;
 }
 
 .next-work {
@@ -608,29 +669,8 @@
     grid-column: 4 / span 3;
   }
 
-  .work__gallery {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--gap);
-    align-items: start;
-  }
-
-  .work__col {
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
-  }
-
-  .work__shot figcaption {
+  .exhibit__piece figcaption {
     font-size: 18px;
-  }
-
-  .work__col .work__shot figcaption {
-    text-align: left;
-  }
-
-  .work__col:last-child .work__shot figcaption {
-    text-align: right;
   }
 }
 

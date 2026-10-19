@@ -1,40 +1,15 @@
-import { useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Page from '../components/Page';
-import { MaskLine, Reveal, RevealImage } from '../components/Reveal';
+import HeroMedia from '../components/HeroMedia';
+import Exhibit from '../components/Exhibit';
+import { MaskLine, Reveal } from '../components/Reveal';
 import { works } from '../data/site';
-import { DESKTOP, useMediaQuery } from '../hooks';
 import NotFound from './NotFound';
 import './pages.css';
 
-// Splits images into two columns, always adding to the shorter one, so a
-// masonry layout stays balanced. Each image keeps its original number.
-function balance(images) {
-  const cols = [[], []];
-  const heights = [0, 0];
-  images.forEach((img, i) => {
-    const c = heights[0] <= heights[1] ? 0 : 1;
-    cols[c].push({ ...img, n: i + 2 });
-    heights[c] += img.h / img.w;
-  });
-  return cols;
-}
-
-function Shot({ img, title }) {
-  return (
-    <figure className="work__shot">
-      <RevealImage src={img.src} alt={`${title} ${img.n}`} ratio={`${img.w} / ${img.h}`} />
-      <figcaption className="muted">({img.n})</figcaption>
-    </figure>
-  );
-}
-
 export default function Work() {
   const { slug } = useParams();
-  const isDesktop = useMediaQuery(DESKTOP);
   const work = works.find((w) => w.slug === slug);
-  const columns = useMemo(() => (work ? balance(work.images) : [[], []]), [work]);
-
   if (!work) return <NotFound />;
 
   const index = works.indexOf(work);
@@ -61,15 +36,16 @@ export default function Work() {
           )}
         </div>
 
-        <RevealImage
-          src={work.cover.src}
-          alt={work.title}
-          className="work__cover"
-          ratio={`${work.cover.w} / ${work.cover.h}`}
-        />
+        <div className="work__hero">
+          <HeroMedia work={work} />
+        </div>
         <Reveal className="work__caption">
-          <span className="muted">(1)</span>
-          {work.summary && <p className="work__summary">{work.summary}</p>}
+          <span className="muted">(01)</span>
+          {work.summary ? (
+            <p className="work__summary">{work.summary}</p>
+          ) : (
+            <p className="muted">{work.video ? 'Film' : 'Cover'}</p>
+          )}
         </Reveal>
 
         {work.about && (
@@ -83,23 +59,7 @@ export default function Work() {
           </div>
         )}
 
-        {isDesktop ? (
-          <div className="work__gallery">
-            {columns.map((col, c) => (
-              <div key={c} className="work__col">
-                {col.map((img) => (
-                  <Shot key={img.src} img={img} title={work.title} />
-                ))}
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="work__gallery">
-            {work.images.map((img, i) => (
-              <Shot key={img.src} img={{ ...img, n: i + 2 }} title={work.title} />
-            ))}
-          </div>
-        )}
+        <Exhibit images={work.images} title={work.title} />
 
         <Link to={`/works/${next.slug}`} className="next-work">
           <span className="muted">Next project</span>

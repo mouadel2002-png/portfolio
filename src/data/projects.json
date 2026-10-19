@@ -405,7 +405,12 @@
         "w": 1600,
         "h": 900
       }
-    ]
+    ],
+    "video": {
+      "src": "/videos/microsoft.mp4",
+      "w": 1920,
+      "h": 1080
+    }
   },
   {
     "slug": "wilson",
@@ -793,7 +798,12 @@
         "w": 1600,
         "h": 1600
       }
-    ]
+    ],
+    "video": {
+      "src": "/videos/samsung.mp4",
+      "w": 1080,
+      "h": 1080
+    }
   },
   {
     "slug": "sauvage",
@@ -849,7 +859,12 @@
         "w": 1600,
         "h": 900
       }
-    ]
+    ],
+    "video": {
+      "src": "/videos/sauvage.mp4",
+      "w": 1920,
+      "h": 1080
+    }
   },
   {
     "slug": "oulmess",
@@ -920,7 +935,12 @@
         "w": 1600,
         "h": 900
       }
-    ]
+    ],
+    "video": {
+      "src": "/videos/oulmess.mp4",
+      "w": 1920,
+      "h": 1080
+    }
   },
   {
     "slug": "the-matter",
@@ -956,7 +976,12 @@
         "w": 1600,
         "h": 900
       }
-    ]
+    ],
+    "video": {
+      "src": "/videos/the-matter.mp4",
+      "w": 1920,
+      "h": 1080
+    }
   },
   {
     "slug": "once-cherished-now-forsaken",
@@ -987,6 +1012,11 @@
         "w": 1600,
         "h": 900
       }
-    ]
+    ],
+    "video": {
+      "src": "/videos/once-cherished-now-forsaken.mp4",
+      "w": 1920,
+      "h": 1080
+    }
   }
 ]

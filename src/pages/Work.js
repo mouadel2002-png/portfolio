@@ -1,26 +1,44 @@
+import { useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Page from '../components/Page';
 import { MaskLine, Reveal, RevealImage } from '../components/Reveal';
 import { works } from '../data/site';
+import { DESKTOP, useMediaQuery } from '../hooks';
 import NotFound from './NotFound';
 import './pages.css';
 
-// Desktop layout for gallery shots: the first two sit alone on alternating
-// sides with the caption beside them, the rest pair up two per row.
-function shotLayout(i) {
-  if (i === 0) return 'solo-left';
-  if (i === 1) return 'solo-right';
-  return 'pair';
+// Splits images into two columns, always adding to the shorter one, so a
+// masonry layout stays balanced. Each image keeps its original number.
+function balance(images) {
+  const cols = [[], []];
+  const heights = [0, 0];
+  images.forEach((img, i) => {
+    const c = heights[0] <= heights[1] ? 0 : 1;
+    cols[c].push({ ...img, n: i + 2 });
+    heights[c] += img.h / img.w;
+  });
+  return cols;
+}
+
+function Shot({ img, title }) {
+  return (
+    <figure className="work__shot">
+      <RevealImage src={img.src} alt={`${title} ${img.n}`} ratio={`${img.w} / ${img.h}`} />
+      <figcaption className="muted">({img.n})</figcaption>
+    </figure>
+  );
 }
 
 export default function Work() {
   const { slug } = useParams();
-  const index = works.findIndex((w) => w.slug === slug);
-  if (index === -1) return <NotFound />;
+  const isDesktop = useMediaQuery(DESKTOP);
+  const work = works.find((w) => w.slug === slug);
+  const columns = useMemo(() => (work ? balance(work.images) : [[], []]), [work]);
 
-  const work = works[index];
+  if (!work) return <NotFound />;
+
+  const index = works.indexOf(work);
   const next = works[(index + 1) % works.length];
-  const [lead, ...shots] = work.gallery;
 
   return (
     <Page title={`${work.title} — Projects`}>
@@ -29,42 +47,59 @@ export default function Work() {
           <h1 className="work__title">
             <MaskLine>{work.title}</MaskLine>
           </h1>
-          <Reveal className="work__fact" delay={0.2}>
-            <h3 className="label">Client</h3>
-            <p className="muted">{work.client}</p>
-          </Reveal>
-          <Reveal className="work__fact work__fact--wide" delay={0.28}>
-            <h3 className="label">Services</h3>
-            <p className="muted">{work.services}</p>
-          </Reveal>
+          {work.client && (
+            <Reveal className="work__fact" delay={0.2}>
+              <h3 className="label">Client</h3>
+              <p className="muted">{work.client}</p>
+            </Reveal>
+          )}
+          {(work.services || work.category) && (
+            <Reveal className="work__fact work__fact--wide" delay={0.28}>
+              <h3 className="label">Services</h3>
+              <p className="muted">{work.services || work.category}</p>
+            </Reveal>
+          )}
         </div>
 
-        <div className="work__cover">
-          <RevealImage src={work.cover} alt={work.title} className="work__cover-img" />
-          {lead && <RevealImage src={lead} alt={`${work.title} detail`} className="work__cover-img" />}
-        </div>
+        <RevealImage
+          src={work.cover.src}
+          alt={work.title}
+          className="work__cover"
+          ratio={`${work.cover.w} / ${work.cover.h}`}
+        />
         <Reveal className="work__caption">
           <span className="muted">(1)</span>
-          <p className="work__summary">{work.summary}</p>
+          {work.summary && <p className="work__summary">{work.summary}</p>}
         </Reveal>
 
-        <div className="grid work__about">
-          <Reveal className="work__about-title">
-            <h2 className="section-title">About the project</h2>
-          </Reveal>
-          <Reveal className="work__about-text" delay={0.1}>
-            <p className="work__lead">{work.about}</p>
-          </Reveal>
-        </div>
+        {work.about && (
+          <div className="grid work__about">
+            <Reveal className="work__about-title">
+              <h2 className="section-title">About the project</h2>
+            </Reveal>
+            <Reveal className="work__about-text" delay={0.1}>
+              <p className="work__lead">{work.about}</p>
+            </Reveal>
+          </div>
+        )}
 
-        <div className="work__gallery">
-          {shots.map((src, i) => (
-            <figure key={src + i} className={`work__shot work__shot--${shotLayout(i)}`}>
-              <RevealImage src={src} alt={`${work.title} ${i + 2}`} />
-              <figcaption className="muted">({i + 2})</figcaption>
-            </figure>
-          ))}
-        </div>
+        {isDesktop ? (
+          <div className="work__gallery">
+            {columns.map((col, c) => (
+              <div key={c} className="work__col">
+                {col.map((img) => (
+                  <Shot key={img.src} img={img} title={work.title} />
+                ))}
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="work__gallery">
+            {work.images.map((img, i) => (
+              <Shot key={img.src} img={{ ...img, n: i + 2 }} title={work.title} />
+            ))}
+          </div>
+        )}
 
         <Link to={`/works/${next.slug}`} className="next-work">
           <span className="muted">Next project</span>

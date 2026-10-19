@@ -1,0 +1,992 @@
+[
+  {
+    "slug": "eden",
+    "title": "Eden",
+    "cover": {
+      "src": "/images/works/eden/cover.webp",
+      "w": 1600,
+      "h": 1600
+    },
+    "images": [
+      {
+        "src": "/images/works/eden/01.webp",
+        "w": 1254,
+        "h": 1254
+      },
+      {
+        "src": "/images/works/eden/02.webp",
+        "w": 1254,
+        "h": 1254
+      },
+      {
+        "src": "/images/works/eden/03.webp",
+        "w": 1254,
+        "h": 1254
+      },
+      {
+        "src": "/images/works/eden/04.webp",
+        "w": 1254,
+        "h": 1254
+      },
+      {
+        "src": "/images/works/eden/05.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/eden/06.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/eden/07.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/eden/08.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/eden/09.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/eden/10.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/eden/11.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/eden/12.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/eden/13.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/eden/14.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/eden/15.webp",
+        "w": 1600,
+        "h": 841
+      },
+      {
+        "src": "/images/works/eden/16.webp",
+        "w": 1600,
+        "h": 839
+      },
+      {
+        "src": "/images/works/eden/17.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/eden/18.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/eden/19.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/eden/20.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/eden/21.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/eden/22.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/eden/23.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/eden/24.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/eden/25.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/eden/26.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/eden/27.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/eden/28.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/eden/29.webp",
+        "w": 1600,
+        "h": 1600
+      }
+    ]
+  },
+  {
+    "slug": "globalstar",
+    "title": "Globalstar",
+    "cover": {
+      "src": "/images/works/globalstar/cover.webp",
+      "w": 1672,
+      "h": 941
+    },
+    "images": [
+      {
+        "src": "/images/works/globalstar/01.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/02.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/03.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/04.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/05.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/06.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/07.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/08.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/09.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/10.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/11.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/12.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/13.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/14.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/15.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/16.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/17.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/18.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/19.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/20.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/21.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/22.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/23.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/24.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/25.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/26.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/27.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/globalstar/28.webp",
+        "w": 1600,
+        "h": 900
+      }
+    ]
+  },
+  {
+    "slug": "microsoft",
+    "title": "Microsoft",
+    "cover": {
+      "src": "/images/works/microsoft/cover.webp",
+      "w": 1800,
+      "h": 1013
+    },
+    "images": [
+      {
+        "src": "/images/works/microsoft/01.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/microsoft/02.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/microsoft/03.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/microsoft/04.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/microsoft/05.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/microsoft/06.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/microsoft/07.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/microsoft/08.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/microsoft/09.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/microsoft/10.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/microsoft/11.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/microsoft/12.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/microsoft/13.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/microsoft/14.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/microsoft/15.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/microsoft/16.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/microsoft/17.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/microsoft/18.webp",
+        "w": 1600,
+        "h": 900
+      }
+    ]
+  },
+  {
+    "slug": "wilson",
+    "title": "Wilson",
+    "cover": {
+      "src": "/images/works/wilson/cover.webp",
+      "w": 1800,
+      "h": 1800
+    },
+    "images": [
+      {
+        "src": "/images/works/wilson/01.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/wilson/02.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/wilson/03.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/wilson/04.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/wilson/05.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/wilson/06.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/wilson/07.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/wilson/08.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/wilson/09.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/wilson/10.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/wilson/11.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/wilson/12.webp",
+        "w": 1254,
+        "h": 1254
+      },
+      {
+        "src": "/images/works/wilson/13.webp",
+        "w": 1254,
+        "h": 1254
+      },
+      {
+        "src": "/images/works/wilson/14.webp",
+        "w": 1254,
+        "h": 1254
+      },
+      {
+        "src": "/images/works/wilson/15.webp",
+        "w": 1254,
+        "h": 1254
+      },
+      {
+        "src": "/images/works/wilson/16.webp",
+        "w": 1254,
+        "h": 1254
+      },
+      {
+        "src": "/images/works/wilson/17.webp",
+        "w": 1600,
+        "h": 1600
+      }
+    ]
+  },
+  {
+    "slug": "gummagic",
+    "title": "Gummagic",
+    "cover": {
+      "src": "/images/works/gummagic/cover.webp",
+      "w": 1672,
+      "h": 941
+    },
+    "images": [
+      {
+        "src": "/images/works/gummagic/01.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/gummagic/02.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/gummagic/03.webp",
+        "w": 1024,
+        "h": 1536
+      },
+      {
+        "src": "/images/works/gummagic/04.webp",
+        "w": 1600,
+        "h": 2419
+      },
+      {
+        "src": "/images/works/gummagic/05.webp",
+        "w": 1600,
+        "h": 2419
+      },
+      {
+        "src": "/images/works/gummagic/06.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/gummagic/07.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/gummagic/08.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/gummagic/09.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/gummagic/10.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/gummagic/11.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/gummagic/12.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/gummagic/13.webp",
+        "w": 1500,
+        "h": 1500
+      },
+      {
+        "src": "/images/works/gummagic/14.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/gummagic/15.webp",
+        "w": 1055,
+        "h": 1491
+      },
+      {
+        "src": "/images/works/gummagic/16.webp",
+        "w": 1055,
+        "h": 1491
+      },
+      {
+        "src": "/images/works/gummagic/17.webp",
+        "w": 1055,
+        "h": 1491
+      },
+      {
+        "src": "/images/works/gummagic/18.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/gummagic/19.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/gummagic/20.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/gummagic/21.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/gummagic/22.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/gummagic/23.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/gummagic/24.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/gummagic/25.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/gummagic/26.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/gummagic/27.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/gummagic/28.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/gummagic/29.webp",
+        "w": 1080,
+        "h": 1358
+      },
+      {
+        "src": "/images/works/gummagic/30.webp",
+        "w": 1080,
+        "h": 1358
+      },
+      {
+        "src": "/images/works/gummagic/31.webp",
+        "w": 1080,
+        "h": 1358
+      },
+      {
+        "src": "/images/works/gummagic/32.webp",
+        "w": 1600,
+        "h": 1999
+      },
+      {
+        "src": "/images/works/gummagic/33.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/gummagic/34.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/gummagic/35.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/gummagic/36.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/gummagic/37.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/gummagic/38.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/gummagic/39.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/gummagic/40.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/gummagic/41.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/gummagic/42.webp",
+        "w": 1600,
+        "h": 900
+      }
+    ]
+  },
+  {
+    "slug": "samsung",
+    "title": "Samsung",
+    "cover": {
+      "src": "/images/works/samsung/cover.webp",
+      "w": 1800,
+      "h": 1800
+    },
+    "images": [
+      {
+        "src": "/images/works/samsung/01.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/samsung/02.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/samsung/03.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/samsung/04.webp",
+        "w": 1254,
+        "h": 1254
+      },
+      {
+        "src": "/images/works/samsung/05.webp",
+        "w": 1254,
+        "h": 1254
+      },
+      {
+        "src": "/images/works/samsung/06.webp",
+        "w": 1254,
+        "h": 1254
+      },
+      {
+        "src": "/images/works/samsung/07.webp",
+        "w": 1254,
+        "h": 1254
+      },
+      {
+        "src": "/images/works/samsung/08.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/samsung/09.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/samsung/10.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/samsung/11.webp",
+        "w": 1000,
+        "h": 1000
+      },
+      {
+        "src": "/images/works/samsung/12.webp",
+        "w": 1600,
+        "h": 1600
+      }
+    ]
+  },
+  {
+    "slug": "sauvage",
+    "title": "Sauvage",
+    "cover": {
+      "src": "/images/works/sauvage/cover.webp",
+      "w": 1800,
+      "h": 1013
+    },
+    "images": [
+      {
+        "src": "/images/works/sauvage/01.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/sauvage/02.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/sauvage/03.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/sauvage/04.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/sauvage/05.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/sauvage/06.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/sauvage/07.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/sauvage/08.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/sauvage/09.webp",
+        "w": 1600,
+        "h": 900
+      }
+    ]
+  },
+  {
+    "slug": "oulmess",
+    "title": "Oulmess",
+    "cover": {
+      "src": "/images/works/oulmess/cover.webp",
+      "w": 1800,
+      "h": 1013
+    },
+    "images": [
+      {
+        "src": "/images/works/oulmess/01.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/oulmess/02.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/oulmess/03.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/oulmess/04.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/oulmess/05.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/oulmess/06.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/oulmess/07.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/oulmess/08.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/oulmess/09.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/oulmess/10.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/oulmess/11.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/oulmess/12.webp",
+        "w": 1600,
+        "h": 900
+      }
+    ]
+  },
+  {
+    "slug": "the-matter",
+    "title": "The Matter",
+    "cover": {
+      "src": "/images/works/the-matter/cover.webp",
+      "w": 1800,
+      "h": 1013
+    },
+    "images": [
+      {
+        "src": "/images/works/the-matter/01.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/the-matter/02.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/the-matter/03.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/the-matter/04.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/the-matter/05.webp",
+        "w": 1600,
+        "h": 900
+      }
+    ]
+  },
+  {
+    "slug": "once-cherished-now-forsaken",
+    "title": "Once Cherished Now Forsaken",
+    "cover": {
+      "src": "/images/works/once-cherished-now-forsaken/cover.webp",
+      "w": 1800,
+      "h": 1013
+    },
+    "images": [
+      {
+        "src": "/images/works/once-cherished-now-forsaken/01.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/once-cherished-now-forsaken/02.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/once-cherished-now-forsaken/03.webp",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/images/works/once-cherished-now-forsaken/04.webp",
+        "w": 1600,
+        "h": 900
+      }
+    ]
+  }
+]

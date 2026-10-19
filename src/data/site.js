@@ -1,4 +1,6 @@
 // All site content lives here — edit this file to make the portfolio yours.
+import projects from './projects.json';
+
 const img = (id) => `https://framerusercontent.com/images/${id}`;
 
 export const profile = {
@@ -35,82 +37,31 @@ export const navLinks = [
   { label: 'Gallery', to: '/gallery' },
 ];
 
-export const works = [
-  {
-    slug: 'eden',
-    title: 'Eden',
-    category: 'Product Rendering',
-    year: '2024',
-    client: 'Pulse Agency',
-    services: 'Brand Design/Product Rendering',
-    cover: '/images/works/eden.webp',
-    summary:
-      '"R1 Gradients" stands as a testament to the power of vibrant color and seamless transitions in branding and product rendering services.',
-    about:
-      '"R1 Gradients" stands as a testament to the power of vibrant color and seamless transitions in branding and product rendering services. This fictional project showcases the expertise in creating visually striking designs that capture attention and convey the essence of innovation and creativity.',
-    gallery: [
-      img('OTCQKqThNwyhfINKgIF9etnnybE.png'),
-      img('GmumJFr7h5RJQQoDk7kUh9bw.png'),
-      img('pje3Up26nbPfLuPIk7XUFN7bC4.png'),
-      img('8lWHRMjdd11kJUyyLWev5bfglg.png'),
-    ],
-  },
-  {
-    slug: 'globalstar',
-    title: 'Globalstar',
-    category: '3D Animation',
-    year: '2021',
-    client: 'Hunt Agency',
-    services: 'Visual Concept Development',
-    cover: '/images/works/globalstar.webp',
-    summary:
-      '"Hunt" dives into the realm of 3D abstract art, offering a collection of mesmerizing render backgrounds and visuals.',
-    about:
-      'The "Hunt" project aspires to redefine the boundaries of digital art through the creation of 3D abstract renders that evoke a sense of depth, movement, and emotion. Focusing on the interplay of light, texture, and color within a three-dimensional space, "Hunt" pushes the envelope of visual storytelling.',
-    gallery: [
-      img('zEqBeKokQGARrUpfXnxKwkTJrA.jpg'),
-      img('GnvCaZrA0q0I2DhBX1lHyIWvb8.jpg'),
-      img('go9BRXX3OzpmilFCj8fkTjKk.jpg'),
-      img('zjS0jfvwqwmXRvgahtXLkNFLe0k.jpg'),
-    ],
-  },
-  {
-    slug: 'microsoft',
-    title: 'Microsoft',
-    category: 'Motion Design',
-    year: '2023',
-    client: 'Multipz Studio',
-    services: 'Exhibition Curation/Photographic Art Direction',
-    cover: '/images/works/microsoft.webp',
-    summary:
-      '"Pz Stills" encapsulates the essence of modern aesthetics through the timeless lens of black and white photography combined with sleek graphic design.',
-    about:
-      'The "Pz Stills" project was born out of a desire to explore the depth and emotion conveyed through black and white imagery, enhanced by contemporary graphic design elements. By stripping away color, the project focuses on the raw power of contrast, texture, and composition to tell stories and evoke feelings.',
-    gallery: [
-      img('RbHF1xPy5mrGNvJdpv4WyGMpQos.jpg'),
-      img('6JAFxzqSYxPBhrztwhAWAXuO4s.jpg'),
-      img('mO657LAIL0NlnyKxoHKEzJNRlT8.jpg'),
-    ],
-  },
-  {
-    slug: 'wilson',
-    title: 'Wilson',
-    category: 'Product Rendering',
-    year: '2022',
-    client: 'Multpz Studio',
-    services: 'Branding and Creative Direction',
-    cover: '/images/works/wilson.webp',
-    summary: 'You can write a quick overview about the project and the process.',
-    about:
-      'H23\'s visual identity is a fusion of strength and sophistication. Clean typography communicates professionalism, while bold imagery reflects a strategic vision. Subtle brand elements, inspired by architecture, add uniqueness. Overall, the visual identity evokes confidence and reliability.',
-    gallery: [
-      img('fNao0NwVxKOIkaq7bHLgD1iQ.png'),
-      img('S7biBYXVCqErjuVtiK9XwU3rxtE.png'),
-      img('R0FxCbdS7santdkEDGaDOdNRbUw.jpg'),
-      img('4oUHahz5PGc5KIDpj5COgHTs16A.png'),
-    ],
-  },
-];
+// Project images come from src/data/projects.json, generated from each project folder
+// (cover = the folder's COVER image, images = every other picture in the folder).
+// Fill in the text fields below; empty ones are simply hidden on the site.
+const projectInfo = {
+  eden: { category: 'Product Rendering' },
+  globalstar: { category: '3D Animation' },
+  microsoft: { category: 'Motion Design' },
+  wilson: { category: 'Product Rendering' },
+  gummagic: { category: 'Branding & Packaging' },
+  samsung: { category: 'Product Rendering' },
+  sauvage: { category: 'Motion Design' },
+  oulmess: { category: 'Product Animation' },
+  'the-matter': { category: 'Short Film' },
+  'once-cherished-now-forsaken': { category: 'Short Film' },
+};
+
+export const works = projects.map((p) => ({
+  year: '',
+  client: '',
+  services: '',
+  summary: '',
+  about: '',
+  ...projectInfo[p.slug],
+  ...p,
+}));
 
 // `side` places the image in the left or right half of the page on the Playground page.
 export const playground = [

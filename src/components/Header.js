@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { navLinks } from '../data/site';
 import { useTheme } from '../theme';
 
@@ -39,6 +39,9 @@ export default function Header() {
   return (
     <>
       <header className={`header ${hidden && !open ? 'header--hidden' : ''}`}>
+        <Link to="/" className="header__logo" aria-label="Mouad Tahri — home">
+          <span className="header__logo-mark" />
+        </Link>
         <nav className="header__nav" aria-label="Main">
           {navLinks.map((link) => (
             <NavLink key={link.to} to={link.to} end className="header__link">
@@ -47,18 +50,20 @@ export default function Header() {
             </NavLink>
           ))}
         </nav>
-        <button className="header__theme" onClick={toggle} aria-label="Toggle color theme">
-          {theme === 'dark' ? 'DARK MODE' : 'LIGHT MODE'}
-          <span className="header__dot" />
-        </button>
-        <button
-          className="header__menu"
-          onClick={() => setOpen((o) => !o)}
-          aria-expanded={open}
-          aria-controls="site-menu"
-        >
-          {open ? 'CLOSE' : 'MENU'}
-        </button>
+        <div className="header__actions">
+          <button className="header__theme" onClick={toggle} aria-label="Toggle color theme">
+            {theme === 'dark' ? 'DARK MODE' : 'LIGHT MODE'}
+            <span className="header__dot" />
+          </button>
+          <button
+            className="header__menu"
+            onClick={() => setOpen((o) => !o)}
+            aria-expanded={open}
+            aria-controls="site-menu"
+          >
+            {open ? 'CLOSE' : 'MENU'}
+          </button>
+        </div>
       </header>
 
       <AnimatePresence>

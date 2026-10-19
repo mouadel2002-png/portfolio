@@ -115,6 +115,34 @@
   transform: translateY(-100%);
 }
 
+.header__logo {
+  display: flex;
+  align-items: center;
+  transition: opacity 0.3s var(--ease);
+}
+
+.header__logo:hover {
+  opacity: 0.6;
+}
+
+/* The logo PNG is used as a mask and filled with the text colour, so it is
+   black on the light theme and white on the dark theme. */
+.header__logo-mark {
+  display: block;
+  height: 26px;
+  aspect-ratio: 382 / 160;
+  background-color: var(--fg);
+  -webkit-mask: url('./assets/logo-mt.png') center / contain no-repeat;
+  mask: url('./assets/logo-mt.png') center / contain no-repeat;
+  transition: background-color 0.5s var(--ease);
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
 .header__theme,
 .header__menu {
   font-size: 16px;
@@ -290,22 +318,34 @@
     font-size: 41px;
   }
 
+  /* Logo left, page links centred, theme toggle right. */
   .header {
     height: 70px;
     display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 0 var(--gap);
+    grid-template-columns: 1fr auto 1fr;
     align-items: stretch;
   }
 
+  .header__logo {
+    align-self: center;
+  }
+
+  .header__logo-mark {
+    height: 34px;
+  }
+
   .header__nav {
-    display: contents;
+    display: flex;
+    border-left: 1px solid var(--line);
   }
 
   .header__link {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
+    min-width: 170px;
+    padding: 0 24px;
     font-size: 18px;
     text-transform: uppercase;
     border-right: 1px solid var(--line);
@@ -328,11 +368,12 @@
     display: block;
   }
 
-  .header__theme {
-    grid-column: 6;
+  .header__actions {
     justify-self: end;
+  }
+
+  .header__theme {
     font-size: 20px;
-    flex-direction: row;
   }
 
   .header__menu,

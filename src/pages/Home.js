@@ -13,6 +13,18 @@ export default function Home() {
   return (
     <Page title={`${profile.name} Portfolio`}>
       <section className="hero container">
+        {/* Showreel loops silently behind the landing block only (between header and divider). */}
+        <video
+          className="hero__video"
+          src="/videos/showreel.mp4"
+          poster="/images/showreel-poster.jpg"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+        />
         {isDesktop ? (
           <h1 className="display">
             <MaskLine>

@@ -40,7 +40,23 @@ function encodeVideo(input, slug) {
   return { src: `/videos/${slug}.mp4`, w, h, kb: Math.round(fs.statSync(out).size / 1024) };
 }
 
+// Landing-page background: WEBSITE/SHOWREEL.mp4 -> silent, looping web video plus a poster frame.
+function encodeShowreel() {
+  const input = path.join(SRC, 'SHOWREEL.mp4');
+  const out = `${VIDEOS}/showreel.mp4`;
+  if (!fs.existsSync(input)) return;
+  fs.mkdirSync(VIDEOS, { recursive: true });
+  if (!fs.existsSync(out) || fs.statSync(out).mtimeMs < fs.statSync(input).mtimeMs) {
+    execFileSync(ffmpeg, ['-y', '-v', 'error', '-i', input, '-an', '-vf', 'scale=1920:-2', '-c:v', 'libx264',
+      '-preset', 'slow', '-crf', '27', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out]);
+    execFileSync(ffmpeg, ['-y', '-v', 'error', '-i', out, '-frames:v', '1', '-q:v', '3', '-vf', 'scale=1600:-2',
+      `${APP}/public/images/showreel-poster.jpg`]);
+  }
+  console.log(`Showreel: ${Math.round(fs.statSync(out).size / 1024)}KB`);
+}
+
 (async () => {
+  encodeShowreel();
   fs.rmSync(OUT, { recursive: true, force: true });
   const manifest = [];
   for (const [dir, title] of projects) {

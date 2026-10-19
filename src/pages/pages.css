@@ -31,10 +31,17 @@
 }
 
 /* ---------- Home ---------- */
+/* The hero fills the first screen except a strip at the bottom, so the
+   "Selected Works" title is still visible before scrolling. The strip is
+   header + works padding + title height (see the desktop override). */
 .hero {
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 160px);
+  min-height: calc(100svh - 160px);
   padding-top: 32px;
   padding-bottom: 42px;
 }
@@ -64,8 +71,8 @@
 .hero__services {
   list-style: none;
   margin: 0;
-  padding: 0;
-  margin-top: 48px;
+  padding: 48px 0 0;
+  margin-top: auto;
   line-height: 1.2;
 }
 
@@ -430,7 +437,7 @@
   }
 
   .hero__services {
-    margin-top: 40px;
+    padding-top: 40px;
   }
 
   .works__title {
@@ -517,10 +524,12 @@
   .hero {
     padding-top: 50px;
     padding-bottom: 64px;
+    min-height: calc(100vh - 260px);
+    min-height: calc(100svh - 260px);
   }
 
   .hero__services {
-    margin-top: 72px;
+    padding-top: 72px;
   }
 
   .works {

@@ -55,7 +55,8 @@ export default function Home() {
       <hr className="divider" />
 
       <section className="works container">
-        <Reveal className="grid works__head">
+        {/* Sits at the very bottom of the first screen, so reveal as soon as any of it shows. */}
+        <Reveal className="grid works__head" delay={0.6} viewport={{ once: true, amount: 'some' }}>
           <h2 className="section-title works__title">Selected Works</h2>
           <span className="muted">[{works.length}]</span>
         </Reveal>

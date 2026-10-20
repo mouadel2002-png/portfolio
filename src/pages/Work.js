@@ -8,7 +8,7 @@ import NotFound from './NotFound';
 import './pages.css';
 
 // Each named section hangs its images in its own arrangement.
-const SECTION_PATTERN = { renders: PATTERNS.renders, process: PATTERNS.strip, behind: PATTERNS.feature };
+const SECTION_PATTERN = { renders: PATTERNS.renders, process: PATTERNS.process };
 
 function Sections({ sections, title }) {
   let start = 2;

@@ -9,32 +9,36 @@ export const PATTERNS = {
   // Default wall for a project's loose images.
   wall: [
     { items: [{ left: 16, wide: 62, tall: 38 }] },
-    { items: [{ left: 0, wide: 44, tall: 30 }, { wide: 36, tall: 26, drop: 180 }] },
+    { items: [{ left: 0, wide: 44, tall: 30 }, { wide: 36, tall: 26, drop: 120 }] },
     { items: [{ left: 50, wide: 50, tall: 34 }] },
-    { items: [{ left: 7, wide: 34, tall: 24, drop: 120 }, { wide: 48, tall: 32 }] },
+    { items: [{ left: 7, wide: 34, tall: 24, drop: 80 }, { wide: 48, tall: 32 }] },
     { items: [{ left: 0, wide: 70, tall: 42 }] },
-    { items: [{ left: 30, wide: 40, tall: 28 }, { wide: 26, tall: 22, drop: 220 }] },
+    { items: [{ left: 30, wide: 40, tall: 28 }, { wide: 26, tall: 22, drop: 140 }] },
   ],
-  // Final frames: big/small pairs that step down the page.
+  // Final frames: all the same size, a loose two-column grid whose right column
+  // hangs lower and whose rows shift sideways, so it never reads as a strict grid.
   renders: [
-    { items: [{ left: 0, wide: 50, tall: 46 }, { wide: 40, tall: 32, drop: 220 }] },
-    { items: [{ left: 12, wide: 40, tall: 30 }, { wide: 50, tall: 42, drop: 140 }] },
+    { items: [{ left: 6, wide: 40, tall: 40 }, { wide: 40, tall: 40, drop: 96 }] },
+    { items: [{ left: 14, wide: 40, tall: 40 }, { wide: 40, tall: 40, drop: 96 }] },
   ],
-  // Process: one strip of pieces side by side, each hung at its own height.
-  strip: [
+  // Process: clay renders side by side at different heights, then the screenshots
+  // in a second, offset row at the same width.
+  process: [
     {
       items: [
-        { wide: 23, tall: 22 },
-        { wide: 23, tall: 22, drop: 110 },
-        { wide: 23, tall: 22, drop: 40 },
-        { wide: 23, tall: 22, drop: 170 },
+        { wide: 22, tall: 22 },
+        { wide: 22, tall: 22, drop: 110 },
+        { wide: 22, tall: 22, drop: 40 },
+        { wide: 22, tall: 22, drop: 170 },
       ],
     },
-  ],
-  // Behind the scenes: one large feature, then an offset pair.
-  feature: [
-    { items: [{ left: 10, wide: 80, tall: 50 }] },
-    { items: [{ left: 0, wide: 46, tall: 32 }, { wide: 40, tall: 28, drop: 160 }] },
+    {
+      items: [
+        { left: 8, wide: 22, tall: 22, drop: 20 },
+        { wide: 22, tall: 22, drop: 90 },
+        { wide: 22, tall: 22 },
+      ],
+    },
   ],
 };
 

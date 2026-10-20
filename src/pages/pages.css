@@ -184,6 +184,9 @@
 }
 
 .about-intro__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
   max-width: 465px;
 }
 
@@ -254,7 +257,7 @@
 
 /* ---------- Work detail ---------- */
 .work {
-  padding-top: 60px;
+  padding-top: 30px;
 }
 
 .work__title {
@@ -352,8 +355,8 @@
 .exhibit {
   display: flex;
   flex-direction: column;
-  gap: 140px;
-  margin-top: 140px;
+  gap: 80px;
+  margin-top: 100px;
 }
 
 .exhibit__row {
@@ -386,7 +389,7 @@
 
 /* Named chapters on a project page (Renders / Process / Behind the Scenes). */
 .work-section {
-  margin-top: 160px;
+  margin-top: 100px;
 }
 
 .work-section__head {
@@ -408,7 +411,7 @@
 }
 
 .work-section .exhibit {
-  margin-top: 90px;
+  margin-top: 56px;
 }
 
 .work-section .exhibit--stack {
@@ -417,7 +420,7 @@
 
 @media (min-width: 1200px) {
   .work-section {
-    margin-top: 220px;
+    margin-top: 140px;
   }
 
   .work-section__head {
@@ -440,7 +443,7 @@
   }
 
   .work-section .exhibit {
-    margin-top: 120px;
+    margin-top: 72px;
   }
 
   /* Process strip: the four clays read as one row, so tighten the vertical rhythm. */
@@ -655,16 +658,16 @@
   .about-intro {
     grid-template-columns: repeat(6, minmax(0, 1fr));
     align-items: center;
-    padding-top: 200px;
+    padding-top: 140px;
   }
 
   .about-intro__img {
-    grid-column: 1;
+    grid-column: 1 / span 2;
     width: 100%;
   }
 
   .about-intro__text {
-    grid-column: 4 / span 2;
+    grid-column: 4 / span 3;
     max-width: none;
   }
 
@@ -713,7 +716,7 @@
 
   /* Work detail */
   .work {
-    padding-top: 100px;
+    padding-top: 50px;
   }
 
   .work__head {

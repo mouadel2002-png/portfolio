@@ -12,16 +12,19 @@ export const profile = {
   intro:
     "I bring a dynamic and impactful approach to brand design, focusing on creating identities that vividly communicate a business's essence to its intended audience.",
   aboutHeadline: ['Unforgettable', 'Digital Experiences'],
-  aboutText:
-    'My style is marked by a preference for clean, minimalist aesthetics, enriched with vibrant colors and textures to forge unforgettable brand experiences.',
-  portrait: img('wzCfApozCAsVIoyOWoT8ezO55c.jpg'),
+  // One string per paragraph.
+  aboutText: [
+    'I’ve always seen art as a way of looking at the world differently. A space for questioning, experimenting, and giving form to ideas that don’t always have words.',
+    'My practice lives somewhere between design and art, combining visual communication, 3D, and motion to create work that goes beyond appearance. I’m interested in the balance between simplicity and expression, where even the smallest detail can change the way something is perceived.',
+  ],
+  portrait: { src: '/images/about/photo.webp', w: 1400, h: 1110 },
 };
 
 export const experiences = [
-  { year: '2019', title: 'Design Intern', company: 'Luxe Brands' },
-  { year: '2020', title: 'Junior Brand Designer', company: 'Creativio Agency' },
-  { year: '2021', title: 'Brand Consultant', company: 'Freelance' },
-  { year: '2023', title: 'Creative Director', company: 'Fisga' },
+  { year: '2026', title: '3D Generalist', company: 'IMAGE FACTORY Maroc' },
+  { year: '2025', title: '3D Motion Designer', company: 'Freelance' },
+  { year: '2023 – 2024', title: '3D Designer', company: 'IMAGE FACTORY Maroc' },
+  { year: '2022', title: 'Graphic Designer', company: 'FAAR-PRONERGY' },
 ];
 
 export const socials = [

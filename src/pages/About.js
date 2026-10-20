@@ -29,15 +29,24 @@ export default function About() {
       </section>
 
       <section className="about-intro container">
-        <RevealImage src={profile.portrait} alt={profile.name} className="about-intro__img" ratio="303 / 205" />
+        <RevealImage
+          src={profile.portrait.src}
+          alt={profile.name}
+          className="about-intro__img"
+          ratio={`${profile.portrait.w} / ${profile.portrait.h}`}
+        />
         <Reveal className="about-intro__text" delay={0.15}>
-          <p className="body-text">{profile.aboutText}</p>
+          {profile.aboutText.map((para) => (
+            <p key={para.slice(0, 20)} className="body-text">
+              {para}
+            </p>
+          ))}
         </Reveal>
       </section>
 
       <section className="experiences container">
         <Reveal className="experiences__title">
-          <h2 className="section-title">Experiences</h2>
+          <h2 className="section-title">Experience</h2>
         </Reveal>
         <div className="grid experiences__list">
           {experiences.map((e, i) => (

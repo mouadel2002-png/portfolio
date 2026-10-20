@@ -21,11 +21,10 @@ const projects = [
 const fallbackCover = { GLOBALSTAR: 'ChatGPT Image Oct 18, 2026, 03_14_55 AM-2.png' };
 const isImg = (f) => /\.(png|jpe?g)$/i.test(f);
 // Optional page sections, picked by file name. A project gets sections only when it has
-// "clay…" or "screen…" files; "cover…" files (plus the COVER itself) become the Renders section.
+// "clay…" or "screen…" files; "cover…" files (plus the COVER itself) become Renders, "clay…" and "screen…" files become Process.
 const SECTIONS = [
   { key: 'renders', title: 'Renders', subtitle: 'Final frames', test: /^cover/i },
-  { key: 'process', title: 'Process', subtitle: 'Clay renders', test: /^clay/i },
-  { key: 'behind', title: 'Behind the Scenes', subtitle: 'Viewport & render setup', test: /^screen/i },
+  { key: 'process', title: 'Process', subtitle: 'Clay renders & behind the scenes', test: /^(clay|screen)/i },
 ];
 
 const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');

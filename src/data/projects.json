@@ -835,7 +835,7 @@
       {
         "key": "process",
         "title": "Process",
-        "subtitle": "Clay renders",
+        "subtitle": "Clay renders & behind the scenes",
         "images": [
           {
             "src": "/images/works/samsung/01.webp",
@@ -856,14 +856,7 @@
             "src": "/images/works/samsung/04.webp",
             "w": 1254,
             "h": 1254
-          }
-        ]
-      },
-      {
-        "key": "behind",
-        "title": "Behind the Scenes",
-        "subtitle": "Viewport & render setup",
-        "images": [
+          },
           {
             "src": "/images/works/samsung/08.webp",
             "w": 1600,

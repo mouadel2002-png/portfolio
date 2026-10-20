@@ -21,11 +21,48 @@ const projects = [
 const fallbackCover = { GLOBALSTAR: 'ChatGPT Image Oct 18, 2026, 03_14_55 AM-2.png' };
 const isImg = (f) => /\.(png|jpe?g)$/i.test(f);
 // Clay/final pairs, matched by file name: the COVER plus "cover 2, cover 3…" in order are the
-// finals, "clay 01, clay 02…" in order are their clay versions. "screen…" files are kept for
-// the behind-the-scenes strip. A project only gets these when it has "clay…" files.
+// finals, "clay 01, clay 02…" in order are their clay versions. The best-aligned pair becomes the
+// single compare plate; the other finals are shown on their own, and the other clays join the
+// "screen…" files in the behind-the-scenes strip. Only projects with "clay…" files get this.
 const isFinal = (f) => /^cover/i.test(f);
 const isClay = (f) => /^clay/i.test(f);
 const isScreen = (f) => /^screen/i.test(f);
+
+// How closely two images line up (correlation of small greyscale thumbnails, -1…1).
+async function similarity(a, b) {
+  const thumb = async (f) => Array.from(await sharp(f).removeAlpha().resize(96, 96, { fit: 'fill' }).greyscale().blur(1).raw().toBuffer());
+  const [x, y] = [await thumb(a), await thumb(b)];
+  const mean = (v) => v.reduce((t, n) => t + n, 0) / v.length;
+  const [mx, my] = [mean(x), mean(y)];
+  let num = 0, dx = 0, dy = 0;
+  for (let i = 0; i < x.length; i++) {
+    num += (x[i] - mx) * (y[i] - my);
+    dx += (x[i] - mx) ** 2;
+    dy += (y[i] - my) ** 2;
+  }
+  return num / Math.sqrt(dx * dy || 1);
+}
+
+// About page portrait: WEBSITE/PHOTO.png with any solid dark rows at the top/bottom edge trimmed.
+async function encodePortrait() {
+  const input = path.join(SRC, 'PHOTO.png');
+  if (!fs.existsSync(input)) return;
+  const { data, info } = await sharp(input).greyscale().raw().toBuffer({ resolveWithObject: true });
+  const rowMean = (y) => {
+    let t = 0;
+    for (let x = 0; x < info.width; x++) t += data[y * info.width + x];
+    return t / info.width;
+  };
+  let top = 0;
+  let bottom = info.height - 1;
+  while (top < bottom && rowMean(top) < 12) top++;
+  while (bottom > top && rowMean(bottom) < 12) bottom--;
+  fs.mkdirSync(`${APP}/public/images/about`, { recursive: true });
+  const out = await sharp(input).extract({ left: 0, top, width: info.width, height: bottom - top + 1 })
+    .resize({ width: 1400, withoutEnlargement: true }).webp({ quality: 82 }).toFile(`${APP}/public/images/about/photo.webp`);
+  console.log(`Portrait: trimmed ${top}px top / ${info.height - 1 - bottom}px bottom -> ${out.width}x${out.height}`);
+  return { src: '/images/about/photo.webp', w: out.width, h: out.height };
+}
 
 const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
@@ -64,6 +101,8 @@ function encodeShowreel() {
 
 (async () => {
   encodeShowreel();
+  const portrait = await encodePortrait();
+  if (portrait) fs.writeFileSync(`${APP}/src/data/portrait.json`, JSON.stringify(portrait, null, 2) + '\n');
   fs.rmSync(OUT, { recursive: true, force: true });
   const manifest = [];
   for (const [dir, title] of projects) {
@@ -89,27 +128,36 @@ function encodeShowreel() {
     }
     const videoFile = all.find((f) => /\.mp4$/i.test(f));
     const video = videoFile ? encodeVideo(path.join(SRC, dir, videoFile), slug) : null;
-    let plates;
+    let compare;
+    let finals;
     let behind;
     const clays = images.filter((i) => isClay(i.file));
     if (clays.length) {
-      const finals = [cover, ...images.filter((i) => isFinal(i.file))];
-      plates = clays.slice(0, finals.length).map((clay, i) => ({ final: finals[i], clay }));
-      behind = images.filter((i) => isScreen(i.file));
+      const allFinals = [{ ...cover, file: coverFile }, ...images.filter((i) => isFinal(i.file))];
+      const pairs = clays.slice(0, allFinals.length).map((clay, i) => ({ final: allFinals[i], clay }));
+      let best = 0;
+      let bestScore = -Infinity;
+      for (let i = 0; i < pairs.length; i++) {
+        const score = await similarity(path.join(SRC, dir, pairs[i].final.file), path.join(SRC, dir, pairs[i].clay.file));
+        if (score > bestScore) [best, bestScore] = [i, score];
+      }
+      compare = pairs[best];
+      finals = allFinals.filter((f) => f !== compare.final);
+      behind = [...clays.filter((c) => c !== compare.clay), ...images.filter((i) => isScreen(i.file))];
     }
-    manifest.push({ slug, title, cover, images, video, plates, behind });
+    manifest.push({ slug, title, cover, images, video, compare, finals, behind });
     const kb = images.reduce((s, i) => s + i.kb, 0) + cover.kb;
     console.log(`${title}: cover ${cover.w}x${cover.h} (${coverFile}), ${images.length} images, ${kb}KB` +
       (video ? `, video ${video.w}x${video.h} ${video.kb}KB (${videoFile})` : '') +
-      (plates ? `, ${plates.length} clay/final plates, ${behind.length} behind-the-scenes` : ''));
+      (compare ? `, compare ${compare.final.file} / ${compare.clay.file}, ${finals.length} finals, ${behind.length} behind-the-scenes` : ''));
   }
   const pick = ({ src, w, h }) => ({ src, w, h });
-  const strip = manifest.map(({ video, plates, behind, ...p }) => ({
+  const strip = manifest.map(({ video, compare, finals, behind, ...p }) => ({
     ...p,
     cover: pick(p.cover),
     images: p.images.map(pick),
     ...(video && { video: pick(video) }),
-    ...(plates && { plates: plates.map((pl) => ({ final: pick(pl.final), clay: pick(pl.clay) })) }),
+    ...(compare && { compare: { final: pick(compare.final), clay: pick(compare.clay) }, finals: finals.map(pick) }),
     ...(behind && behind.length && { behind: behind.map(pick) }),
   }));
   fs.writeFileSync(`${APP}/src/data/projects.json`, JSON.stringify(strip, null, 2) + '\n');

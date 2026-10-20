@@ -1,5 +1,6 @@
 // All site content lives here — edit this file to make the portfolio yours.
 import projects from './projects.json';
+import portrait from './portrait.json';
 
 const img = (id) => `https://framerusercontent.com/images/${id}`;
 
@@ -17,7 +18,7 @@ export const profile = {
     'I’ve always seen art as a way of looking at the world differently. A space for questioning, experimenting, and giving form to ideas that don’t always have words.',
     'My practice lives somewhere between design and art, combining visual communication, 3D, and motion to create work that goes beyond appearance. I’m interested in the balance between simplicity and expression, where even the smallest detail can change the way something is perceived.',
   ],
-  portrait: { src: '/images/about/photo.webp', w: 1400, h: 1110 },
+  portrait,
 };
 
 export const experiences = [

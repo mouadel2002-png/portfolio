@@ -1,21 +1,13 @@
 import { Link, useParams } from 'react-router-dom';
 import Page from '../components/Page';
 import HeroMedia from '../components/HeroMedia';
-import Exhibit from '../components/Exhibit';
+import Exhibit, { PATTERNS, fitScreen } from '../components/Exhibit';
 import Compare from '../components/Compare';
 import FilmStrip from '../components/FilmStrip';
 import { MaskLine, Reveal } from '../components/Reveal';
 import { works } from '../data/site';
 import NotFound from './NotFound';
 import './pages.css';
-
-// Clay/final plates hang at alternating sizes and offsets (% of the page width).
-const PLATE_LAYOUT = [
-  { width: 56, left: 0 },
-  { width: 42, left: 58 },
-  { width: 50, left: 22 },
-  { width: 40, left: 4 },
-];
 
 function SectionHead({ index, title, subtitle, count }) {
   return (
@@ -28,31 +20,34 @@ function SectionHead({ index, title, subtitle, count }) {
   );
 }
 
-function Plates({ work }) {
-  const { plates, behind = [] } = work;
+// Projects with clay renders: final renders, one clay/final compare plate, then the
+// remaining clays and screenshots in a behind-the-scenes film strip.
+function ProcessStory({ work }) {
+  const { compare, finals = [], behind = [] } = work;
+  let index = 0;
   return (
     <>
+      {finals.length > 0 && (
+        <section className="work-section">
+          <SectionHead index={++index} title="Renders" subtitle="Final frames" count={finals.length} />
+          <Exhibit images={finals} title={work.title} pattern={PATTERNS.renders} />
+        </section>
+      )}
       <section className="work-section">
-        <SectionHead index={1} title="Clay / Final" subtitle="Drag across each plate to compare" count={plates.length} />
+        <SectionHead index={++index} title="Clay / Final" subtitle="Drag across the image to compare" count={1} />
         <div className="plates">
-          {plates.map((pl, i) => {
-            const at = PLATE_LAYOUT[i % PLATE_LAYOUT.length];
-            return (
-              <Compare
-                key={pl.final.src}
-                clay={pl.clay}
-                final={pl.final}
-                label={`Plate ${String(i + 1).padStart(2, '0')}`}
-                className="plate"
-                style={{ '--plate-w': `${at.width}%`, '--plate-left': `${at.left}%` }}
-              />
-            );
-          })}
+          <Compare
+            clay={compare.clay}
+            final={compare.final}
+            label={work.title}
+            className="plate"
+            style={{ '--plate-w': '56%', '--plate-left': '22%', maxWidth: fitScreen(compare.final) }}
+          />
         </div>
       </section>
       {behind.length > 0 && (
         <section className="work-section">
-          <SectionHead index={2} title="Behind the Scenes" subtitle="Viewport & render setup" count={behind.length} />
+          <SectionHead index={++index} title="Behind the Scenes" subtitle="Clay renders & viewport" count={behind.length} />
           <FilmStrip images={behind} title={work.title} />
         </section>
       )}
@@ -112,8 +107,8 @@ export default function Work() {
           </div>
         )}
 
-        {work.plates ? (
-          <Plates work={work} />
+        {work.compare ? (
+          <ProcessStory work={work} />
         ) : (
           <Exhibit images={work.images} title={work.title} />
         )}

@@ -15,7 +15,16 @@ export const PATTERNS = {
     { items: [{ left: 0, wide: 70, tall: 42 }] },
     { items: [{ left: 30, wide: 40, tall: 28 }, { wide: 26, tall: 22, drop: 140 }] },
   ],
+  // Final renders: all the same size, a loose two-column grid whose right column hangs lower
+  // and whose rows shift sideways, so it never reads as a strict grid.
+  renders: [
+    { items: [{ left: 6, wide: 40, tall: 40 }, { wide: 40, tall: 40, drop: 96 }] },
+    { items: [{ left: 14, wide: 40, tall: 40 }, { wide: 40, tall: 40, drop: 96 }] },
+  ],
 };
+
+// Never taller than the screen (minus header and caption), so a piece is seen whole.
+export const fitScreen = (img) => `calc((100vh - 170px) * ${(img.w / img.h).toFixed(4)})`;
 
 const isWide = (img) => img.w / img.h > 1.15;
 
@@ -63,6 +72,7 @@ export default function Exhibit({ images, title, pattern = PATTERNS.wall, start 
               title={title}
               style={{
                 width: `${isWide(img) ? slot.wide : slot.tall}%`,
+                maxWidth: fitScreen(img),
                 marginLeft: slot.left !== undefined ? `${slot.left}%` : undefined,
                 marginTop: slot.drop ? `${slot.drop}px` : undefined,
               }}

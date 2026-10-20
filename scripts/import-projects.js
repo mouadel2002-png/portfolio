@@ -20,6 +20,14 @@ const projects = [
 ];
 const fallbackCover = { GLOBALSTAR: 'ChatGPT Image Oct 18, 2026, 03_14_55 AM-2.png' };
 const isImg = (f) => /\.(png|jpe?g)$/i.test(f);
+// Optional page sections, picked by file name. A project gets sections only when it has
+// "clay…" or "screen…" files; "cover…" files (plus the COVER itself) become the Renders section.
+const SECTIONS = [
+  { key: 'renders', title: 'Renders', subtitle: 'Final frames', test: /^cover/i },
+  { key: 'process', title: 'Process', subtitle: 'Clay renders', test: /^clay/i },
+  { key: 'behind', title: 'Behind the Scenes', subtitle: 'Viewport & render setup', test: /^screen/i },
+];
+
 const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 // H.264 + AAC, at most 1920x1080, with the index up front so playback starts immediately.
@@ -76,23 +84,32 @@ function encodeShowreel() {
     for (const f of files) {
       if (f === coverFile) continue;
       try {
-        images.push(await conv(f, `${String(n).padStart(2, '0')}.webp`, 1600));
+        images.push({ ...(await conv(f, `${String(n).padStart(2, '0')}.webp`, 1600)), file: f });
         n++;
       } catch (e) { console.error('skip', dir, f, e.message); }
     }
     const videoFile = all.find((f) => /\.mp4$/i.test(f));
     const video = videoFile ? encodeVideo(path.join(SRC, dir, videoFile), slug) : null;
-    manifest.push({ slug, title, cover, images, video });
+    let sections;
+    if (images.some((i) => /^(clay|screen)/i.test(i.file))) {
+      sections = SECTIONS.map(({ test, ...sec }) => ({
+        ...sec,
+        images: [...(sec.key === 'renders' ? [cover] : []), ...images.filter((i) => test.test(i.file))],
+      })).filter((sec) => sec.images.length);
+    }
+    manifest.push({ slug, title, cover, images, video, sections });
     const kb = images.reduce((s, i) => s + i.kb, 0) + cover.kb;
     console.log(`${title}: cover ${cover.w}x${cover.h} (${coverFile}), ${images.length} images, ${kb}KB` +
-      (video ? `, video ${video.w}x${video.h} ${video.kb}KB (${videoFile})` : ''));
+      (video ? `, video ${video.w}x${video.h} ${video.kb}KB (${videoFile})` : '') +
+      (sections ? `, sections: ${sections.map((x) => `${x.title} ${x.images.length}`).join(' / ')}` : ''));
   }
   const pick = ({ src, w, h }) => ({ src, w, h });
-  const strip = manifest.map(({ video, ...p }) => ({
+  const strip = manifest.map(({ video, sections, ...p }) => ({
     ...p,
     cover: pick(p.cover),
     images: p.images.map(pick),
     ...(video && { video: pick(video) }),
+    ...(sections && { sections: sections.map((sec) => ({ ...sec, images: sec.images.map(pick) })) }),
   }));
   fs.writeFileSync(`${APP}/src/data/projects.json`, JSON.stringify(strip, null, 2) + '\n');
 })();

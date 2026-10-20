@@ -1,11 +1,39 @@
 import { Link, useParams } from 'react-router-dom';
 import Page from '../components/Page';
 import HeroMedia from '../components/HeroMedia';
-import Exhibit from '../components/Exhibit';
+import Exhibit, { PATTERNS } from '../components/Exhibit';
 import { MaskLine, Reveal } from '../components/Reveal';
 import { works } from '../data/site';
 import NotFound from './NotFound';
 import './pages.css';
+
+// Each named section hangs its images in its own arrangement.
+const SECTION_PATTERN = { renders: PATTERNS.renders, process: PATTERNS.strip, behind: PATTERNS.feature };
+
+function Sections({ sections, title }) {
+  let start = 2;
+  return sections.map((sec, i) => {
+    const first = start;
+    start += sec.images.length;
+    return (
+      <section key={sec.key} className="work-section">
+        <Reveal className="work-section__head">
+          <span className="work-section__index">{String(i + 1).padStart(2, '0')} —</span>
+          <h2 className="section-title">{sec.title}</h2>
+          <p className="muted">{sec.subtitle}</p>
+          <span className="muted work-section__count">[{sec.images.length}]</span>
+        </Reveal>
+        <Exhibit
+          images={sec.images}
+          title={title}
+          start={first}
+          pattern={SECTION_PATTERN[sec.key] || PATTERNS.wall}
+          className={`exhibit--${sec.key}`}
+        />
+      </section>
+    );
+  });
+}
 
 export default function Work() {
   const { slug } = useParams();
@@ -59,7 +87,11 @@ export default function Work() {
           </div>
         )}
 
-        <Exhibit images={work.images} title={work.title} />
+        {work.sections ? (
+          <Sections sections={work.sections} title={work.title} />
+        ) : (
+          <Exhibit images={work.images} title={work.title} />
+        )}
 
         <Link to={`/works/${next.slug}`} className="next-work">
           <span className="muted">Next project</span>

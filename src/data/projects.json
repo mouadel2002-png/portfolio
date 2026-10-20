@@ -81,22 +81,22 @@
       {
         "src": "/images/works/eden/15.webp",
         "w": 1600,
-        "h": 841
+        "h": 1600
       },
       {
         "src": "/images/works/eden/16.webp",
         "w": 1600,
-        "h": 839
+        "h": 1600
       },
       {
         "src": "/images/works/eden/17.webp",
         "w": 1600,
-        "h": 1600
+        "h": 841
       },
       {
         "src": "/images/works/eden/18.webp",
         "w": 1600,
-        "h": 1600
+        "h": 839
       },
       {
         "src": "/images/works/eden/19.webp",
@@ -150,6 +150,16 @@
       },
       {
         "src": "/images/works/eden/29.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/eden/30.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      {
+        "src": "/images/works/eden/31.webp",
         "w": 1600,
         "h": 1600
       }
@@ -740,18 +750,18 @@
     "images": [
       {
         "src": "/images/works/samsung/01.webp",
-        "w": 1600,
-        "h": 1600
+        "w": 1254,
+        "h": 1254
       },
       {
         "src": "/images/works/samsung/02.webp",
-        "w": 1600,
-        "h": 900
+        "w": 1254,
+        "h": 1254
       },
       {
         "src": "/images/works/samsung/03.webp",
-        "w": 1600,
-        "h": 900
+        "w": 1254,
+        "h": 1254
       },
       {
         "src": "/images/works/samsung/04.webp",
@@ -760,18 +770,18 @@
       },
       {
         "src": "/images/works/samsung/05.webp",
-        "w": 1254,
-        "h": 1254
+        "w": 1600,
+        "h": 1600
       },
       {
         "src": "/images/works/samsung/06.webp",
-        "w": 1254,
-        "h": 1254
+        "w": 1600,
+        "h": 1600
       },
       {
         "src": "/images/works/samsung/07.webp",
-        "w": 1254,
-        "h": 1254
+        "w": 1600,
+        "h": 1600
       },
       {
         "src": "/images/works/samsung/08.webp",
@@ -781,29 +791,97 @@
       {
         "src": "/images/works/samsung/09.webp",
         "w": 1600,
-        "h": 1600
+        "h": 900
       },
       {
         "src": "/images/works/samsung/10.webp",
         "w": 1600,
-        "h": 1600
-      },
-      {
-        "src": "/images/works/samsung/11.webp",
-        "w": 1000,
-        "h": 1000
-      },
-      {
-        "src": "/images/works/samsung/12.webp",
-        "w": 1600,
-        "h": 1600
+        "h": 900
       }
     ],
     "video": {
       "src": "/videos/samsung.mp4",
       "w": 1080,
       "h": 1080
-    }
+    },
+    "sections": [
+      {
+        "key": "renders",
+        "title": "Renders",
+        "subtitle": "Final frames",
+        "images": [
+          {
+            "src": "/images/works/samsung/cover.webp",
+            "w": 1800,
+            "h": 1800
+          },
+          {
+            "src": "/images/works/samsung/05.webp",
+            "w": 1600,
+            "h": 1600
+          },
+          {
+            "src": "/images/works/samsung/06.webp",
+            "w": 1600,
+            "h": 1600
+          },
+          {
+            "src": "/images/works/samsung/07.webp",
+            "w": 1600,
+            "h": 1600
+          }
+        ]
+      },
+      {
+        "key": "process",
+        "title": "Process",
+        "subtitle": "Clay renders",
+        "images": [
+          {
+            "src": "/images/works/samsung/01.webp",
+            "w": 1254,
+            "h": 1254
+          },
+          {
+            "src": "/images/works/samsung/02.webp",
+            "w": 1254,
+            "h": 1254
+          },
+          {
+            "src": "/images/works/samsung/03.webp",
+            "w": 1254,
+            "h": 1254
+          },
+          {
+            "src": "/images/works/samsung/04.webp",
+            "w": 1254,
+            "h": 1254
+          }
+        ]
+      },
+      {
+        "key": "behind",
+        "title": "Behind the Scenes",
+        "subtitle": "Viewport & render setup",
+        "images": [
+          {
+            "src": "/images/works/samsung/08.webp",
+            "w": 1600,
+            "h": 900
+          },
+          {
+            "src": "/images/works/samsung/09.webp",
+            "w": 1600,
+            "h": 900
+          },
+          {
+            "src": "/images/works/samsung/10.webp",
+            "w": 1600,
+            "h": 900
+          }
+        ]
+      }
+    ]
   },
   {
     "slug": "sauvage",

@@ -2,16 +2,41 @@ import { RevealImage } from './Reveal';
 import { useMediaQuery } from '../hooks';
 
 // Hand-tuned "gallery wall" rows that repeat down the page. Widths and offsets are % of
-// the page width; `drop` pushes a piece down (px) so pairs never sit on one line.
-// Wide pieces use `wide`, square/portrait pieces use `tall`.
-const PATTERN = [
-  { items: [{ left: 16, wide: 62, tall: 38 }] },
-  { items: [{ left: 0, wide: 44, tall: 30 }, { wide: 36, tall: 26, drop: 180 }] },
-  { items: [{ left: 50, wide: 50, tall: 34 }] },
-  { items: [{ left: 7, wide: 34, tall: 24, drop: 120 }, { wide: 48, tall: 32 }] },
-  { items: [{ left: 0, wide: 70, tall: 42 }] },
-  { items: [{ left: 30, wide: 40, tall: 28 }, { wide: 26, tall: 22, drop: 220 }] },
-];
+// the page width; `drop` pushes a piece down (px) so neighbours never sit on one line.
+// Wide pieces use `wide`, square/portrait pieces use `tall`. Rows with several pieces
+// spread them across the full width.
+export const PATTERNS = {
+  // Default wall for a project's loose images.
+  wall: [
+    { items: [{ left: 16, wide: 62, tall: 38 }] },
+    { items: [{ left: 0, wide: 44, tall: 30 }, { wide: 36, tall: 26, drop: 180 }] },
+    { items: [{ left: 50, wide: 50, tall: 34 }] },
+    { items: [{ left: 7, wide: 34, tall: 24, drop: 120 }, { wide: 48, tall: 32 }] },
+    { items: [{ left: 0, wide: 70, tall: 42 }] },
+    { items: [{ left: 30, wide: 40, tall: 28 }, { wide: 26, tall: 22, drop: 220 }] },
+  ],
+  // Final frames: big/small pairs that step down the page.
+  renders: [
+    { items: [{ left: 0, wide: 50, tall: 46 }, { wide: 40, tall: 32, drop: 220 }] },
+    { items: [{ left: 12, wide: 40, tall: 30 }, { wide: 50, tall: 42, drop: 140 }] },
+  ],
+  // Process: one strip of pieces side by side, each hung at its own height.
+  strip: [
+    {
+      items: [
+        { wide: 23, tall: 22 },
+        { wide: 23, tall: 22, drop: 110 },
+        { wide: 23, tall: 22, drop: 40 },
+        { wide: 23, tall: 22, drop: 170 },
+      ],
+    },
+  ],
+  // Behind the scenes: one large feature, then an offset pair.
+  feature: [
+    { items: [{ left: 10, wide: 80, tall: 50 }] },
+    { items: [{ left: 0, wide: 46, tall: 32 }, { wide: 40, tall: 28, drop: 160 }] },
+  ],
+};
 
 const isWide = (img) => img.w / img.h > 1.15;
 
@@ -22,14 +47,14 @@ function mobileStyle(img, i) {
   return { width: `${width}%`, marginLeft: i % 2 ? 'auto' : 0 };
 }
 
-export default function Exhibit({ images, title }) {
+export default function Exhibit({ images, title, pattern = PATTERNS.wall, start = 2, className = '' }) {
   const isWideScreen = useMediaQuery('(min-width: 810px)');
 
   if (!isWideScreen) {
     return (
-      <div className="exhibit exhibit--stack">
+      <div className={`exhibit exhibit--stack ${className}`}>
         {images.map((img, i) => (
-          <Piece key={img.src} img={img} n={i + 2} title={title} style={mobileStyle(img, i)} />
+          <Piece key={img.src} img={img} n={start + i} title={title} style={mobileStyle(img, i)} />
         ))}
       </div>
     );
@@ -39,16 +64,16 @@ export default function Exhibit({ images, title }) {
   const rows = [];
   for (let i = 0, r = 0; i < images.length; r++) {
     const items = [];
-    for (const slot of PATTERN[r % PATTERN.length].items) {
+    for (const slot of pattern[r % pattern.length].items) {
       if (i >= images.length) break;
-      items.push({ img: images[i], n: i + 2, slot });
+      items.push({ img: images[i], n: start + i, slot });
       i += 1;
     }
     rows.push(items);
   }
 
   return (
-    <div className="exhibit">
+    <div className={`exhibit ${className}`}>
       {rows.map((items, r) => (
         <div key={r} className={`exhibit__row ${items.length > 1 ? 'is-pair' : ''}`}>
           {items.map(({ img, n, slot }) => (

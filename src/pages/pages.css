@@ -384,6 +384,71 @@
   margin-top: 80px;
 }
 
+/* Named chapters on a project page (Renders / Process / Behind the Scenes). */
+.work-section {
+  margin-top: 160px;
+}
+
+.work-section__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 16px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.work-section__index {
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}
+
+.work-section__count {
+  margin-left: auto;
+}
+
+.work-section .exhibit {
+  margin-top: 90px;
+}
+
+.work-section .exhibit--stack {
+  margin-top: 48px;
+}
+
+@media (min-width: 1200px) {
+  .work-section {
+    margin-top: 220px;
+  }
+
+  .work-section__head {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: var(--gap);
+  }
+
+  .work-section__head .section-title {
+    grid-column: 2 / span 2;
+  }
+
+  .work-section__head p {
+    grid-column: 4 / span 2;
+    font-size: 18px;
+  }
+
+  .work-section__count {
+    justify-self: end;
+  }
+
+  .work-section .exhibit {
+    margin-top: 120px;
+  }
+
+  /* Process strip: the four clays read as one row, so tighten the vertical rhythm. */
+  .exhibit--process .exhibit__piece figcaption {
+    font-size: 14px;
+  }
+}
+
 .next-work {
   display: flex;
   flex-direction: column;

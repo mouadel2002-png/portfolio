@@ -257,7 +257,8 @@
 
 /* ---------- Work detail ---------- */
 .work {
-  padding-top: 30px;
+  --work-gap: 20px;
+  padding-top: var(--work-gap);
 }
 
 .work__title {
@@ -271,7 +272,7 @@
 .work__head {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 40px var(--gap);
+  gap: 16px var(--gap);
 }
 
 .work__title {
@@ -305,7 +306,7 @@
 
 /* Project hero: film or cover, sized to its own ratio (see HeroMedia). */
 .work__hero {
-  margin-top: 60px;
+  margin-top: var(--work-gap);
 }
 
 .hero-media {
@@ -387,6 +388,163 @@
   margin-top: 80px;
 }
 
+/* Clay / final plates (Compare.js): the clay render is clipped over the final one. */
+.plates {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  margin-top: 56px;
+}
+
+.compare {
+  margin: 0;
+}
+
+.compare__frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--img-bg);
+  cursor: ew-resize;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.compare__frame:focus-visible {
+  outline: 1px solid var(--fg);
+  outline-offset: 4px;
+}
+
+.compare__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.compare__frame:not(.is-active) .compare__img--clay,
+.compare__frame:not(.is-active) .compare__divider {
+  transition: clip-path 0.25s var(--ease), left 0.25s var(--ease);
+}
+
+.compare__divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #fff;
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
+
+.compare__knob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(6px);
+}
+
+.compare__tag {
+  position: absolute;
+  top: 14px;
+  padding: 4px 10px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.compare__tag--left {
+  left: 14px;
+}
+
+.compare__tag--right {
+  right: 14px;
+}
+
+.compare figcaption {
+  padding-top: 14px;
+  font-size: 14px;
+}
+
+/* Behind-the-scenes film strip (FilmStrip.js): bleeds off the right edge of the page. */
+.filmstrip {
+  display: flex;
+  gap: var(--gap);
+  margin-top: 40px;
+  margin-right: calc(-1 * var(--gutter));
+  padding-right: var(--gutter);
+  padding-bottom: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  cursor: grab;
+}
+
+.filmstrip:active {
+  cursor: grabbing;
+}
+
+.filmstrip__frame {
+  flex: none;
+  margin: 0;
+  scroll-snap-align: start;
+}
+
+.filmstrip__frame img {
+  display: block;
+  height: 200px;
+  width: auto;
+  background: var(--img-bg);
+  user-select: none;
+}
+
+.filmstrip__frame figcaption {
+  padding-top: 10px;
+  font-size: 14px;
+}
+
+@media (min-width: 810px) {
+  .plate {
+    width: var(--plate-w);
+    margin-left: var(--plate-left);
+  }
+
+  .filmstrip__frame img {
+    height: 240px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .plates {
+    gap: 96px;
+    margin-top: 72px;
+  }
+
+  .filmstrip {
+    margin-top: 56px;
+  }
+
+  .filmstrip__frame img {
+    height: 280px;
+  }
+}
+
 /* Named chapters on a project page (Renders / Process / Behind the Scenes). */
 .work-section {
   margin-top: 100px;
@@ -446,10 +604,6 @@
     margin-top: 72px;
   }
 
-  /* Process strip: the four clays read as one row, so tighten the vertical rhythm. */
-  .exhibit--process .exhibit__piece figcaption {
-    font-size: 14px;
-  }
 }
 
 .next-work {
@@ -518,6 +672,10 @@
   .work__head {
     grid-template-columns: 1fr;
     gap: 40px;
+  }
+
+  .work__head {
+    gap: 16px;
   }
 
   .info {
@@ -716,7 +874,7 @@
 
   /* Work detail */
   .work {
-    padding-top: 50px;
+    --work-gap: 28px;
   }
 
   .work__head {

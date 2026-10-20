@@ -20,12 +20,12 @@ const projects = [
 ];
 const fallbackCover = { GLOBALSTAR: 'ChatGPT Image Oct 18, 2026, 03_14_55 AM-2.png' };
 const isImg = (f) => /\.(png|jpe?g)$/i.test(f);
-// Optional page sections, picked by file name. A project gets sections only when it has
-// "clay…" or "screen…" files; "cover…" files (plus the COVER itself) become Renders, "clay…" and "screen…" files become Process.
-const SECTIONS = [
-  { key: 'renders', title: 'Renders', subtitle: 'Final frames', test: /^cover/i },
-  { key: 'process', title: 'Process', subtitle: 'Clay renders & behind the scenes', test: /^(clay|screen)/i },
-];
+// Clay/final pairs, matched by file name: the COVER plus "cover 2, cover 3…" in order are the
+// finals, "clay 01, clay 02…" in order are their clay versions. "screen…" files are kept for
+// the behind-the-scenes strip. A project only gets these when it has "clay…" files.
+const isFinal = (f) => /^cover/i.test(f);
+const isClay = (f) => /^clay/i.test(f);
+const isScreen = (f) => /^screen/i.test(f);
 
 const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
@@ -89,26 +89,28 @@ function encodeShowreel() {
     }
     const videoFile = all.find((f) => /\.mp4$/i.test(f));
     const video = videoFile ? encodeVideo(path.join(SRC, dir, videoFile), slug) : null;
-    let sections;
-    if (images.some((i) => /^(clay|screen)/i.test(i.file))) {
-      sections = SECTIONS.map(({ test, ...sec }) => ({
-        ...sec,
-        images: [...(sec.key === 'renders' ? [cover] : []), ...images.filter((i) => test.test(i.file))],
-      })).filter((sec) => sec.images.length);
+    let plates;
+    let behind;
+    const clays = images.filter((i) => isClay(i.file));
+    if (clays.length) {
+      const finals = [cover, ...images.filter((i) => isFinal(i.file))];
+      plates = clays.slice(0, finals.length).map((clay, i) => ({ final: finals[i], clay }));
+      behind = images.filter((i) => isScreen(i.file));
     }
-    manifest.push({ slug, title, cover, images, video, sections });
+    manifest.push({ slug, title, cover, images, video, plates, behind });
     const kb = images.reduce((s, i) => s + i.kb, 0) + cover.kb;
     console.log(`${title}: cover ${cover.w}x${cover.h} (${coverFile}), ${images.length} images, ${kb}KB` +
       (video ? `, video ${video.w}x${video.h} ${video.kb}KB (${videoFile})` : '') +
-      (sections ? `, sections: ${sections.map((x) => `${x.title} ${x.images.length}`).join(' / ')}` : ''));
+      (plates ? `, ${plates.length} clay/final plates, ${behind.length} behind-the-scenes` : ''));
   }
   const pick = ({ src, w, h }) => ({ src, w, h });
-  const strip = manifest.map(({ video, sections, ...p }) => ({
+  const strip = manifest.map(({ video, plates, behind, ...p }) => ({
     ...p,
     cover: pick(p.cover),
     images: p.images.map(pick),
     ...(video && { video: pick(video) }),
-    ...(sections && { sections: sections.map((sec) => ({ ...sec, images: sec.images.map(pick) })) }),
+    ...(plates && { plates: plates.map((pl) => ({ final: pick(pl.final), clay: pick(pl.clay) })) }),
+    ...(behind && behind.length && { behind: behind.map(pick) }),
   }));
   fs.writeFileSync(`${APP}/src/data/projects.json`, JSON.stringify(strip, null, 2) + '\n');
 })();

@@ -15,31 +15,6 @@ export const PATTERNS = {
     { items: [{ left: 0, wide: 70, tall: 42 }] },
     { items: [{ left: 30, wide: 40, tall: 28 }, { wide: 26, tall: 22, drop: 140 }] },
   ],
-  // Final frames: all the same size, a loose two-column grid whose right column
-  // hangs lower and whose rows shift sideways, so it never reads as a strict grid.
-  renders: [
-    { items: [{ left: 6, wide: 40, tall: 40 }, { wide: 40, tall: 40, drop: 96 }] },
-    { items: [{ left: 14, wide: 40, tall: 40 }, { wide: 40, tall: 40, drop: 96 }] },
-  ],
-  // Process: clay renders side by side at different heights, then the screenshots
-  // in a second, offset row at the same width.
-  process: [
-    {
-      items: [
-        { wide: 22, tall: 22 },
-        { wide: 22, tall: 22, drop: 110 },
-        { wide: 22, tall: 22, drop: 40 },
-        { wide: 22, tall: 22, drop: 170 },
-      ],
-    },
-    {
-      items: [
-        { left: 8, wide: 22, tall: 22, drop: 20 },
-        { wide: 22, tall: 22, drop: 90 },
-        { wide: 22, tall: 22 },
-      ],
-    },
-  ],
 };
 
 const isWide = (img) => img.w / img.h > 1.15;

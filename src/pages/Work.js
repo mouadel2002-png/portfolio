@@ -1,38 +1,63 @@
 import { Link, useParams } from 'react-router-dom';
 import Page from '../components/Page';
 import HeroMedia from '../components/HeroMedia';
-import Exhibit, { PATTERNS } from '../components/Exhibit';
+import Exhibit from '../components/Exhibit';
+import Compare from '../components/Compare';
+import FilmStrip from '../components/FilmStrip';
 import { MaskLine, Reveal } from '../components/Reveal';
 import { works } from '../data/site';
 import NotFound from './NotFound';
 import './pages.css';
 
-// Each named section hangs its images in its own arrangement.
-const SECTION_PATTERN = { renders: PATTERNS.renders, process: PATTERNS.process };
+// Clay/final plates hang at alternating sizes and offsets (% of the page width).
+const PLATE_LAYOUT = [
+  { width: 56, left: 0 },
+  { width: 42, left: 58 },
+  { width: 50, left: 22 },
+  { width: 40, left: 4 },
+];
 
-function Sections({ sections, title }) {
-  let start = 2;
-  return sections.map((sec, i) => {
-    const first = start;
-    start += sec.images.length;
-    return (
-      <section key={sec.key} className="work-section">
-        <Reveal className="work-section__head">
-          <span className="work-section__index">{String(i + 1).padStart(2, '0')} —</span>
-          <h2 className="section-title">{sec.title}</h2>
-          <p className="muted">{sec.subtitle}</p>
-          <span className="muted work-section__count">[{sec.images.length}]</span>
-        </Reveal>
-        <Exhibit
-          images={sec.images}
-          title={title}
-          start={first}
-          pattern={SECTION_PATTERN[sec.key] || PATTERNS.wall}
-          className={`exhibit--${sec.key}`}
-        />
+function SectionHead({ index, title, subtitle, count }) {
+  return (
+    <Reveal className="work-section__head">
+      <span className="work-section__index">{String(index).padStart(2, '0')} —</span>
+      <h2 className="section-title">{title}</h2>
+      <p className="muted">{subtitle}</p>
+      <span className="muted work-section__count">[{count}]</span>
+    </Reveal>
+  );
+}
+
+function Plates({ work }) {
+  const { plates, behind = [] } = work;
+  return (
+    <>
+      <section className="work-section">
+        <SectionHead index={1} title="Clay / Final" subtitle="Drag across each plate to compare" count={plates.length} />
+        <div className="plates">
+          {plates.map((pl, i) => {
+            const at = PLATE_LAYOUT[i % PLATE_LAYOUT.length];
+            return (
+              <Compare
+                key={pl.final.src}
+                clay={pl.clay}
+                final={pl.final}
+                label={`Plate ${String(i + 1).padStart(2, '0')}`}
+                className="plate"
+                style={{ '--plate-w': `${at.width}%`, '--plate-left': `${at.left}%` }}
+              />
+            );
+          })}
+        </div>
       </section>
-    );
-  });
+      {behind.length > 0 && (
+        <section className="work-section">
+          <SectionHead index={2} title="Behind the Scenes" subtitle="Viewport & render setup" count={behind.length} />
+          <FilmStrip images={behind} title={work.title} />
+        </section>
+      )}
+    </>
+  );
 }
 
 export default function Work() {
@@ -87,8 +112,8 @@ export default function Work() {
           </div>
         )}
 
-        {work.sections ? (
-          <Sections sections={work.sections} title={work.title} />
+        {work.plates ? (
+          <Plates work={work} />
         ) : (
           <Exhibit images={work.images} title={work.title} />
         )}

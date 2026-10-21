@@ -3,7 +3,7 @@ import { Reveal } from './Reveal';
 
 // A sideways-scrolling strip of small frames (behind-the-scenes screenshots).
 // Scrolls with a trackpad/shift+wheel, swipe on touch, or click-and-drag with a mouse.
-export default function FilmStrip({ images, title, start = 1 }) {
+export default function FilmStrip({ images, title, start = 1, centered = false }) {
   const ref = useRef(null);
   const drag = useRef(null);
 
@@ -23,7 +23,7 @@ export default function FilmStrip({ images, title, start = 1 }) {
     <Reveal>
       <div
         ref={ref}
-        className="filmstrip"
+        className={`filmstrip ${centered ? 'filmstrip--centered' : ''}`}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={end}

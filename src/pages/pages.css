@@ -519,6 +519,80 @@
   font-size: 14px;
 }
 
+/* Centred variant: auto margins centre the frames when they fit and still let the strip
+   scroll from its first frame when they don't. */
+.filmstrip--centered {
+  margin-top: 72px;
+  margin-right: 0;
+  padding-right: 0;
+}
+
+.filmstrip--centered > :first-child {
+  margin-left: auto;
+}
+
+.filmstrip--centered > :last-child {
+  margin-right: auto;
+}
+
+/* Project details: label / value rows between hairlines. */
+.details {
+  margin: 40px 0 0;
+}
+
+.details__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.details__row dt {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.details__row dd {
+  margin: 0;
+  line-height: 1.4;
+}
+
+@media (min-width: 810px) {
+  .details__row {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: var(--gap);
+    align-items: baseline;
+  }
+
+  .details__row dt {
+    grid-column: 2;
+  }
+
+  .details__row dd {
+    grid-column: 3 / span 4;
+  }
+
+  .filmstrip--centered .filmstrip__frame img {
+    height: 200px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .details {
+    margin-top: 56px;
+  }
+
+  .details__row dd {
+    font-size: 23px;
+  }
+
+  .filmstrip--centered .filmstrip__frame img {
+    height: 220px;
+  }
+}
+
 @media (min-width: 810px) {
   .plate {
     width: var(--plate-w);

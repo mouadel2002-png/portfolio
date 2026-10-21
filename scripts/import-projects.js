@@ -22,8 +22,8 @@ const fallbackCover = { GLOBALSTAR: 'ChatGPT Image Oct 18, 2026, 03_14_55 AM-2.p
 const isImg = (f) => /\.(png|jpe?g)$/i.test(f);
 // Clay/final pairs, matched by file name: the COVER plus "cover 2, cover 3…" in order are the
 // finals, "clay 01, clay 02…" in order are their clay versions. The best-aligned pair becomes the
-// single compare plate; the other finals are shown on their own, and the other clays join the
-// "screen…" files in the behind-the-scenes strip. Only projects with "clay…" files get this.
+// single compare plate. All finals (cover included) are also shown as "Selected Frames", and
+// the "screen…" files form the screenshot strip. Only projects with "clay…" files get this.
 const isFinal = (f) => /^cover/i.test(f);
 const isClay = (f) => /^clay/i.test(f);
 const isScreen = (f) => /^screen/i.test(f);
@@ -142,14 +142,14 @@ function encodeShowreel() {
         if (score > bestScore) [best, bestScore] = [i, score];
       }
       compare = pairs[best];
-      finals = allFinals.filter((f) => f !== compare.final);
-      behind = [...clays.filter((c) => c !== compare.clay), ...images.filter((i) => isScreen(i.file))];
+      finals = allFinals;
+      behind = images.filter((i) => isScreen(i.file));
     }
     manifest.push({ slug, title, cover, images, video, compare, finals, behind });
     const kb = images.reduce((s, i) => s + i.kb, 0) + cover.kb;
     console.log(`${title}: cover ${cover.w}x${cover.h} (${coverFile}), ${images.length} images, ${kb}KB` +
       (video ? `, video ${video.w}x${video.h} ${video.kb}KB (${videoFile})` : '') +
-      (compare ? `, compare ${compare.final.file} / ${compare.clay.file}, ${finals.length} finals, ${behind.length} behind-the-scenes` : ''));
+      (compare ? `, compare ${compare.final.file} / ${compare.clay.file}, ${finals.length} finals, ${behind.length} screenshots` : ''));
   }
   const pick = ({ src, w, h }) => ({ src, w, h });
   const strip = manifest.map(({ video, compare, finals, behind, ...p }) => ({

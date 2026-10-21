@@ -50,7 +50,16 @@ const projectInfo = {
   microsoft: { category: 'Motion Design' },
   wilson: { category: 'Product Rendering' },
   gummagic: { category: 'Branding & Packaging' },
-  samsung: { category: 'Product Rendering' },
+  samsung: {
+    category: 'Product Rendering',
+    // Shown in the "Project Details" section, one row per entry.
+    details: [
+      ['Project', 'Samsung Charger'],
+      ['Discipline', '3D Motion Design, Product Visualization'],
+      ['Scope', 'Modeling, Texturing, Animation, Lighting, Rendering, Compositing & Sound Design'],
+      ['Tools', 'Cinema 4D, Octane, After Effects'],
+    ],
+  },
   sauvage: { category: 'Motion Design' },
   oulmess: { category: 'Product Animation' },
   'the-matter': { category: 'Short Film' },

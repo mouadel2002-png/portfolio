@@ -14,14 +14,28 @@ function SectionHead({ index, title, subtitle, count }) {
     <Reveal className="work-section__head">
       <span className="work-section__index">{String(index).padStart(2, '0')} —</span>
       <h2 className="section-title">{title}</h2>
-      <p className="muted">{subtitle}</p>
-      <span className="muted work-section__count">[{count}]</span>
+      {subtitle && <p className="muted">{subtitle}</p>}
+      {count !== undefined && <span className="muted work-section__count">[{count}]</span>}
     </Reveal>
   );
 }
 
-// Projects with clay renders: final renders, one clay/final compare plate, then the
-// remaining clays and screenshots in a behind-the-scenes film strip.
+// Label / value rows, e.g. Project — Samsung Charger.
+function ProjectDetails({ details }) {
+  return (
+    <dl className="details">
+      {details.map(([label, value], i) => (
+        <Reveal key={label} className="details__row" delay={i * 0.06}>
+          <dt className="muted">{label}</dt>
+          <dd>{value}</dd>
+        </Reveal>
+      ))}
+    </dl>
+  );
+}
+
+// Projects with clay renders: selected frames, one clay/final compare plate, then the
+// project details with the screenshots in a centred strip below.
 function ProcessStory({ work }) {
   const { compare, finals = [], behind = [] } = work;
   let index = 0;
@@ -29,7 +43,7 @@ function ProcessStory({ work }) {
     <>
       {finals.length > 0 && (
         <section className="work-section">
-          <SectionHead index={++index} title="Renders" subtitle="Final frames" count={finals.length} />
+          <SectionHead index={++index} title="Selected Frames" count={finals.length} />
           <Exhibit images={finals} title={work.title} pattern={PATTERNS.renders} />
         </section>
       )}
@@ -45,10 +59,11 @@ function ProcessStory({ work }) {
           />
         </div>
       </section>
-      {behind.length > 0 && (
+      {(work.details || behind.length > 0) && (
         <section className="work-section">
-          <SectionHead index={++index} title="Behind the Scenes" subtitle="Clay renders & viewport" count={behind.length} />
-          <FilmStrip images={behind} title={work.title} />
+          <SectionHead index={++index} title="Project Details" />
+          {work.details && <ProjectDetails details={work.details} />}
+          {behind.length > 0 && <FilmStrip images={behind} title={work.title} centered />}
         </section>
       )}
     </>

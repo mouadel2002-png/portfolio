@@ -44,11 +44,71 @@ export const navLinks = [
 // Project images come from src/data/projects.json, generated from each project folder
 // (cover = the folder's COVER image, images = every other picture in the folder).
 // Fill in the text fields below; empty ones are simply hidden on the site.
+//
+// `layout` describes a project page section by section, using image file names from the
+// project folder (lower case, no extension, e.g. 'bench 01'; 'cover' is the COVER image):
+//   { type: 'frames', title, text: [label, storyKey], tone: 'light', groups: [
+//       { label, note, files: [...], arrange: 'pairs' | 'row' | 'stagger', perRow } ] }
+//     pairs   = equal-size staggered two-column wall
+//     row     = side by side on one line, same size and height (e.g. one shot in three colours)
+//     stagger = side by side, each hung at its own height (perRow pieces per line)
+//   { type: 'compare', title, text: [label, storyKey], pairs: [[final, clay], ...] }
+//   { type: 'details', screenshots: [...] }   -> uses `details` rows below
+// Projects without a layout show all their images as one exhibition wall.
 const projectInfo = {
-  eden: { category: 'Product Rendering' },
+  eden: {
+    category: 'Product Rendering',
+    // DRAFT details, inferred from the files (Blender screenshots): please confirm.
+    details: [
+      ['Project', 'Eden'],
+      ['Discipline', '3D Product Visualization, Packaging'],
+      ['Scope', 'Modeling, Texturing, Lighting, Rendering'],
+      ['Tools', 'Blender'],
+    ],
+    layout: [
+      {
+        type: 'frames',
+        title: 'Selected Frames',
+        groups: [{ files: ['render 02', 'render 03', 'render 04', 'render 05', 'render 06', 'render 07', 'render 08', 'render 09'], arrange: 'pairs' }],
+      },
+      {
+        type: 'frames',
+        title: 'Pens & Pills',
+        tone: 'light',
+        groups: [
+          { label: 'Pens', files: ['pen 01', 'pen 02', 'pen 03', 'pen 04', 'pen 05', 'pen 06', 'pen 07'], arrange: 'stagger', perRow: 4 },
+          { label: 'Pills', files: ['pills 01', 'pills 02', 'pills 03', 'pills 04'], arrange: 'stagger', perRow: 4 },
+        ],
+      },
+      { type: 'compare', title: 'Clay / Final', pairs: [['cover', 'clay 1'], ['render 05', 'clay 2']] },
+      { type: 'details', screenshots: ['screenshot 01', 'screenshot 02'] },
+    ],
+  },
   globalstar: { category: '3D Animation' },
   microsoft: { category: 'Motion Design' },
-  wilson: { category: 'Product Rendering' },
+  wilson: {
+    category: 'Product Rendering',
+    // DRAFT details, inferred from the files (Cinema 4D screenshots): please confirm.
+    details: [
+      ['Project', 'Wilson'],
+      ['Discipline', '3D Product Visualization'],
+      ['Scope', 'Modeling, Texturing, Lighting, Rendering'],
+      ['Tools', 'Cinema 4D'],
+    ],
+    layout: [
+      {
+        type: 'frames',
+        title: 'Selected Frames',
+        groups: [
+          { label: 'Ball', files: ['ball01', 'ball02', 'ball03'], arrange: 'stagger', perRow: 3 },
+          { label: 'Bench', note: 'One shot, three colourways', files: ['bench 01', 'bench 02', 'bench 03'], arrange: 'row' },
+          { label: 'Court', note: 'One shot, three colourways', files: ['court 01', 'court 02', 'court 03'], arrange: 'row' },
+        ],
+      },
+      { type: 'compare', title: 'Clay / Final', pairs: [['ball01', 'clay']] },
+      { type: 'details', screenshots: ['screenshot 01', 'screenshot 02', 'screenshot 03'] },
+    ],
+  },
   gummagic: { category: 'Branding & Packaging' },
   samsung: {
     category: 'Product Rendering',
@@ -71,6 +131,21 @@ const projectInfo = {
       ['Discipline', '3D Motion Design, Product Visualization'],
       ['Scope', 'Modeling, Texturing, Animation, Lighting, Rendering, Compositing & Sound Design'],
       ['Tools', 'Cinema 4D, Octane, After Effects'],
+    ],
+    layout: [
+      {
+        type: 'frames',
+        title: 'Selected Frames',
+        text: ['Creative Direction', 'direction'],
+        groups: [{ files: ['cover', 'cover 2', 'cover 3', 'cover 4'], arrange: 'pairs' }],
+      },
+      {
+        type: 'compare',
+        title: 'Clay / Final',
+        text: ['Look Development', 'lookdev'],
+        pairs: [['cover', 'clay 01']],
+      },
+      { type: 'details', screenshots: ['screen 01', 'screen 02', 'screen 03'] },
     ],
   },
   sauvage: { category: 'Motion Design' },

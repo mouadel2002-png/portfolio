@@ -519,6 +519,109 @@
   font-size: 14px;
 }
 
+/* Groups of frames inside a section (ProjectLayout.js): optional label, then pieces. */
+.frame-group + .frame-group {
+  margin-top: 96px;
+}
+
+.frame-group__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 16px;
+  margin-top: 56px;
+}
+
+.frame-group__head p {
+  font-size: 14px;
+}
+
+.frame-line {
+  margin-top: 40px;
+}
+
+.frame-line + .frame-line {
+  margin-top: 64px;
+}
+
+/* Phones: a line of pieces becomes a sideways-swipe strip. */
+.frame-line--swipe {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  margin-right: calc(-1 * var(--gutter));
+  padding-right: var(--gutter);
+  padding-bottom: 8px;
+}
+
+.frame-line--swipe > .exhibit__piece {
+  flex: 0 0 74%;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 810px) {
+  .frame-line {
+    display: flex;
+    gap: var(--gap);
+    align-items: flex-start;
+  }
+
+  /* Same shot side by side: equal size, one shared top edge. */
+  .frame-line--row > .exhibit__piece {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  /* Pieces spread across the width, each hung at its own height. */
+  .frame-line--stagger {
+    justify-content: space-between;
+  }
+
+  .frame-line--stagger.is-short {
+    justify-content: center;
+    gap: 6%;
+  }
+}
+
+/* A light band (e.g. Eden's Pens & Pills): the section re-themes itself, full bleed. */
+.work-section--light {
+  --bg: #ebebe8;
+  --fg: #121212;
+  --muted: #6b6b6b;
+  --line: rgba(0, 0, 0, 0.14);
+  --img-bg: #dcdcd9;
+  margin-left: calc(-1 * var(--gutter));
+  margin-right: calc(-1 * var(--gutter));
+  padding: 72px var(--gutter) 96px;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.work-section--light .work-section__head {
+  border-top: 0;
+}
+
+[data-theme='light'] .work-section--light {
+  --bg: #e2e2de;
+}
+
+/* Two or more compare sliders on one line. */
+@media (min-width: 810px) {
+  .plates.plates--row {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .plates--row .plate {
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+    margin-left: 0;
+  }
+}
+
 /* One-line project summary under "Services". */
 .work__tagline {
   margin-top: 10px;

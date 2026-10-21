@@ -20,13 +20,13 @@
       },
       {
         "src": "/images/works/eden/03.webp",
-        "w": 1254,
-        "h": 1254
+        "w": 1600,
+        "h": 1600
       },
       {
         "src": "/images/works/eden/04.webp",
-        "w": 1254,
-        "h": 1254
+        "w": 1600,
+        "h": 1600
       },
       {
         "src": "/images/works/eden/05.webp",
@@ -91,12 +91,12 @@
       {
         "src": "/images/works/eden/17.webp",
         "w": 1600,
-        "h": 841
+        "h": 1600
       },
       {
         "src": "/images/works/eden/18.webp",
         "w": 1600,
-        "h": 839
+        "h": 1600
       },
       {
         "src": "/images/works/eden/19.webp",
@@ -116,54 +116,136 @@
       {
         "src": "/images/works/eden/22.webp",
         "w": 1600,
-        "h": 1600
+        "h": 841
       },
       {
         "src": "/images/works/eden/23.webp",
         "w": 1600,
-        "h": 1600
-      },
-      {
-        "src": "/images/works/eden/24.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      {
-        "src": "/images/works/eden/25.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      {
-        "src": "/images/works/eden/26.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      {
-        "src": "/images/works/eden/27.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      {
-        "src": "/images/works/eden/28.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      {
-        "src": "/images/works/eden/29.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      {
-        "src": "/images/works/eden/30.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      {
-        "src": "/images/works/eden/31.webp",
-        "w": 1600,
-        "h": 1600
+        "h": 839
       }
-    ]
+    ],
+    "files": {
+      "cover": {
+        "src": "/images/works/eden/cover.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "clay 1": {
+        "src": "/images/works/eden/01.webp",
+        "w": 1254,
+        "h": 1254
+      },
+      "clay 2": {
+        "src": "/images/works/eden/02.webp",
+        "w": 1254,
+        "h": 1254
+      },
+      "pen 01": {
+        "src": "/images/works/eden/03.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "pen 02": {
+        "src": "/images/works/eden/04.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "pen 03": {
+        "src": "/images/works/eden/05.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "pen 04": {
+        "src": "/images/works/eden/06.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "pen 05": {
+        "src": "/images/works/eden/07.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "pen 06": {
+        "src": "/images/works/eden/08.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "pen 07": {
+        "src": "/images/works/eden/09.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "pills 01": {
+        "src": "/images/works/eden/10.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "pills 02": {
+        "src": "/images/works/eden/11.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "pills 03": {
+        "src": "/images/works/eden/12.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "pills 04": {
+        "src": "/images/works/eden/13.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "render 02": {
+        "src": "/images/works/eden/14.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "render 03": {
+        "src": "/images/works/eden/15.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "render 04": {
+        "src": "/images/works/eden/16.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "render 05": {
+        "src": "/images/works/eden/17.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "render 06": {
+        "src": "/images/works/eden/18.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "render 07": {
+        "src": "/images/works/eden/19.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "render 08": {
+        "src": "/images/works/eden/20.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "render 09": {
+        "src": "/images/works/eden/21.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "screenshot 01": {
+        "src": "/images/works/eden/22.webp",
+        "w": 1600,
+        "h": 841
+      },
+      "screenshot 02": {
+        "src": "/images/works/eden/23.webp",
+        "w": 1600,
+        "h": 839
+      }
+    }
   },
   {
     "slug": "globalstar",
@@ -314,7 +396,154 @@
         "w": 1600,
         "h": 900
       }
-    ]
+    ],
+    "files": {
+      "10": {
+        "src": "/images/works/globalstar/02.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "chatgpt image oct 18, 2026, 03_14_55 am-2": {
+        "src": "/images/works/globalstar/cover.webp",
+        "w": 1672,
+        "h": 941
+      },
+      "1.1": {
+        "src": "/images/works/globalstar/01.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "autonomous robots in a modern warehouse": {
+        "src": "/images/works/globalstar/03.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "bg": {
+        "src": "/images/works/globalstar/04.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "chatgpt image oct 18, 2026, 02_11_21 am-1": {
+        "src": "/images/works/globalstar/05.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "chatgpt image oct 18, 2026, 02_11_21 am-2": {
+        "src": "/images/works/globalstar/06.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "chatgpt image oct 18, 2026, 02_11_22 am-3": {
+        "src": "/images/works/globalstar/07.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "chatgpt image oct 18, 2026, 03_14_53 am-1": {
+        "src": "/images/works/globalstar/08.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "chatgpt image oct 18, 2026, 03_14_56 am-3": {
+        "src": "/images/works/globalstar/09.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "chatgpt image oct 18, 2026, 03_14_57 am-4": {
+        "src": "/images/works/globalstar/10.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "chatgpt image oct 18, 2026, 03_14_59 am-5": {
+        "src": "/images/works/globalstar/11.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "fg": {
+        "src": "/images/works/globalstar/12.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "gs-storyboardartboard-1": {
+        "src": "/images/works/globalstar/13.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "gs-storyboardartboard-2": {
+        "src": "/images/works/globalstar/14.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "gs-storyboardartboard-3": {
+        "src": "/images/works/globalstar/15.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "gs-storyboardartboard-4": {
+        "src": "/images/works/globalstar/16.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "gs-storyboardartboard-5": {
+        "src": "/images/works/globalstar/17.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "gs-storyboardartboard-6": {
+        "src": "/images/works/globalstar/18.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "gs-storyboardartboard-7": {
+        "src": "/images/works/globalstar/19.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "gs-storyboardartboard-8": {
+        "src": "/images/works/globalstar/20.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "gs-storyboardartboard-9": {
+        "src": "/images/works/globalstar/21.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "gs-storyboardartboard-10": {
+        "src": "/images/works/globalstar/22.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "gs-storyboardartboard-11": {
+        "src": "/images/works/globalstar/23.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "large automated warehouse 03": {
+        "src": "/images/works/globalstar/24.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "monochrome automated warehouse aisle": {
+        "src": "/images/works/globalstar/25.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "monochrome automated warehouse shelving": {
+        "src": "/images/works/globalstar/26.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "untitled project_comp 1_2024-03-30_02.28.15": {
+        "src": "/images/works/globalstar/27.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "warehouse": {
+        "src": "/images/works/globalstar/28.webp",
+        "w": 1600,
+        "h": 900
+      }
+    }
   },
   {
     "slug": "microsoft",
@@ -420,6 +649,103 @@
       "src": "/videos/microsoft.mp4",
       "w": 1920,
       "h": 1080
+    },
+    "files": {
+      "cover": {
+        "src": "/images/works/microsoft/cover.webp",
+        "w": 1800,
+        "h": 1013
+      },
+      "big final export_00021": {
+        "src": "/images/works/microsoft/01.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "big final export_00142": {
+        "src": "/images/works/microsoft/02.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "big final export_00152": {
+        "src": "/images/works/microsoft/03.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "big final export_00168": {
+        "src": "/images/works/microsoft/04.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "big final export_00171": {
+        "src": "/images/works/microsoft/05.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "big final export_00204": {
+        "src": "/images/works/microsoft/06.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "big final export_00312": {
+        "src": "/images/works/microsoft/07.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "big final export_00374": {
+        "src": "/images/works/microsoft/08.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "big final export_00491": {
+        "src": "/images/works/microsoft/09.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "big final export_00590": {
+        "src": "/images/works/microsoft/10.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "big final export_00744": {
+        "src": "/images/works/microsoft/11.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "big final export_00881": {
+        "src": "/images/works/microsoft/12.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "big final export_00900": {
+        "src": "/images/works/microsoft/13.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "chatgpt image oct 18, 2026, 03_19_40 pm-1": {
+        "src": "/images/works/microsoft/14.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "chatgpt image oct 18, 2026, 03_19_41 pm-2": {
+        "src": "/images/works/microsoft/15.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "chatgpt image oct 18, 2026, 03_19_42 pm-3": {
+        "src": "/images/works/microsoft/16.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "chatgpt image oct 18, 2026, 03_19_44 pm-4": {
+        "src": "/images/works/microsoft/17.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "chatgpt image oct 18, 2026, 03_19_49 pm-6": {
+        "src": "/images/works/microsoft/18.webp",
+        "w": 1600,
+        "h": 900
+      }
     }
   },
   {
@@ -443,8 +769,8 @@
       },
       {
         "src": "/images/works/wilson/03.webp",
-        "w": 1600,
-        "h": 1600
+        "w": 1254,
+        "h": 1254
       },
       {
         "src": "/images/works/wilson/04.webp",
@@ -453,33 +779,33 @@
       },
       {
         "src": "/images/works/wilson/05.webp",
-        "w": 1600,
-        "h": 1600
+        "w": 1254,
+        "h": 1254
       },
       {
         "src": "/images/works/wilson/06.webp",
-        "w": 1600,
-        "h": 1600
+        "w": 1254,
+        "h": 1254
       },
       {
         "src": "/images/works/wilson/07.webp",
-        "w": 1600,
-        "h": 1600
+        "w": 1254,
+        "h": 1254
       },
       {
         "src": "/images/works/wilson/08.webp",
         "w": 1600,
-        "h": 900
+        "h": 1600
       },
       {
         "src": "/images/works/wilson/09.webp",
         "w": 1600,
-        "h": 900
+        "h": 1600
       },
       {
         "src": "/images/works/wilson/10.webp",
         "w": 1600,
-        "h": 900
+        "h": 1600
       },
       {
         "src": "/images/works/wilson/11.webp",
@@ -488,35 +814,87 @@
       },
       {
         "src": "/images/works/wilson/12.webp",
-        "w": 1254,
-        "h": 1254
+        "w": 1600,
+        "h": 900
       },
       {
         "src": "/images/works/wilson/13.webp",
-        "w": 1254,
-        "h": 1254
+        "w": 1600,
+        "h": 900
+      }
+    ],
+    "files": {
+      "cover": {
+        "src": "/images/works/wilson/cover.webp",
+        "w": 1800,
+        "h": 1800
       },
-      {
-        "src": "/images/works/wilson/14.webp",
-        "w": 1254,
-        "h": 1254
-      },
-      {
-        "src": "/images/works/wilson/15.webp",
-        "w": 1254,
-        "h": 1254
-      },
-      {
-        "src": "/images/works/wilson/16.webp",
-        "w": 1254,
-        "h": 1254
-      },
-      {
-        "src": "/images/works/wilson/17.webp",
+      "ball01": {
+        "src": "/images/works/wilson/01.webp",
         "w": 1600,
         "h": 1600
+      },
+      "ball02": {
+        "src": "/images/works/wilson/02.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "ball03": {
+        "src": "/images/works/wilson/03.webp",
+        "w": 1254,
+        "h": 1254
+      },
+      "bench 01": {
+        "src": "/images/works/wilson/04.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "bench 02": {
+        "src": "/images/works/wilson/05.webp",
+        "w": 1254,
+        "h": 1254
+      },
+      "bench 03": {
+        "src": "/images/works/wilson/06.webp",
+        "w": 1254,
+        "h": 1254
+      },
+      "clay": {
+        "src": "/images/works/wilson/07.webp",
+        "w": 1254,
+        "h": 1254
+      },
+      "court 01": {
+        "src": "/images/works/wilson/08.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "court 02": {
+        "src": "/images/works/wilson/09.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "court 03": {
+        "src": "/images/works/wilson/10.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "screenshot 01": {
+        "src": "/images/works/wilson/11.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "screenshot 02": {
+        "src": "/images/works/wilson/12.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "screenshot 03": {
+        "src": "/images/works/wilson/13.webp",
+        "w": 1600,
+        "h": 900
       }
-    ]
+    }
   },
   {
     "slug": "gummagic",
@@ -737,7 +1115,224 @@
         "w": 1600,
         "h": 900
       }
-    ]
+    ],
+    "files": {
+      "cover": {
+        "src": "/images/works/gummagic/cover.webp",
+        "w": 1672,
+        "h": 941
+      },
+      "ac_00000_00000": {
+        "src": "/images/works/gummagic/01.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "ac2_00000_00000_00000": {
+        "src": "/images/works/gummagic/02.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "ad1": {
+        "src": "/images/works/gummagic/03.webp",
+        "w": 1024,
+        "h": 1536
+      },
+      "ad2": {
+        "src": "/images/works/gummagic/04.webp",
+        "w": 1600,
+        "h": 2419
+      },
+      "ad3": {
+        "src": "/images/works/gummagic/05.webp",
+        "w": 1600,
+        "h": 2419
+      },
+      "bleu_00000": {
+        "src": "/images/works/gummagic/06.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "blue gum 1": {
+        "src": "/images/works/gummagic/07.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "blue gum 2": {
+        "src": "/images/works/gummagic/08.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "blue gum 3": {
+        "src": "/images/works/gummagic/09.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "blue gum 4": {
+        "src": "/images/works/gummagic/10.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "box 3 gummagic": {
+        "src": "/images/works/gummagic/11.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "box r_00000": {
+        "src": "/images/works/gummagic/12.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "box r2": {
+        "src": "/images/works/gummagic/13.webp",
+        "w": 1500,
+        "h": 1500
+      },
+      "box r4": {
+        "src": "/images/works/gummagic/14.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "chatgpt image oct 18, 2026, 01_58_14 am-1": {
+        "src": "/images/works/gummagic/15.webp",
+        "w": 1055,
+        "h": 1491
+      },
+      "chatgpt image oct 18, 2026, 01_58_14 am-2": {
+        "src": "/images/works/gummagic/16.webp",
+        "w": 1055,
+        "h": 1491
+      },
+      "chatgpt image oct 18, 2026, 01_58_15 am-3": {
+        "src": "/images/works/gummagic/17.webp",
+        "w": 1055,
+        "h": 1491
+      },
+      "chatgpt image oct 18, 2026, 05_38_45 pm-2": {
+        "src": "/images/works/gummagic/18.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "chatgpt image oct 18, 2026, 05_38_47 pm-3": {
+        "src": "/images/works/gummagic/19.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "chatgpt image oct 18, 2026, 05_38_48 pm-4": {
+        "src": "/images/works/gummagic/20.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "chatgpt image oct 18, 2026, 05_38_50 pm-6": {
+        "src": "/images/works/gummagic/21.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "chatgpt image oct 18, 2026, 05_38_52 pm-7": {
+        "src": "/images/works/gummagic/22.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "classifi 6": {
+        "src": "/images/works/gummagic/23.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "gu##]_00000": {
+        "src": "/images/works/gummagic/24.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "gummie_00000": {
+        "src": "/images/works/gummagic/25.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "gummies_00000": {
+        "src": "/images/works/gummagic/26.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "gummies#]_00000": {
+        "src": "/images/works/gummagic/27.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "mauve_00000": {
+        "src": "/images/works/gummagic/28.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "pff1": {
+        "src": "/images/works/gummagic/29.webp",
+        "w": 1080,
+        "h": 1358
+      },
+      "pff2": {
+        "src": "/images/works/gummagic/30.webp",
+        "w": 1080,
+        "h": 1358
+      },
+      "pff3": {
+        "src": "/images/works/gummagic/31.webp",
+        "w": 1080,
+        "h": 1358
+      },
+      "pic": {
+        "src": "/images/works/gummagic/32.webp",
+        "w": 1600,
+        "h": 1999
+      },
+      "pink gum 2": {
+        "src": "/images/works/gummagic/33.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "pink gum 3": {
+        "src": "/images/works/gummagic/34.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "pink gum 4": {
+        "src": "/images/works/gummagic/35.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "pink gum1": {
+        "src": "/images/works/gummagic/36.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "premium gummy vitamin collection": {
+        "src": "/images/works/gummagic/37.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "purple gum 1": {
+        "src": "/images/works/gummagic/38.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "purple gum 2": {
+        "src": "/images/works/gummagic/39.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "purple gum 3": {
+        "src": "/images/works/gummagic/40.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "render 1_00000": {
+        "src": "/images/works/gummagic/41.webp",
+        "w": 1600,
+        "h": 1600
+      },
+      "rr2r": {
+        "src": "/images/works/gummagic/42.webp",
+        "w": 1600,
+        "h": 900
+      }
+    }
   },
   {
     "slug": "samsung",
@@ -804,57 +1399,63 @@
       "w": 1080,
       "h": 1080
     },
-    "compare": {
-      "final": {
+    "files": {
+      "cover": {
         "src": "/images/works/samsung/cover.webp",
         "w": 1800,
         "h": 1800
       },
-      "clay": {
+      "clay 01": {
         "src": "/images/works/samsung/01.webp",
         "w": 1254,
         "h": 1254
-      }
-    },
-    "finals": [
-      {
-        "src": "/images/works/samsung/cover.webp",
-        "w": 1800,
-        "h": 1800
       },
-      {
+      "clay 02": {
+        "src": "/images/works/samsung/02.webp",
+        "w": 1254,
+        "h": 1254
+      },
+      "clay 03": {
+        "src": "/images/works/samsung/03.webp",
+        "w": 1254,
+        "h": 1254
+      },
+      "clay 04": {
+        "src": "/images/works/samsung/04.webp",
+        "w": 1254,
+        "h": 1254
+      },
+      "cover 2": {
         "src": "/images/works/samsung/05.webp",
         "w": 1600,
         "h": 1600
       },
-      {
+      "cover 3": {
         "src": "/images/works/samsung/06.webp",
         "w": 1600,
         "h": 1600
       },
-      {
+      "cover 4": {
         "src": "/images/works/samsung/07.webp",
         "w": 1600,
         "h": 1600
-      }
-    ],
-    "behind": [
-      {
+      },
+      "screen 01": {
         "src": "/images/works/samsung/08.webp",
         "w": 1600,
         "h": 900
       },
-      {
+      "screen 02": {
         "src": "/images/works/samsung/09.webp",
         "w": 1600,
         "h": 900
       },
-      {
+      "screen 03": {
         "src": "/images/works/samsung/10.webp",
         "w": 1600,
         "h": 900
       }
-    ]
+    }
   },
   {
     "slug": "sauvage",
@@ -915,6 +1516,58 @@
       "src": "/videos/sauvage.mp4",
       "w": 1920,
       "h": 1080
+    },
+    "files": {
+      "cover": {
+        "src": "/images/works/sauvage/cover.webp",
+        "w": 1800,
+        "h": 1013
+      },
+      "comp 2_0177": {
+        "src": "/images/works/sauvage/01.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "comp 4_0285": {
+        "src": "/images/works/sauvage/02.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "comp 5_0359": {
+        "src": "/images/works/sauvage/03.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "comp 6_0431": {
+        "src": "/images/works/sauvage/04.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "comp 7_0478": {
+        "src": "/images/works/sauvage/05.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "comp 8_0505": {
+        "src": "/images/works/sauvage/06.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "comp 9_0589": {
+        "src": "/images/works/sauvage/07.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "comp_0060": {
+        "src": "/images/works/sauvage/08.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "comp_0061_0152": {
+        "src": "/images/works/sauvage/09.webp",
+        "w": 1600,
+        "h": 900
+      }
     }
   },
   {
@@ -991,6 +1644,73 @@
       "src": "/videos/oulmess.mp4",
       "w": 1920,
       "h": 1080
+    },
+    "files": {
+      "6": {
+        "src": "/images/works/oulmess/03.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "8": {
+        "src": "/images/works/oulmess/04.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "9": {
+        "src": "/images/works/oulmess/05.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "11": {
+        "src": "/images/works/oulmess/06.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "cover": {
+        "src": "/images/works/oulmess/cover.webp",
+        "w": 1800,
+        "h": 1013
+      },
+      "3_0123": {
+        "src": "/images/works/oulmess/01.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "5_0410": {
+        "src": "/images/works/oulmess/02.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "chatgpt image oct 18, 2026, 03_38_18 pm-1": {
+        "src": "/images/works/oulmess/07.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "chatgpt image oct 18, 2026, 03_38_19 pm-2": {
+        "src": "/images/works/oulmess/08.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "chatgpt image oct 18, 2026, 03_38_20 pm-3": {
+        "src": "/images/works/oulmess/09.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "chatgpt image oct 18, 2026, 03_38_21 pm-4": {
+        "src": "/images/works/oulmess/10.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "chatgpt image oct 18, 2026, 03_38_22 pm-5": {
+        "src": "/images/works/oulmess/11.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "chatgpt image oct 18, 2026, 03_38_24 pm-6": {
+        "src": "/images/works/oulmess/12.webp",
+        "w": 1600,
+        "h": 900
+      }
     }
   },
   {
@@ -1032,6 +1752,38 @@
       "src": "/videos/the-matter.mp4",
       "w": 1920,
       "h": 1080
+    },
+    "files": {
+      "cover": {
+        "src": "/images/works/the-matter/cover.webp",
+        "w": 1800,
+        "h": 1013
+      },
+      "my film_00321": {
+        "src": "/images/works/the-matter/01.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "my film_00365": {
+        "src": "/images/works/the-matter/02.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "my film_00533": {
+        "src": "/images/works/the-matter/03.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "my film_00786": {
+        "src": "/images/works/the-matter/04.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "my film_00864": {
+        "src": "/images/works/the-matter/05.webp",
+        "w": 1600,
+        "h": 900
+      }
     }
   },
   {
@@ -1068,6 +1820,33 @@
       "src": "/videos/once-cherished-now-forsaken.mp4",
       "w": 1920,
       "h": 1080
+    },
+    "files": {
+      "2": {
+        "src": "/images/works/once-cherished-now-forsaken/01.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "3": {
+        "src": "/images/works/once-cherished-now-forsaken/02.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "4": {
+        "src": "/images/works/once-cherished-now-forsaken/03.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "5": {
+        "src": "/images/works/once-cherished-now-forsaken/04.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "cover": {
+        "src": "/images/works/once-cherished-now-forsaken/cover.webp",
+        "w": 1800,
+        "h": 1013
+      }
     }
   }
 ]

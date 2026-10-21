@@ -86,7 +86,7 @@ export default function Exhibit({ images, title, pattern = PATTERNS.wall, start 
   );
 }
 
-function Piece({ img, n, title, style, onOpen }) {
+export function Piece({ img, n, title, style, onOpen }) {
   const clickable = onOpen
     ? {
         role: 'button',

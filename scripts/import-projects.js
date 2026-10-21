@@ -20,28 +20,9 @@ const projects = [
 ];
 const fallbackCover = { GLOBALSTAR: 'ChatGPT Image Oct 18, 2026, 03_14_55 AM-2.png' };
 const isImg = (f) => /\.(png|jpe?g)$/i.test(f);
-// Clay/final pairs, matched by file name: the COVER plus "cover 2, cover 3…" in order are the
-// finals, "clay 01, clay 02…" in order are their clay versions. The best-aligned pair becomes the
-// single compare plate. All finals (cover included) are also shown as "Selected Frames", and
-// the "screen…" files form the screenshot strip. Only projects with "clay…" files get this.
-const isFinal = (f) => /^cover/i.test(f);
-const isClay = (f) => /^clay/i.test(f);
-const isScreen = (f) => /^screen/i.test(f);
-
-// How closely two images line up (correlation of small greyscale thumbnails, -1…1).
-async function similarity(a, b) {
-  const thumb = async (f) => Array.from(await sharp(f).removeAlpha().resize(96, 96, { fit: 'fill' }).greyscale().blur(1).raw().toBuffer());
-  const [x, y] = [await thumb(a), await thumb(b)];
-  const mean = (v) => v.reduce((t, n) => t + n, 0) / v.length;
-  const [mx, my] = [mean(x), mean(y)];
-  let num = 0, dx = 0, dy = 0;
-  for (let i = 0; i < x.length; i++) {
-    num += (x[i] - mx) * (y[i] - my);
-    dx += (x[i] - mx) ** 2;
-    dy += (y[i] - my) ** 2;
-  }
-  return num / Math.sqrt(dx * dy || 1);
-}
+// Every image is also listed under its file name (lower case, no extension, e.g. "bench 01"),
+// so a project page can be laid out by name in src/data/site.js (see projectInfo.*.layout).
+const fileKey = (f) => f.replace(/\.[^.]+$/, '').trim().replace(/\s+/g, ' ').toLowerCase();
 
 // About page portrait: WEBSITE/PHOTO.png with any solid dark rows at the top/bottom edge trimmed.
 async function encodePortrait() {
@@ -128,37 +109,20 @@ function encodeShowreel() {
     }
     const videoFile = all.find((f) => /\.mp4$/i.test(f));
     const video = videoFile ? encodeVideo(path.join(SRC, dir, videoFile), slug) : null;
-    let compare;
-    let finals;
-    let behind;
-    const clays = images.filter((i) => isClay(i.file));
-    if (clays.length) {
-      const allFinals = [{ ...cover, file: coverFile }, ...images.filter((i) => isFinal(i.file))];
-      const pairs = clays.slice(0, allFinals.length).map((clay, i) => ({ final: allFinals[i], clay }));
-      let best = 0;
-      let bestScore = -Infinity;
-      for (let i = 0; i < pairs.length; i++) {
-        const score = await similarity(path.join(SRC, dir, pairs[i].final.file), path.join(SRC, dir, pairs[i].clay.file));
-        if (score > bestScore) [best, bestScore] = [i, score];
-      }
-      compare = pairs[best];
-      finals = allFinals;
-      behind = images.filter((i) => isScreen(i.file));
-    }
-    manifest.push({ slug, title, cover, images, video, compare, finals, behind });
+    const fileMap = { [fileKey(coverFile)]: cover };
+    images.forEach((img) => { fileMap[fileKey(img.file)] = img; });
+    manifest.push({ slug, title, cover, images, video, files: fileMap });
     const kb = images.reduce((s, i) => s + i.kb, 0) + cover.kb;
     console.log(`${title}: cover ${cover.w}x${cover.h} (${coverFile}), ${images.length} images, ${kb}KB` +
-      (video ? `, video ${video.w}x${video.h} ${video.kb}KB (${videoFile})` : '') +
-      (compare ? `, compare ${compare.final.file} / ${compare.clay.file}, ${finals.length} finals, ${behind.length} screenshots` : ''));
+      (video ? `, video ${video.w}x${video.h} ${video.kb}KB (${videoFile})` : ''));
   }
   const pick = ({ src, w, h }) => ({ src, w, h });
-  const strip = manifest.map(({ video, compare, finals, behind, ...p }) => ({
+  const strip = manifest.map(({ video, files, ...p }) => ({
     ...p,
     cover: pick(p.cover),
     images: p.images.map(pick),
     ...(video && { video: pick(video) }),
-    ...(compare && { compare: { final: pick(compare.final), clay: pick(compare.clay) }, finals: finals.map(pick) }),
-    ...(behind && behind.length && { behind: behind.map(pick) }),
+    files: Object.fromEntries(Object.entries(files).map(([k, v]) => [k, pick(v)])),
   }));
   fs.writeFileSync(`${APP}/src/data/projects.json`, JSON.stringify(strip, null, 2) + '\n');
 })();

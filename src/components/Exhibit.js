@@ -35,14 +35,15 @@ function mobileStyle(img, i) {
   return { width: `${width}%`, marginLeft: i % 2 ? 'auto' : 0 };
 }
 
-export default function Exhibit({ images, title, pattern = PATTERNS.wall, start = 2, className = '' }) {
+// Pass `onOpen` to make pieces clickable (called with the image's index in `images`).
+export default function Exhibit({ images, title, pattern = PATTERNS.wall, start = 2, className = '', onOpen }) {
   const isWideScreen = useMediaQuery('(min-width: 810px)');
 
   if (!isWideScreen) {
     return (
       <div className={`exhibit exhibit--stack ${className}`}>
         {images.map((img, i) => (
-          <Piece key={img.src} img={img} n={start + i} title={title} style={mobileStyle(img, i)} />
+          <Piece key={img.src} img={img} n={start + i} title={title} style={mobileStyle(img, i)} onOpen={onOpen && (() => onOpen(i))} />
         ))}
       </div>
     );
@@ -70,6 +71,7 @@ export default function Exhibit({ images, title, pattern = PATTERNS.wall, start 
               img={img}
               n={n}
               title={title}
+              onOpen={onOpen && (() => onOpen(n - start))}
               style={{
                 width: `${isWide(img) ? slot.wide : slot.tall}%`,
                 maxWidth: fitScreen(img),
@@ -84,9 +86,18 @@ export default function Exhibit({ images, title, pattern = PATTERNS.wall, start 
   );
 }
 
-function Piece({ img, n, title, style }) {
+function Piece({ img, n, title, style, onOpen }) {
+  const clickable = onOpen
+    ? {
+        role: 'button',
+        tabIndex: 0,
+        'aria-label': `View ${title} ${n} full screen`,
+        onClick: onOpen,
+        onKeyDown: (e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), onOpen()),
+      }
+    : {};
   return (
-    <figure className="exhibit__piece" style={style}>
+    <figure className={`exhibit__piece ${onOpen ? 'is-clickable' : ''}`} style={style} {...clickable}>
       <RevealImage src={img.src} alt={`${title} ${n}`} ratio={`${img.w} / ${img.h}`} />
       <figcaption>
         <span className="muted">({String(n).padStart(2, '0')})</span> {title}

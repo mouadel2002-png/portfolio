@@ -519,6 +519,96 @@
   font-size: 14px;
 }
 
+/* One-line project summary under "Services". */
+.work__tagline {
+  margin-top: 10px;
+  max-width: 34ch;
+  line-height: 1.4;
+}
+
+/* Wall-text blocks along a project page (StoryBlock in Work.js). */
+.story {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 64px;
+}
+
+.story__label {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.story__text {
+  max-width: 62ch;
+  line-height: 1.5;
+}
+
+.work-section .story {
+  margin-top: 40px;
+}
+
+.story--closing {
+  margin-top: 120px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.story--closing .story__text {
+  font-size: 1.25em;
+  line-height: 1.35;
+}
+
+.exhibit__piece.is-clickable {
+  cursor: zoom-in;
+}
+
+.exhibit__piece.is-clickable:focus-visible {
+  outline: 1px solid var(--fg);
+  outline-offset: 6px;
+}
+
+@media (min-width: 810px) {
+  .story {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: var(--gap);
+    align-items: baseline;
+  }
+
+  .story__label {
+    grid-column: 2;
+  }
+
+  .story__text {
+    grid-column: 3 / span 3;
+  }
+}
+
+@media (min-width: 1200px) {
+  .story {
+    margin-top: 96px;
+  }
+
+  .work-section .story {
+    margin-top: 56px;
+  }
+
+  .story__text {
+    font-size: 23px;
+    line-height: 1.4;
+  }
+
+  .story--closing {
+    margin-top: 160px;
+  }
+
+  .story--closing .story__text {
+    font-size: 32px;
+    line-height: 1.25;
+  }
+}
+
 /* Centred variant: auto margins centre the frames when they fit and still let the strip
    scroll from its first frame when they don't. */
 .filmstrip--centered {

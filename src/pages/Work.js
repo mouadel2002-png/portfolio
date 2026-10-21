@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Page from '../components/Page';
 import HeroMedia from '../components/HeroMedia';
 import Exhibit, { PATTERNS, fitScreen } from '../components/Exhibit';
 import Compare from '../components/Compare';
 import FilmStrip from '../components/FilmStrip';
+import Lightbox from '../components/Lightbox';
 import { MaskLine, Reveal } from '../components/Reveal';
 import { works } from '../data/site';
 import NotFound from './NotFound';
@@ -34,21 +36,36 @@ function ProjectDetails({ details }) {
   );
 }
 
+// A short "wall text" block: small label on the left, paragraph on the right.
+function StoryBlock({ label, text, closing }) {
+  if (!text) return null;
+  return (
+    <Reveal className={`story ${closing ? 'story--closing' : ''}`}>
+      <h3 className="story__label muted">{label}</h3>
+      <p className="story__text">{text}</p>
+    </Reveal>
+  );
+}
+
 // Projects with clay renders: selected frames, one clay/final compare plate, then the
 // project details with the screenshots in a centred strip below.
 function ProcessStory({ work }) {
-  const { compare, finals = [], behind = [] } = work;
+  const { compare, finals = [], behind = [], story = {} } = work;
+  const [open, setOpen] = useState(null);
   let index = 0;
   return (
     <>
       {finals.length > 0 && (
         <section className="work-section">
           <SectionHead index={++index} title="Selected Frames" count={finals.length} />
-          <Exhibit images={finals} title={work.title} pattern={PATTERNS.renders} />
+          <StoryBlock label="Creative Direction" text={story.direction} />
+          <Exhibit images={finals} title={work.title} pattern={PATTERNS.renders} onOpen={setOpen} />
+          <Lightbox images={finals} index={open} onChange={setOpen} onClose={() => setOpen(null)} label={work.title} />
         </section>
       )}
       <section className="work-section">
         <SectionHead index={++index} title="Clay / Final" subtitle="Drag across the image to compare" count={1} />
+        <StoryBlock label="Look Development" text={story.lookdev} />
         <div className="plates">
           <Compare
             clay={compare.clay}
@@ -95,6 +112,7 @@ export default function Work() {
             <Reveal className="work__fact work__fact--wide" delay={0.28}>
               <h3 className="label">Services</h3>
               <p className="muted">{work.services || work.category}</p>
+              {work.summary && <p className="work__tagline">{work.summary}</p>}
             </Reveal>
           )}
         </div>
@@ -104,12 +122,10 @@ export default function Work() {
         </div>
         <Reveal className="work__caption">
           <span className="muted">(01)</span>
-          {work.summary ? (
-            <p className="work__summary">{work.summary}</p>
-          ) : (
-            <p className="muted">{work.video ? 'Film' : 'Cover'}</p>
-          )}
+          <p className="muted">{work.video ? 'Film' : 'Cover'}</p>
         </Reveal>
+
+        <StoryBlock label="Project Overview" text={work.story?.overview} />
 
         {work.about && (
           <div className="grid work__about">
@@ -127,6 +143,8 @@ export default function Work() {
         ) : (
           <Exhibit images={work.images} title={work.title} />
         )}
+
+        <StoryBlock label="Final Output" text={work.story?.output} closing />
 
         <Link to={`/works/${next.slug}`} className="next-work">
           <span className="muted">Next project</span>

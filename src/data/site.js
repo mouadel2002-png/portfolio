@@ -52,6 +52,19 @@ const projectInfo = {
   gummagic: { category: 'Branding & Packaging' },
   samsung: {
     category: 'Product Rendering',
+    // One line under "Services" at the top of the project page.
+    summary: 'A minimal, futuristic product film giving an everyday charger a premium presence.',
+    // Wall-text blocks placed along the project page (each is optional).
+    story: {
+      overview:
+        'A product-focused commercial created for an e-commerce technology website, exploring a clean, minimal, and futuristic visual language. The goal was to give an everyday tech product a premium presence through smooth motion, refined details, and carefully crafted imagery.',
+      direction:
+        'The vision was to present the charger in an artistic, slightly abstract way — moving beyond a straightforward product showcase to create something that feels modern, distinctive, and visually engaging. Every movement and composition was designed to draw the eye back to the product.',
+      lookdev:
+        'Finding the right look was a process of observation, experimentation, and refinement. Textures, lighting, colors, and reflections were tested and adjusted until they came together in a balanced visual identity. The focus was on keeping the product clean and readable while building a futuristic atmosphere around it.',
+      output:
+        'A sleek, technology-driven product animation that combines minimalism with a cinematic touch, designed to capture attention and give the product a more elevated visual presence.',
+    },
     // Shown in the "Project Details" section, one row per entry.
     details: [
       ['Project', 'Samsung Charger'],

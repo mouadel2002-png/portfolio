@@ -574,8 +574,21 @@
     grid-column: 3 / span 4;
   }
 
+  /* Frames share the full page width, edge to edge. */
+  .filmstrip--centered {
+    overflow: visible;
+    cursor: default;
+  }
+
+  .filmstrip--centered .filmstrip__frame {
+    flex: 1 1 0;
+    min-width: 0;
+    margin: 0;
+  }
+
   .filmstrip--centered .filmstrip__frame img {
-    height: 200px;
+    width: 100%;
+    height: auto;
   }
 }
 
@@ -588,9 +601,6 @@
     font-size: 23px;
   }
 
-  .filmstrip--centered .filmstrip__frame img {
-    height: 220px;
-  }
 }
 
 @media (min-width: 810px) {

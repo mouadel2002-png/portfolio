@@ -123,7 +123,10 @@ function FramesSection({ section, index, work, start }) {
         // Skip one extra row each time so a short repeating pattern never lines up twice.
         if (PATTERNS[g.arrange]) patternRows += Math.ceil(g.images.length / 1.5) + 1;
         return (
-          <div key={(g.files || g.items.map((it) => it.file)).join()} className={`frame-group frame-group--${g.arrange}`}>
+          <div
+            key={(g.files || g.items.map((it) => it.file)).join()}
+            className={`frame-group frame-group--${g.arrange} ${g.tight ? 'frame-group--tight' : ''}`}
+          >
             {g.label && (
               <Reveal className="frame-group__head">
                 <h3 className="story__label">{tr(g.label)}</h3>
@@ -262,6 +265,7 @@ function DetailsSection({ section, index, work }) {
   return (
     <section className="work-section">
       <SectionHead index={index} title={t('projectDetails')} />
+      {section.text && <StoryBlock label={section.text[0]} text={work.story?.[section.text[1]]} />}
       {work.details && <ProjectDetails details={work.details} />}
       {shots.length > 0 && <FilmStrip images={shots} title={work.title} centered />}
     </section>

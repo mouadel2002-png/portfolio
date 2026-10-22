@@ -1552,3 +1552,8 @@
     margin-top: var(--gap);
   }
 }
+
+/* Tighter rhythm for a dense wall (e.g. Gummagic's renders with loose pieces). */
+.frame-group--tight .exhibit {
+  gap: 40px;
+}

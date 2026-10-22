@@ -200,6 +200,34 @@ const projectInfo = {
   },
   wilson: {
     category: L('Product Rendering', 'Rendu produit'),
+    // One line under "Services" at the top of the project page.
+    summary: L(
+      'A 3D study of Wilson tennis equipment: rackets, balls and courts in bold, cinematic contrast.',
+      'Une étude 3D de l’équipement de tennis Wilson : raquettes, balles et courts en contrastes forts et cinématographiques.'
+    ),
+    // Wall-text blocks placed along the project page.
+    story: {
+      overview: L(
+        'A 3D product visualization project inspired by Wilson tennis equipment, exploring the textures, materials, and visual identity of the sport. The project brings together tennis rackets, balls, and court environments through a series of detailed renders, creating a visual study that blends product presentation with the atmosphere of the game.',
+        'Un projet de visualisation produit 3D inspiré de l’équipement de tennis Wilson, explorant les textures, les matières et l’identité visuelle de ce sport. Raquettes, balles et terrains se rencontrent à travers une série de rendus détaillés, pour une étude visuelle qui mêle présentation produit et atmosphère du jeu.'
+      ),
+      direction: L(
+        'The direction was built around contrast: the vivid fluorescent green of the tennis balls against deep blacks, warm earthy tones, and the cool blue of the court. Rather than relying on straightforward product shots, I explored a mix of macro details, dramatic close-ups, and wider compositions to give each render its own character while maintaining a consistent visual language.',
+        'La direction s’est construite autour du contraste : le vert fluorescent éclatant des balles face aux noirs profonds, aux tons terreux chauds et au bleu froid du terrain. Plutôt que de simples prises de vue produit, j’ai exploré un mélange de détails macro, de gros plans dramatiques et de compositions plus larges, pour donner à chaque rendu son propre caractère tout en gardant un langage visuel cohérent.'
+      ),
+      lookdev: L(
+        'Lighting played a central role in shaping the images. Focused highlights reveal the rackets’ glossy frames and intricate string patterns, while softer, directional light brings out the fuzzy texture of the tennis balls and the grain of the wooden surfaces. The balance between shadows, reflections, and saturated colors creates depth and gives the products a tactile, almost cinematic quality.',
+        'La lumière a joué un rôle central dans la construction des images. Des reflets précis révèlent les cadres brillants des raquettes et le détail des cordages, tandis qu’une lumière plus douce et directionnelle fait ressortir la texture duveteuse des balles et le grain du bois. L’équilibre entre ombres, reflets et couleurs saturées crée de la profondeur et donne aux produits une qualité tactile, presque cinématographique.'
+      ),
+      production: L(
+        'The process focused on building detailed product scenes, refining materials, and experimenting with camera angles and lighting setups to find the strongest compositions. From the close-up framing of the racket and ball to the overhead view of the blue court, each scene was developed to emphasize a different aspect of the equipment and its relationship to the sport.',
+        'Le travail a consisté à construire des scènes produit détaillées, à affiner les matières et à expérimenter angles de caméra et éclairages pour trouver les compositions les plus fortes. Du cadrage serré sur la raquette et la balle à la vue plongeante sur le court bleu, chaque scène a été pensée pour mettre en avant un aspect différent de l’équipement et de son lien avec le sport.'
+      ),
+      output: L(
+        'A collection of polished 3D renders that explores tennis through a product-focused lens. By combining precise details with dramatic lighting and bold color contrasts, the project creates a visual identity that feels energetic, contemporary, and rooted in the performance and design of Wilson tennis equipment.',
+        'Une collection de rendus 3D aboutis qui explore le tennis sous l’angle du produit. En combinant détails précis, lumière dramatique et forts contrastes de couleurs, le projet crée une identité visuelle énergique et contemporaine, ancrée dans la performance et le design de l’équipement Wilson.'
+      ),
+    },
     // DRAFT details, inferred from the files (Cinema 4D screenshots): please confirm.
     details: [
       [L('Project', 'Projet'), 'Wilson'],
@@ -211,14 +239,24 @@ const projectInfo = {
       {
         type: 'frames',
         title: L('Selected Frames', 'Images choisies'),
+        text: [L('Creative Direction', 'Direction créative'), 'direction'],
         groups: [
           { label: L('Ball', 'Balle'), files: ['ball01', 'ball02', 'ball03'], arrange: 'stagger', perRow: 3 },
           { label: L('Bench', 'Banc'), note: L('One shot, three colourways', 'Un plan, trois coloris'), files: ['bench 01', 'bench 02', 'bench 03'], arrange: 'row' },
           { label: L('Court', 'Court'), note: L('One shot, three colourways', 'Un plan, trois coloris'), files: ['court 01', 'court 02', 'court 03'], arrange: 'row' },
         ],
       },
-      { type: 'compare', title: L('Clay / Final', 'Clay / Final'), pairs: [['ball01', 'clay']] },
-      { type: 'details', screenshots: ['screenshot 01', 'screenshot 02', 'screenshot 03'] },
+      {
+        type: 'compare',
+        title: L('Clay / Final', 'Clay / Final'),
+        text: [L('Look Development', 'Développement du look'), 'lookdev'],
+        pairs: [['ball01', 'clay']],
+      },
+      {
+        type: 'details',
+        text: [L('Production & Rendering', 'Production & rendu'), 'production'],
+        screenshots: ['screenshot 01', 'screenshot 02', 'screenshot 03'],
+      },
     ],
   },
   gummagic: {
@@ -232,14 +270,16 @@ const projectInfo = {
       {
         type: 'frames',
         title: L('Selected Frames', 'Images choisies'),
-        // Renders, with the ads and gums scattered between them.
+        // Renders, with the ads and gums tucked small into the empty side of each row.
         groups: [
-          { files: ['render 01', 'render 02'], arrange: 'cinema' },
-          { arrange: 'interlude', items: [{ file: 'gum 01', left: 52, width: 18 }, { file: 'ad1', width: 22, drop: 160 }] },
-          { files: ['render 03', 'render 04'], arrange: 'cinema' },
-          { arrange: 'interlude', items: [{ file: 'ad2', left: 8, width: 24 }, { file: 'gum 02', width: 16, drop: 220 }] },
-          { files: ['render 05', 'render 06'], arrange: 'cinema' },
-          { arrange: 'interlude', items: [{ file: 'gum 03', left: 30, width: 15, drop: 120 }, { file: 'ad3', width: 24 }] },
+          {
+            files: [
+              'render 01', 'gum 01', 'ad1', 'render 02', 'render 03', 'gum 02',
+              'ad2', 'render 04', 'render 05', 'gum 03', 'ad3', 'render 06',
+            ],
+            arrange: 'mix',
+            tight: true,
+          },
         ],
       },
       {

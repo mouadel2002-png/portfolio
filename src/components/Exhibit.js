@@ -28,6 +28,16 @@ export const PATTERNS = {
     { items: [{ left: 26, wide: 74, tall: 44 }] },
     { items: [{ left: 0, wide: 40, tall: 26, drop: 80 }, { wide: 52, tall: 32 }] },
   ],
+  // Wide renders with small loose pieces tucked into the empty side of each row
+  // (files go render, piece, piece, render, …). `bare` pieces have no caption.
+  mix: [
+    { items: [{ left: 0, wide: 66, tall: 12 }, { wide: 12, tall: 12, drop: 200, bare: true }] },
+    { items: [{ left: 5, wide: 14, tall: 14, drop: 40, bare: true }, { wide: 62, tall: 14 }] },
+    { items: [{ left: 10, wide: 58, tall: 11 }, { wide: 11, tall: 11, drop: 280, bare: true }] },
+    { items: [{ left: 0, wide: 14, tall: 14, drop: 140, bare: true }, { wide: 66, tall: 14 }] },
+    { items: [{ left: 0, wide: 64, tall: 12 }, { wide: 12, tall: 12, drop: 60, bare: true }] },
+    { items: [{ left: 18, wide: 14, tall: 14, drop: 220, bare: true }, { wide: 58, tall: 14 }] },
+  ],
 };
 
 // Never taller than the screen (minus header and caption), so a piece is seen whole.
@@ -79,6 +89,7 @@ export default function Exhibit({ images, title, pattern = PATTERNS.wall, start 
               img={img}
               n={n}
               title={title}
+              bare={slot.bare}
               onOpen={onOpen && (() => onOpen(n - start))}
               style={{
                 width: `${isWide(img) ? slot.wide : slot.tall}%`,
@@ -94,7 +105,7 @@ export default function Exhibit({ images, title, pattern = PATTERNS.wall, start 
   );
 }
 
-export function Piece({ img, n, title, style, onOpen, caption }) {
+export function Piece({ img, n, title, style, onOpen, caption, bare }) {
   const clickable = onOpen
     ? {
         role: 'button',
@@ -107,6 +118,7 @@ export function Piece({ img, n, title, style, onOpen, caption }) {
   return (
     <figure className={`exhibit__piece ${onOpen ? 'is-clickable' : ''}`} style={style} {...clickable}>
       <RevealImage src={img.src} alt={`${title} ${n}`} ratio={`${img.w} / ${img.h}`} />
+      {!bare && (
       <figcaption>
         {caption ? (
           caption
@@ -116,6 +128,7 @@ export function Piece({ img, n, title, style, onOpen, caption }) {
           </>
         )}
       </figcaption>
+      )}
     </figure>
   );
 }

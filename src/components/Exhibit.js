@@ -4,7 +4,7 @@ import { useMediaQuery } from '../hooks';
 // Hand-tuned "gallery wall" rows that repeat down the page. Widths and offsets are % of
 // the page width; `drop` pushes a piece down (px) so neighbours never sit on one line.
 // Wide pieces use `wide`, square/portrait pieces use `tall`. Rows with several pieces
-// spread them across the full width.
+// spread them across the full width; `right` (%) keeps the last piece in from the right edge.
 export const PATTERNS = {
   // Default wall for a project's loose images.
   wall: [
@@ -31,11 +31,11 @@ export const PATTERNS = {
   // Wide renders with small loose pieces tucked into the empty side of each row
   // (files go render, piece, piece, render, …). `bare` pieces have no caption.
   mix: [
-    { items: [{ left: 0, wide: 66, tall: 12 }, { wide: 12, tall: 12, drop: 200, bare: true }] },
+    { items: [{ left: 0, wide: 66, tall: 12 }, { wide: 12, tall: 12, drop: 200, right: 9, bare: true }] },
     { items: [{ left: 5, wide: 14, tall: 14, drop: 40, bare: true }, { wide: 62, tall: 14 }] },
-    { items: [{ left: 10, wide: 58, tall: 11 }, { wide: 11, tall: 11, drop: 280, bare: true }] },
+    { items: [{ left: 10, wide: 58, tall: 11 }, { wide: 11, tall: 11, drop: 280, right: 19, bare: true }] },
     { items: [{ left: 0, wide: 14, tall: 14, drop: 140, bare: true }, { wide: 66, tall: 14 }] },
-    { items: [{ left: 0, wide: 64, tall: 12 }, { wide: 12, tall: 12, drop: 60, bare: true }] },
+    { items: [{ left: 0, wide: 64, tall: 12 }, { wide: 12, tall: 12, drop: 60, right: 7, bare: true }] },
     { items: [{ left: 18, wide: 14, tall: 14, drop: 220, bare: true }, { wide: 58, tall: 14 }] },
   ],
 };
@@ -95,6 +95,7 @@ export default function Exhibit({ images, title, pattern = PATTERNS.wall, start 
                 width: `${isWide(img) ? slot.wide : slot.tall}%`,
                 maxWidth: fitScreen(img),
                 marginLeft: slot.left !== undefined ? `${slot.left}%` : undefined,
+                marginRight: slot.right !== undefined ? `${slot.right}%` : undefined,
                 marginTop: slot.drop ? `${slot.drop}px` : undefined,
               }}
             />

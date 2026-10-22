@@ -107,6 +107,15 @@ const projectInfo = {
   },
   globalstar: {
     category: L('3D Animation', 'Animation 3D'),
+    // DRAFT details, inferred from the files: please confirm (and add Tools).
+    details: [
+      [L('Project', 'Projet'), 'Globalstar'],
+      [L('Discipline', 'Discipline'), L('3D Animation, Storyboarding', 'Animation 3D, storyboard')],
+      [
+        L('Scope', 'Périmètre'),
+        L('Storyboard, Modeling, Animation, Lighting, Rendering', 'Storyboard, modélisation, animation, éclairage, rendu'),
+      ],
+    ],
     layout: [
       {
         type: 'frames',
@@ -148,9 +157,42 @@ const projectInfo = {
           },
         ],
       },
+      { type: 'details' },
     ],
   },
-  microsoft: { category: L('Motion Design', 'Motion design') },
+  microsoft: {
+    category: L('Motion Design', 'Motion design'),
+    // DRAFT details, inferred from the files: please confirm (and add Tools).
+    details: [
+      [L('Project', 'Projet'), 'Microsoft'],
+      [L('Discipline', 'Discipline'), L('3D Motion Design', 'Motion design 3D')],
+      [
+        L('Scope', 'Périmètre'),
+        L('Modeling, Texturing, Animation, Lighting, Rendering, Compositing', 'Modélisation, texturing, animation, éclairage, rendu, compositing'),
+      ],
+    ],
+    layout: [
+      {
+        type: 'frames',
+        title: L('Selected Frames', 'Images choisies'),
+        groups: [
+          {
+            files: [
+              'cover', 'render 01', 'render 02', 'render 03', 'render 04', 'render 05', 'render 06',
+              'render 07', 'render 08', 'render 10', 'render 11', 'render 12', 'render 13',
+            ],
+            arrange: 'cinema',
+          },
+        ],
+      },
+      {
+        type: 'compare',
+        title: L('Clay / Final', 'Clay / Final'),
+        pairs: [['render 01', 'clay 1'], ['render 07', 'clay 2']],
+      },
+      { type: 'details' },
+    ],
+  },
   wilson: {
     category: L('Product Rendering', 'Rendu produit'),
     // DRAFT details, inferred from the files (Cinema 4D screenshots): please confirm.

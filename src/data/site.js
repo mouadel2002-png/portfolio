@@ -3,29 +3,45 @@ import projects from './projects.json';
 import portrait from './portrait.json';
 
 const img = (id) => `https://framerusercontent.com/images/${id}`;
+// Text shown in both languages: L(english, french). Plain strings are the same in both.
+const L = (en, fr) => ({ en, fr });
 
 export const profile = {
   name: 'Mouad Tahri',
-  role: 'Digital Designer',
+  role: L('Digital Designer', 'Designer Numérique'),
   location: 'Houston, TX',
+  // Placeholder: replace with your real address.
+  email: 'hello@mouadtahri.com',
   year: new Date().getFullYear(),
-  services: ['Branding', 'Creative Direction', 'UI/UX Design'],
-  intro:
+  services: [
+    L('Branding', 'Identité de marque'),
+    L('Creative Direction', 'Direction créative'),
+    L('UI/UX Design', 'Design UI/UX'),
+  ],
+  intro: L(
     "I bring a dynamic and impactful approach to brand design, focusing on creating identities that vividly communicate a business's essence to its intended audience.",
-  aboutHeadline: ['Unforgettable', 'Digital Experiences'],
-  // One string per paragraph.
+    "J’apporte une approche dynamique et percutante du design de marque, avec des identités qui traduisent clairement l’essence d’une entreprise auprès de son public."
+  ),
+  aboutHeadline: [L('Unforgettable', 'Des expériences'), L('Digital Experiences', 'numériques inoubliables')],
+  // One entry per paragraph.
   aboutText: [
-    'I’ve always seen art as a way of looking at the world differently. A space for questioning, experimenting, and giving form to ideas that don’t always have words.',
-    'My practice lives somewhere between design and art, combining visual communication, 3D, and motion to create work that goes beyond appearance. I’m interested in the balance between simplicity and expression, where even the smallest detail can change the way something is perceived.',
+    L(
+      'I’ve always seen art as a way of looking at the world differently. A space for questioning, experimenting, and giving form to ideas that don’t always have words.',
+      'J’ai toujours vu l’art comme une façon de regarder le monde autrement. Un espace pour questionner, expérimenter et donner forme à des idées qui n’ont pas toujours de mots.'
+    ),
+    L(
+      'My practice lives somewhere between design and art, combining visual communication, 3D, and motion to create work that goes beyond appearance. I’m interested in the balance between simplicity and expression, where even the smallest detail can change the way something is perceived.',
+      'Ma pratique se situe entre le design et l’art, mêlant communication visuelle, 3D et motion pour créer un travail qui va au-delà de l’apparence. Je m’intéresse à l’équilibre entre simplicité et expression, là où le moindre détail peut changer la façon dont une chose est perçue.'
+    ),
   ],
   portrait,
 };
 
 export const experiences = [
-  { year: '2026', title: '3D Generalist', company: 'IMAGE FACTORY Maroc' },
-  { year: '2025', title: '3D Motion Designer', company: 'Freelance' },
-  { year: '2023 – 2024', title: '3D Designer', company: 'IMAGE FACTORY Maroc' },
-  { year: '2022', title: 'Graphic Designer', company: 'FAAR-PRONERGY' },
+  { year: '2026', title: L('3D Generalist', 'Généraliste 3D'), company: 'IMAGE FACTORY Maroc' },
+  { year: '2025', title: L('3D Motion Designer', 'Motion designer 3D'), company: L('Freelance', 'Indépendant') },
+  { year: '2023 – 2024', title: L('3D Designer', 'Designer 3D'), company: 'IMAGE FACTORY Maroc' },
+  { year: '2022', title: L('Graphic Designer', 'Graphiste'), company: 'FAAR-PRONERGY' },
 ];
 
 export const socials = [
@@ -35,10 +51,11 @@ export const socials = [
 ];
 
 export const navLinks = [
-  { label: 'Home', to: '/' },
-  { label: 'About', to: '/about' },
-  { label: 'Playground', to: '/playground' },
-  { label: 'Gallery', to: '/gallery' },
+  // label = key in the interface dictionary (src/i18n.js)
+  { label: 'home', to: '/' },
+  { label: 'about', to: '/about' },
+  { label: 'playground', to: '/playground' },
+  { label: 'gallery', to: '/gallery' },
 ];
 
 // Project images come from src/data/projects.json, generated from each project folder
@@ -52,106 +69,165 @@ export const navLinks = [
 //     pairs   = equal-size staggered two-column wall
 //     row     = side by side on one line, same size and height (e.g. one shot in three colours)
 //     stagger = side by side, each hung at its own height (perRow pieces per line)
+//   ('cinema' = wide stills at alternating sizes; a group can also set `captions: [...]`)
 //   { type: 'compare', title, text: [label, storyKey], pairs: [[final, clay], ...] }
+//   { type: 'shots', title, featured: index, shots: [{ label, sketch, clay, final }, ...] }
+//     -> the featured shot is one frame with Sketch | Clay | Final dividers to drag,
+//        the others are Sketch / Clay / Final triptychs
 //   { type: 'details', screenshots: [...] }   -> uses `details` rows below
 // Projects without a layout show all their images as one exhibition wall.
 const projectInfo = {
   eden: {
-    category: 'Product Rendering',
+    category: L('Product Rendering', 'Rendu produit'),
     // DRAFT details, inferred from the files (Blender screenshots): please confirm.
     details: [
-      ['Project', 'Eden'],
-      ['Discipline', '3D Product Visualization, Packaging'],
-      ['Scope', 'Modeling, Texturing, Lighting, Rendering'],
-      ['Tools', 'Blender'],
+      [L('Project', 'Projet'), 'Eden'],
+      [L('Discipline', 'Discipline'), L('3D Product Visualization, Packaging', 'Visualisation produit 3D, packaging')],
+      [L('Scope', 'Périmètre'), L('Modeling, Texturing, Lighting, Rendering', 'Modélisation, texturing, éclairage, rendu')],
+      [L('Tools', 'Outils'), 'Blender'],
     ],
     layout: [
       {
         type: 'frames',
-        title: 'Selected Frames',
+        title: L('Selected Frames', 'Images choisies'),
         groups: [{ files: ['render 02', 'render 03', 'render 04', 'render 05', 'render 06', 'render 07', 'render 08', 'render 09'], arrange: 'pairs' }],
       },
       {
         type: 'frames',
-        title: 'Pens & Pills',
+        title: L('Pens & Pills', 'Stylos & comprimés'),
         tone: 'light',
         groups: [
-          { label: 'Pens', files: ['pen 01', 'pen 02', 'pen 03', 'pen 04', 'pen 05', 'pen 06', 'pen 07'], arrange: 'stagger', perRow: 4 },
-          { label: 'Pills', files: ['pills 01', 'pills 02', 'pills 03', 'pills 04'], arrange: 'stagger', perRow: 4 },
+          { label: L('Pens', 'Stylos'), files: ['pen 01', 'pen 02', 'pen 03', 'pen 04', 'pen 05', 'pen 06', 'pen 07'], arrange: 'stagger', perRow: 4 },
+          { label: L('Pills', 'Comprimés'), files: ['pills 01', 'pills 02', 'pills 03', 'pills 04'], arrange: 'stagger', perRow: 4 },
         ],
       },
-      { type: 'compare', title: 'Clay / Final', pairs: [['cover', 'clay 1'], ['render 05', 'clay 2']] },
+      { type: 'compare', title: L('Clay / Final', 'Clay / Final'), pairs: [['cover', 'clay 1'], ['render 05', 'clay 2']] },
       { type: 'details', screenshots: ['screenshot 01', 'screenshot 02'] },
     ],
   },
-  globalstar: { category: '3D Animation' },
-  microsoft: { category: 'Motion Design' },
+  globalstar: {
+    category: L('3D Animation', 'Animation 3D'),
+    layout: [
+      {
+        type: 'frames',
+        title: L('Selected Frames', 'Images choisies'),
+        groups: [
+          {
+            files: ['render 01', 'render 02', 'render 03', 'render 04', 'render 05', 'render 06', 'render 08', 'render 09'],
+            arrange: 'cinema',
+          },
+        ],
+      },
+      {
+        type: 'shots',
+        title: L('Shot Breakdown', 'Découpage des plans'),
+        featured: 3,
+        shots: [
+          { label: L('Shot 01', 'Plan 01'), sketch: 'gs-storyboardartboard-1', clay: 'clay 01', final: 'render 01' },
+          { label: L('Shot 02', 'Plan 02'), sketch: 'gs-storyboardartboard-2', clay: 'clay 02', final: 'cover' },
+          { label: L('Shot 03', 'Plan 03'), sketch: 'gs-storyboardartboard-3', clay: 'clay 03', final: 'render 02' },
+          { label: L('Shot 04', 'Plan 04'), sketch: 'gs-storyboardartboard-4', clay: 'clay 04', final: 'render 03' },
+          { label: L('Shot 07', 'Plan 07'), sketch: 'gs-storyboardartboard-9', clay: 'clay 05', final: 'render 06' },
+          { label: L('Shot 09', 'Plan 09'), sketch: 'gs-storyboardartboard-11', clay: 'clay 06', final: 'render 09' },
+        ],
+      },
+      {
+        type: 'frames',
+        title: L('Storyboard', 'Storyboard'),
+        tone: 'light',
+        groups: [
+          {
+            files: [
+              'gs-storyboardartboard-1', 'gs-storyboardartboard-2', 'gs-storyboardartboard-3',
+              'gs-storyboardartboard-4', 'gs-storyboardartboard-7', 'gs-storyboardartboard-8',
+              'gs-storyboardartboard-9', 'gs-storyboardartboard-10', 'gs-storyboardartboard-11',
+            ],
+            captions: [L('Shot 01', 'Plan 01'), L('Shot 02', 'Plan 02'), L('Shot 03', 'Plan 03'), L('Shot 04', 'Plan 04'), L('Shot 05', 'Plan 05'), L('Shot 06', 'Plan 06'), L('Shot 07', 'Plan 07'), L('Shot 08', 'Plan 08'), L('Shot 09', 'Plan 09')],
+            arrange: 'row',
+            perRow: 3,
+          },
+        ],
+      },
+    ],
+  },
+  microsoft: { category: L('Motion Design', 'Motion design') },
   wilson: {
-    category: 'Product Rendering',
+    category: L('Product Rendering', 'Rendu produit'),
     // DRAFT details, inferred from the files (Cinema 4D screenshots): please confirm.
     details: [
-      ['Project', 'Wilson'],
-      ['Discipline', '3D Product Visualization'],
-      ['Scope', 'Modeling, Texturing, Lighting, Rendering'],
-      ['Tools', 'Cinema 4D'],
+      [L('Project', 'Projet'), 'Wilson'],
+      [L('Discipline', 'Discipline'), L('3D Product Visualization', 'Visualisation produit 3D')],
+      [L('Scope', 'Périmètre'), L('Modeling, Texturing, Lighting, Rendering', 'Modélisation, texturing, éclairage, rendu')],
+      [L('Tools', 'Outils'), 'Cinema 4D'],
     ],
     layout: [
       {
         type: 'frames',
-        title: 'Selected Frames',
+        title: L('Selected Frames', 'Images choisies'),
         groups: [
-          { label: 'Ball', files: ['ball01', 'ball02', 'ball03'], arrange: 'stagger', perRow: 3 },
-          { label: 'Bench', note: 'One shot, three colourways', files: ['bench 01', 'bench 02', 'bench 03'], arrange: 'row' },
-          { label: 'Court', note: 'One shot, three colourways', files: ['court 01', 'court 02', 'court 03'], arrange: 'row' },
+          { label: L('Ball', 'Balle'), files: ['ball01', 'ball02', 'ball03'], arrange: 'stagger', perRow: 3 },
+          { label: L('Bench', 'Banc'), note: L('One shot, three colourways', 'Un plan, trois coloris'), files: ['bench 01', 'bench 02', 'bench 03'], arrange: 'row' },
+          { label: L('Court', 'Court'), note: L('One shot, three colourways', 'Un plan, trois coloris'), files: ['court 01', 'court 02', 'court 03'], arrange: 'row' },
         ],
       },
-      { type: 'compare', title: 'Clay / Final', pairs: [['ball01', 'clay']] },
+      { type: 'compare', title: L('Clay / Final', 'Clay / Final'), pairs: [['ball01', 'clay']] },
       { type: 'details', screenshots: ['screenshot 01', 'screenshot 02', 'screenshot 03'] },
     ],
   },
-  gummagic: { category: 'Branding & Packaging' },
+  gummagic: { category: L('Branding & Packaging', 'Identité & packaging') },
   samsung: {
-    category: 'Product Rendering',
+    category: L('Product Rendering', 'Rendu produit'),
     // One line under "Services" at the top of the project page.
-    summary: 'A minimal, futuristic product film giving an everyday charger a premium presence.',
+    summary: L(
+      'A minimal, futuristic product film giving an everyday charger a premium presence.',
+      'Un film produit minimal et futuriste qui donne à un chargeur du quotidien une présence premium.'
+    ),
     // Wall-text blocks placed along the project page (each is optional).
     story: {
-      overview:
+      overview: L(
         'A product-focused commercial created for an e-commerce technology website, exploring a clean, minimal, and futuristic visual language. The goal was to give an everyday tech product a premium presence through smooth motion, refined details, and carefully crafted imagery.',
-      direction:
+        'Une publicité centrée sur le produit, réalisée pour un site e-commerce de technologie, explorant un langage visuel épuré, minimal et futuriste. L’objectif était de donner à un produit tech du quotidien une présence premium grâce à un mouvement fluide, des détails soignés et des images travaillées avec précision.'
+      ),
+      direction: L(
         'The vision was to present the charger in an artistic, slightly abstract way — moving beyond a straightforward product showcase to create something that feels modern, distinctive, and visually engaging. Every movement and composition was designed to draw the eye back to the product.',
-      lookdev:
+        'L’idée était de présenter le chargeur de manière artistique, légèrement abstraite — au-delà d’une simple mise en valeur du produit — pour créer quelque chose de moderne, singulier et visuellement captivant. Chaque mouvement et chaque composition ramènent le regard vers le produit.'
+      ),
+      lookdev: L(
         'Finding the right look was a process of observation, experimentation, and refinement. Textures, lighting, colors, and reflections were tested and adjusted until they came together in a balanced visual identity. The focus was on keeping the product clean and readable while building a futuristic atmosphere around it.',
-      output:
+        'Trouver le bon rendu a été un travail d’observation, d’expérimentation et d’affinage. Textures, lumières, couleurs et reflets ont été testés et ajustés jusqu’à former une identité visuelle équilibrée. L’enjeu était de garder le produit net et lisible tout en construisant autour de lui une atmosphère futuriste.'
+      ),
+      output: L(
         'A sleek, technology-driven product animation that combines minimalism with a cinematic touch, designed to capture attention and give the product a more elevated visual presence.',
+        'Une animation produit élégante et technologique, qui allie minimalisme et touche cinématographique, pensée pour capter l’attention et offrir au produit une présence visuelle plus affirmée.'
+      ),
     },
     // Shown in the "Project Details" section, one row per entry.
     details: [
-      ['Project', 'Samsung Charger'],
-      ['Discipline', '3D Motion Design, Product Visualization'],
-      ['Scope', 'Modeling, Texturing, Animation, Lighting, Rendering, Compositing & Sound Design'],
-      ['Tools', 'Cinema 4D, Octane, After Effects'],
+      [L('Project', 'Projet'), L('Samsung Charger', 'Chargeur Samsung')],
+      [L('Discipline', 'Discipline'), L('3D Motion Design, Product Visualization', 'Motion design 3D, visualisation produit')],
+      [L('Scope', 'Périmètre'), L('Modeling, Texturing, Animation, Lighting, Rendering, Compositing & Sound Design', 'Modélisation, texturing, animation, éclairage, rendu, compositing & sound design')],
+      [L('Tools', 'Outils'), 'Cinema 4D, Octane, After Effects'],
     ],
     layout: [
       {
         type: 'frames',
-        title: 'Selected Frames',
-        text: ['Creative Direction', 'direction'],
+        title: L('Selected Frames', 'Images choisies'),
+        text: [L('Creative Direction', 'Direction créative'), 'direction'],
         groups: [{ files: ['cover', 'cover 2', 'cover 3', 'cover 4'], arrange: 'pairs' }],
       },
       {
         type: 'compare',
-        title: 'Clay / Final',
-        text: ['Look Development', 'lookdev'],
+        title: L('Clay / Final', 'Clay / Final'),
+        text: [L('Look Development', 'Développement du look'), 'lookdev'],
         pairs: [['cover', 'clay 01']],
       },
       { type: 'details', screenshots: ['screen 01', 'screen 02', 'screen 03'] },
     ],
   },
-  sauvage: { category: 'Motion Design' },
-  oulmess: { category: 'Product Animation' },
-  'the-matter': { category: 'Short Film' },
-  'once-cherished-now-forsaken': { category: 'Short Film' },
+  sauvage: { category: L('Motion Design', 'Motion design') },
+  oulmess: { category: L('Product Animation', 'Animation produit') },
+  'the-matter': { category: L('Short Film', 'Court métrage') },
+  'once-cherished-now-forsaken': { category: L('Short Film', 'Court métrage') },
 };
 
 export const works = projects.map((p) => ({

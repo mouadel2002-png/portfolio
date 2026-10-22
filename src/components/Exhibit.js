@@ -21,6 +21,13 @@ export const PATTERNS = {
     { items: [{ left: 6, wide: 40, tall: 40 }, { wide: 40, tall: 40, drop: 96 }] },
     { items: [{ left: 14, wide: 40, tall: 40 }, { wide: 40, tall: 40, drop: 96 }] },
   ],
+  // Wide film stills: big single frames alternating sides, with offset pairs between them.
+  cinema: [
+    { items: [{ left: 0, wide: 74, tall: 44 }] },
+    { items: [{ left: 8, wide: 46, tall: 30 }, { wide: 40, tall: 26, drop: 120 }] },
+    { items: [{ left: 26, wide: 74, tall: 44 }] },
+    { items: [{ left: 0, wide: 40, tall: 26, drop: 80 }, { wide: 52, tall: 32 }] },
+  ],
 };
 
 // Never taller than the screen (minus header and caption), so a piece is seen whole.
@@ -86,7 +93,7 @@ export default function Exhibit({ images, title, pattern = PATTERNS.wall, start 
   );
 }
 
-export function Piece({ img, n, title, style, onOpen }) {
+export function Piece({ img, n, title, style, onOpen, caption }) {
   const clickable = onOpen
     ? {
         role: 'button',
@@ -100,7 +107,13 @@ export function Piece({ img, n, title, style, onOpen }) {
     <figure className={`exhibit__piece ${onOpen ? 'is-clickable' : ''}`} style={style} {...clickable}>
       <RevealImage src={img.src} alt={`${title} ${n}`} ratio={`${img.w} / ${img.h}`} />
       <figcaption>
-        <span className="muted">({String(n).padStart(2, '0')})</span> {title}
+        {caption ? (
+          caption
+        ) : (
+          <>
+            <span className="muted">({String(n).padStart(2, '0')})</span> {title}
+          </>
+        )}
       </figcaption>
     </figure>
   );

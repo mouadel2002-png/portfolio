@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { ThemeProvider } from './theme';
+import { LangProvider } from './i18n';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Cursor from './components/Cursor';
@@ -40,13 +41,15 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <ThemeProvider>
-      <BrowserRouter>
-        <ScrollToTop />
-        <Header />
-        <AnimatedRoutes />
-        <Footer />
-        <Cursor />
-      </BrowserRouter>
+      <LangProvider>
+        <BrowserRouter>
+          <ScrollToTop />
+          <Header />
+          <AnimatedRoutes />
+          <Footer />
+          <Cursor />
+        </BrowserRouter>
+      </LangProvider>
     </ThemeProvider>
   );
 }

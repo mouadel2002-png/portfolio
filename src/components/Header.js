@@ -3,11 +3,14 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { navLinks } from '../data/site';
 import { useTheme } from '../theme';
+import { useLang } from '../i18n';
+import LangSwitch from './LangSwitch';
 
 const ease = [0.22, 1, 0.36, 1];
 
 export default function Header() {
   const { theme, toggle } = useTheme();
+  const { t } = useLang();
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   const location = useLocation();
@@ -46,13 +49,14 @@ export default function Header() {
           {navLinks.map((link) => (
             <NavLink key={link.to} to={link.to} end className="header__link">
               <span className="header__link-dot" />
-              {link.label}
+              {t(link.label)}
             </NavLink>
           ))}
         </nav>
         <div className="header__actions">
+          <LangSwitch />
           <button className="header__theme" onClick={toggle} aria-label="Toggle color theme">
-            {theme === 'dark' ? 'DARK MODE' : 'LIGHT MODE'}
+            {theme === 'dark' ? t('darkMode') : t('lightMode')}
             <span className="header__dot" />
           </button>
           <button
@@ -61,7 +65,7 @@ export default function Header() {
             aria-expanded={open}
             aria-controls="site-menu"
           >
-            {open ? 'CLOSE' : 'MENU'}
+            {open ? t('close') : t('menu')}
           </button>
         </div>
       </header>
@@ -88,7 +92,7 @@ export default function Header() {
                   >
                     <NavLink to={link.to} end className="menu__link">
                       <span className="menu__index">0{i + 1}</span>
-                      {link.label}
+                      {t(link.label)}
                     </NavLink>
                   </motion.span>
                 </li>

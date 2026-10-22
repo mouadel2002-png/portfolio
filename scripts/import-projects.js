@@ -18,7 +18,8 @@ const projects = [
   ['GUMMAGIC', 'Gummagic'], ['SAMSUNG', 'Samsung'], ['SAUVAGE', 'Sauvage'], ['OULMESS', 'Oulmess'],
   ['THE MATTER', 'The Matter'], ['ONCE CHERISHED NOW FORSAKEN', 'Once Cherished Now Forsaken'],
 ];
-const fallbackCover = { GLOBALSTAR: 'ChatGPT Image Oct 18, 2026, 03_14_55 AM-2.png' };
+// Used only when a folder has no COVER image.
+const fallbackCover = {};
 const isImg = (f) => /\.(png|jpe?g)$/i.test(f);
 // Every image is also listed under its file name (lower case, no extension, e.g. "bench 01"),
 // so a project page can be laid out by name in src/data/site.js (see projectInfo.*.layout).

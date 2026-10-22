@@ -2,11 +2,14 @@ import Page from '../components/Page';
 import FitText from '../components/FitText';
 import { MaskLine, Reveal, RevealImage } from '../components/Reveal';
 import { experiences, profile } from '../data/site';
+import { useLang } from '../i18n';
 import { DESKTOP, useMediaQuery } from '../hooks';
 import './pages.css';
 
 export default function About() {
   const isDesktop = useMediaQuery(DESKTOP);
+  const { t, tr } = useLang();
+  const headline = profile.aboutHeadline.map(tr);
 
   return (
     <Page title={`About — ${profile.name}`}>
@@ -14,12 +17,12 @@ export default function About() {
         {isDesktop ? (
           <h1 className="display">
             <MaskLine>
-              <FitText>{profile.aboutHeadline.join(' ')}</FitText>
+              <FitText>{headline.join(' ')}</FitText>
             </MaskLine>
           </h1>
         ) : (
           <h1 className="display display--sm">
-            {profile.aboutHeadline.map((line, i) => (
+            {headline.map((line, i) => (
               <MaskLine key={line} delay={i * 0.12} className={i ? 'display__indent' : ''}>
                 {line}
               </MaskLine>
@@ -37,8 +40,8 @@ export default function About() {
         />
         <Reveal className="about-intro__text" delay={0.15}>
           {profile.aboutText.map((para) => (
-            <p key={para.slice(0, 20)} className="body-text">
-              {para}
+            <p key={para.en.slice(0, 20)} className="body-text">
+              {tr(para)}
             </p>
           ))}
         </Reveal>
@@ -46,14 +49,14 @@ export default function About() {
 
       <section className="experiences container">
         <Reveal className="experiences__title">
-          <h2 className="section-title">Experience</h2>
+          <h2 className="section-title">{t('experience')}</h2>
         </Reveal>
         <div className="grid experiences__list">
           {experiences.map((e, i) => (
-            <Reveal key={e.year + e.title} className="experience" delay={(i % 4) * 0.08}>
+            <Reveal key={e.year + tr(e.title)} className="experience" delay={(i % 4) * 0.08}>
               <h3 className="experience__year">{e.year}</h3>
-              <p>{e.title}</p>
-              <p className="muted">{e.company}</p>
+              <p>{tr(e.title)}</p>
+              <p className="muted">{tr(e.company)}</p>
             </Reveal>
           ))}
         </div>

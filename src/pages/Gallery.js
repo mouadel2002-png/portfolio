@@ -5,6 +5,7 @@ import FitText from '../components/FitText';
 import { MaskLine, Reveal } from '../components/Reveal';
 import { gallery, profile } from '../data/site';
 import { DESKTOP, useMediaQuery } from '../hooks';
+import { useLang } from '../i18n';
 import './pages.css';
 
 const ease = [0.22, 1, 0.36, 1];
@@ -12,6 +13,7 @@ const projects = ['All', ...new Set(gallery.map((g) => g.project))];
 
 export default function Gallery() {
   const isDesktop = useMediaQuery(DESKTOP);
+  const { t } = useLang();
   const [filter, setFilter] = useState('All');
   const [open, setOpen] = useState(null);
 
@@ -43,10 +45,10 @@ export default function Gallery() {
         <h1 className="display">
           {isDesktop ? (
             <MaskLine>
-              <FitText>Gallery</FitText>
+              <FitText>{t('gallery')}</FitText>
             </MaskLine>
           ) : (
-            <MaskLine>Gallery</MaskLine>
+            <MaskLine>{t('gallery')}</MaskLine>
           )}
         </h1>
 
@@ -60,7 +62,7 @@ export default function Gallery() {
                 className={`gallery__filter ${filter === p ? 'is-active' : ''}`}
                 onClick={() => setFilter(p)}
               >
-                {p}
+                {p === 'All' ? t('all') : p}
               </button>
             ))}
           </div>
@@ -119,9 +121,9 @@ export default function Gallery() {
                 {items[open].project} <span className="muted">({open + 1}/{items.length})</span>
               </span>
               <span className="lightbox__actions">
-                <button onClick={() => step(-1)}>Prev</button>
-                <button onClick={() => step(1)}>Next</button>
-                <button onClick={() => setOpen(null)}>Close</button>
+                <button onClick={() => step(-1)}>{t('prev')}</button>
+                <button onClick={() => step(1)}>{t('next')}</button>
+                <button onClick={() => setOpen(null)}>{t('close')}</button>
               </span>
             </div>
           </motion.div>

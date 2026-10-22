@@ -5,10 +5,12 @@ import { DESKTOP, useMediaQuery } from '../hooks';
 import WorkCard from '../components/WorkCard';
 import { MaskLine, Reveal, RevealImage } from '../components/Reveal';
 import { playground, profile, works } from '../data/site';
+import { useLang } from '../i18n';
 import './pages.css';
 
 export default function Home() {
   const isDesktop = useMediaQuery(DESKTOP);
+  const { t, tr } = useLang();
 
   return (
     <Page title={`${profile.name} Portfolio`}>
@@ -29,7 +31,7 @@ export default function Home() {
           <h1 className="display">
             <MaskLine>
               <FitText>
-                {profile.name} <span className="display__mark">©</span> {profile.role}
+                {profile.name} <span className="display__mark">©</span> {tr(profile.role)}
               </FitText>
             </MaskLine>
           </h1>
@@ -39,14 +41,14 @@ export default function Home() {
               {profile.name} <span className="display__mark">©</span>
             </MaskLine>
             <MaskLine className="display__indent" delay={0.12}>
-              {profile.role}
+              {tr(profile.role)}
             </MaskLine>
           </h1>
         )}
         <ul className="hero__services">
           {profile.services.map((s, i) => (
-            <Reveal as="li" key={s} y={12} delay={0.5 + i * 0.08}>
-              {s}
+            <Reveal as="li" key={s.en} y={12} delay={0.5 + i * 0.08}>
+              {tr(s)}
             </Reveal>
           ))}
         </ul>
@@ -57,7 +59,7 @@ export default function Home() {
       <section className="works container">
         {/* Sits at the very bottom of the first screen, so reveal as soon as any of it shows. */}
         <Reveal className="grid works__head" delay={0.6} viewport={{ once: true, amount: 'some' }}>
-          <h2 className="section-title works__title">Selected Works</h2>
+          <h2 className="section-title works__title">{t('selectedWorks')}</h2>
           <span className="muted">[{works.length}]</span>
         </Reveal>
         <div className="works__list">
@@ -73,18 +75,18 @@ export default function Home() {
           <h3 className="muted">© {profile.year}</h3>
         </Reveal>
         <Reveal className="info__right" delay={0.1}>
-          <h3 className="muted">INFO</h3>
-          <p className="body-text">{profile.intro}</p>
+          <h3 className="muted">{t('info').toUpperCase()}</h3>
+          <p className="body-text">{tr(profile.intro)}</p>
         </Reveal>
       </section>
 
       <section className="pg-preview container">
         <Reveal className="grid pg-preview__head">
           <Link to="/playground" className="section-title">
-            Playground/Archive
+            {t('playgroundArchive')}
           </Link>
           <Link to="/playground" className="link-hover pg-preview__all">
-            view all
+            {t('viewAll')}
           </Link>
         </Reveal>
         <div className="pg-preview__list">
@@ -94,6 +96,22 @@ export default function Home() {
             </Link>
           ))}
         </div>
+      </section>
+
+      <section className="contact container" id="contact">
+        <Reveal className="contact__label muted">{t('contact')}</Reveal>
+        <h2 className="contact__title">
+          <MaskLine>{t('contactLine1')}</MaskLine>
+          <MaskLine delay={0.1}>{t('contactLine2')}</MaskLine>
+        </h2>
+        <Reveal delay={0.2}>
+          <a href={`mailto:${profile.email}`} className="contact__email">
+            {profile.email}
+            <span className="contact__arrow" aria-hidden="true">
+              →
+            </span>
+          </a>
+        </Reveal>
       </section>
     </Page>
   );

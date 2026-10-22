@@ -10,7 +10,7 @@
 
 .display__mark {
   font-weight: 300;
-  color: var(--muted);
+  color: inherit;
 }
 
 .display__indent {
@@ -324,10 +324,15 @@
   object-fit: contain;
 }
 
-.hero-media__sound {
+.hero-media__controls {
   position: absolute;
   right: 16px;
   bottom: 16px;
+  display: flex;
+  gap: 8px;
+}
+
+.hero-media__btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -338,6 +343,11 @@
   background: rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(8px);
   border-radius: 999px;
+  transition: background-color 0.3s var(--ease);
+}
+
+.hero-media__btn:hover {
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .hero-media__dot {
@@ -404,9 +414,13 @@
   position: relative;
   overflow: hidden;
   background: var(--img-bg);
-  cursor: ew-resize;
+  cursor: grab;
   touch-action: pan-y;
   user-select: none;
+}
+
+.compare__frame.is-active {
+  cursor: grabbing;
 }
 
 .compare__frame:focus-visible {
@@ -1342,5 +1356,144 @@
 
   .gallery__grid {
     margin-top: 60px;
+  }
+}
+
+/* ---------- Contact (end of landing page) ---------- */
+.contact {
+  padding-top: 160px;
+}
+
+.contact__label {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.contact__title {
+  margin-top: 40px;
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: clamp(40px, 7.4vw, 124px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.contact__title .mask-line:last-child {
+  color: var(--muted);
+}
+
+.contact__email {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  margin-top: 48px;
+  font-size: clamp(22px, 2.6vw, 40px);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 6px;
+  transition: border-color 0.4s var(--ease), gap 0.4s var(--ease);
+}
+
+.contact__email:hover {
+  border-color: var(--fg);
+  gap: 0.7em;
+}
+
+@media (min-width: 1200px) {
+  .contact {
+    padding-top: 220px;
+  }
+
+  .contact__title {
+    margin-top: 56px;
+  }
+}
+
+/* ---------- Shot breakdown (Stages.js + triptychs) ---------- */
+.plate--wide {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.shots {
+  margin-top: 96px;
+}
+
+.shots__legend {
+  display: none;
+}
+
+.shots__row + .shots__row {
+  margin-top: 48px;
+}
+
+.shots__label {
+  margin-bottom: 12px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Phones: keep the three stages side by side, small. */
+.shots__frames {
+  display: flex;
+  gap: 8px;
+}
+
+.shots__frames > .exhibit__piece {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.shots__frames figcaption {
+  font-size: 12px;
+}
+
+@media (min-width: 810px) {
+  .shots__legend,
+  .shots__row {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: var(--gap);
+    align-items: start;
+  }
+
+  .shots__legend {
+    padding-bottom: 14px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* Legend labels sit over the three frame columns. */
+  .shots__legend-cols {
+    grid-column: 2 / span 5;
+    display: flex;
+    gap: var(--gap);
+  }
+
+  .shots__legend-cols span {
+    flex: 1 1 0;
+  }
+
+  .shots__label {
+    margin: 0;
+    padding-top: 2px;
+  }
+
+  .shots__frames {
+    grid-column: 2 / span 5;
+    gap: var(--gap);
+    margin-top: 0;
+  }
+
+  .shots__frames figcaption {
+    font-size: 14px;
   }
 }

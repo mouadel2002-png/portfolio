@@ -1,17 +1,19 @@
 import { Link } from 'react-router-dom';
 import { navLinks, profile, socials } from '../data/site';
+import { useLang } from '../i18n';
 
 export default function Footer() {
+  const { t } = useLang();
   return (
     <footer className="footer">
       <div className="footer__col">
         <p>© {profile.year}</p>
-        <p className="muted">All rights reserved</p>
+        <p className="muted">{t('allRights')}</p>
       </div>
       <div className="footer__col footer__links">
         {navLinks.map((l) => (
           <Link key={l.to} to={l.to} className="link-hover">
-            {l.label}
+            {t(l.label)}
           </Link>
         ))}
       </div>

@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useLang } from '../i18n';
 
 const ease = [0.22, 1, 0.36, 1];
 
 // Full-screen image viewer. `index` is the open image (null = closed); arrows and Esc work too.
 export default function Lightbox({ images, index, onChange, onClose, label }) {
   const open = index !== null && images[index];
+  const { t } = useLang();
 
   useEffect(() => {
     if (!open) return undefined;
@@ -57,9 +59,9 @@ export default function Lightbox({ images, index, onChange, onClose, label }) {
               </span>
             </span>
             <span className="lightbox__actions">
-              {images.length > 1 && <button onClick={() => step(-1)}>Prev</button>}
-              {images.length > 1 && <button onClick={() => step(1)}>Next</button>}
-              <button onClick={onClose}>Close</button>
+              {images.length > 1 && <button onClick={() => step(-1)}>{t('prev')}</button>}
+              {images.length > 1 && <button onClick={() => step(1)}>{t('next')}</button>}
+              <button onClick={onClose}>{t('close')}</button>
             </span>
           </div>
         </motion.div>

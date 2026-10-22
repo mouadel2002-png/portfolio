@@ -252,8 +252,8 @@
     "title": "Globalstar",
     "cover": {
       "src": "/images/works/globalstar/cover.webp",
-      "w": 1672,
-      "h": 941
+      "w": 1800,
+      "h": 1013
     },
     "images": [
       {
@@ -370,176 +370,126 @@
         "src": "/images/works/globalstar/23.webp",
         "w": 1600,
         "h": 900
-      },
-      {
-        "src": "/images/works/globalstar/24.webp",
-        "w": 1600,
-        "h": 900
-      },
-      {
-        "src": "/images/works/globalstar/25.webp",
-        "w": 1600,
-        "h": 900
-      },
-      {
-        "src": "/images/works/globalstar/26.webp",
-        "w": 1600,
-        "h": 900
-      },
-      {
-        "src": "/images/works/globalstar/27.webp",
-        "w": 1600,
-        "h": 900
-      },
-      {
-        "src": "/images/works/globalstar/28.webp",
-        "w": 1600,
-        "h": 900
       }
     ],
     "files": {
-      "10": {
-        "src": "/images/works/globalstar/02.webp",
-        "w": 1600,
-        "h": 900
-      },
-      "chatgpt image oct 18, 2026, 03_14_55 am-2": {
+      "cover": {
         "src": "/images/works/globalstar/cover.webp",
-        "w": 1672,
-        "h": 941
+        "w": 1800,
+        "h": 1013
       },
-      "1.1": {
+      "clay 01": {
         "src": "/images/works/globalstar/01.webp",
         "w": 1600,
         "h": 900
       },
-      "autonomous robots in a modern warehouse": {
+      "clay 02": {
+        "src": "/images/works/globalstar/02.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "clay 03": {
         "src": "/images/works/globalstar/03.webp",
         "w": 1600,
         "h": 900
       },
-      "bg": {
+      "clay 04": {
         "src": "/images/works/globalstar/04.webp",
         "w": 1600,
         "h": 900
       },
-      "chatgpt image oct 18, 2026, 02_11_21 am-1": {
+      "clay 05": {
         "src": "/images/works/globalstar/05.webp",
         "w": 1600,
         "h": 900
       },
-      "chatgpt image oct 18, 2026, 02_11_21 am-2": {
+      "clay 06": {
         "src": "/images/works/globalstar/06.webp",
         "w": 1600,
         "h": 900
       },
-      "chatgpt image oct 18, 2026, 02_11_22 am-3": {
+      "gs-storyboardartboard-1": {
         "src": "/images/works/globalstar/07.webp",
         "w": 1600,
         "h": 900
       },
-      "chatgpt image oct 18, 2026, 03_14_53 am-1": {
+      "gs-storyboardartboard-2": {
         "src": "/images/works/globalstar/08.webp",
         "w": 1600,
         "h": 900
       },
-      "chatgpt image oct 18, 2026, 03_14_56 am-3": {
+      "gs-storyboardartboard-3": {
         "src": "/images/works/globalstar/09.webp",
         "w": 1600,
         "h": 900
       },
-      "chatgpt image oct 18, 2026, 03_14_57 am-4": {
+      "gs-storyboardartboard-4": {
         "src": "/images/works/globalstar/10.webp",
         "w": 1600,
         "h": 900
       },
-      "chatgpt image oct 18, 2026, 03_14_59 am-5": {
+      "gs-storyboardartboard-7": {
         "src": "/images/works/globalstar/11.webp",
         "w": 1600,
         "h": 900
       },
-      "fg": {
+      "gs-storyboardartboard-8": {
         "src": "/images/works/globalstar/12.webp",
         "w": 1600,
         "h": 900
       },
-      "gs-storyboardartboard-1": {
+      "gs-storyboardartboard-9": {
         "src": "/images/works/globalstar/13.webp",
         "w": 1600,
         "h": 900
       },
-      "gs-storyboardartboard-2": {
+      "gs-storyboardartboard-10": {
         "src": "/images/works/globalstar/14.webp",
         "w": 1600,
         "h": 900
       },
-      "gs-storyboardartboard-3": {
+      "gs-storyboardartboard-11": {
         "src": "/images/works/globalstar/15.webp",
         "w": 1600,
         "h": 900
       },
-      "gs-storyboardartboard-4": {
+      "render 01": {
         "src": "/images/works/globalstar/16.webp",
         "w": 1600,
         "h": 900
       },
-      "gs-storyboardartboard-5": {
+      "render 02": {
         "src": "/images/works/globalstar/17.webp",
         "w": 1600,
         "h": 900
       },
-      "gs-storyboardartboard-6": {
+      "render 03": {
         "src": "/images/works/globalstar/18.webp",
         "w": 1600,
         "h": 900
       },
-      "gs-storyboardartboard-7": {
+      "render 04": {
         "src": "/images/works/globalstar/19.webp",
         "w": 1600,
         "h": 900
       },
-      "gs-storyboardartboard-8": {
+      "render 05": {
         "src": "/images/works/globalstar/20.webp",
         "w": 1600,
         "h": 900
       },
-      "gs-storyboardartboard-9": {
+      "render 06": {
         "src": "/images/works/globalstar/21.webp",
         "w": 1600,
         "h": 900
       },
-      "gs-storyboardartboard-10": {
+      "render 08": {
         "src": "/images/works/globalstar/22.webp",
         "w": 1600,
         "h": 900
       },
-      "gs-storyboardartboard-11": {
+      "render 09": {
         "src": "/images/works/globalstar/23.webp",
-        "w": 1600,
-        "h": 900
-      },
-      "large automated warehouse 03": {
-        "src": "/images/works/globalstar/24.webp",
-        "w": 1600,
-        "h": 900
-      },
-      "monochrome automated warehouse aisle": {
-        "src": "/images/works/globalstar/25.webp",
-        "w": 1600,
-        "h": 900
-      },
-      "monochrome automated warehouse shelving": {
-        "src": "/images/works/globalstar/26.webp",
-        "w": 1600,
-        "h": 900
-      },
-      "untitled project_comp 1_2024-03-30_02.28.15": {
-        "src": "/images/works/globalstar/27.webp",
-        "w": 1600,
-        "h": 900
-      },
-      "warehouse": {
-        "src": "/images/works/globalstar/28.webp",
         "w": 1600,
         "h": 900
       }
@@ -623,26 +573,6 @@
         "src": "/images/works/microsoft/14.webp",
         "w": 1600,
         "h": 900
-      },
-      {
-        "src": "/images/works/microsoft/15.webp",
-        "w": 1600,
-        "h": 900
-      },
-      {
-        "src": "/images/works/microsoft/16.webp",
-        "w": 1600,
-        "h": 900
-      },
-      {
-        "src": "/images/works/microsoft/17.webp",
-        "w": 1600,
-        "h": 900
-      },
-      {
-        "src": "/images/works/microsoft/18.webp",
-        "w": 1600,
-        "h": 900
       }
     ],
     "video": {
@@ -656,93 +586,73 @@
         "w": 1800,
         "h": 1013
       },
-      "big final export_00021": {
+      "clay 1": {
         "src": "/images/works/microsoft/01.webp",
         "w": 1600,
         "h": 900
       },
-      "big final export_00142": {
+      "clay 2": {
         "src": "/images/works/microsoft/02.webp",
         "w": 1600,
         "h": 900
       },
-      "big final export_00152": {
+      "render 01": {
         "src": "/images/works/microsoft/03.webp",
         "w": 1600,
         "h": 900
       },
-      "big final export_00168": {
+      "render 02": {
         "src": "/images/works/microsoft/04.webp",
         "w": 1600,
         "h": 900
       },
-      "big final export_00171": {
+      "render 03": {
         "src": "/images/works/microsoft/05.webp",
         "w": 1600,
         "h": 900
       },
-      "big final export_00204": {
+      "render 04": {
         "src": "/images/works/microsoft/06.webp",
         "w": 1600,
         "h": 900
       },
-      "big final export_00312": {
+      "render 05": {
         "src": "/images/works/microsoft/07.webp",
         "w": 1600,
         "h": 900
       },
-      "big final export_00374": {
+      "render 06": {
         "src": "/images/works/microsoft/08.webp",
         "w": 1600,
         "h": 900
       },
-      "big final export_00491": {
+      "render 07": {
         "src": "/images/works/microsoft/09.webp",
         "w": 1600,
         "h": 900
       },
-      "big final export_00590": {
+      "render 08": {
         "src": "/images/works/microsoft/10.webp",
         "w": 1600,
         "h": 900
       },
-      "big final export_00744": {
+      "render 10": {
         "src": "/images/works/microsoft/11.webp",
         "w": 1600,
         "h": 900
       },
-      "big final export_00881": {
+      "render 11": {
         "src": "/images/works/microsoft/12.webp",
         "w": 1600,
         "h": 900
       },
-      "big final export_00900": {
+      "render 12": {
         "src": "/images/works/microsoft/13.webp",
         "w": 1600,
         "h": 900
       },
-      "chatgpt image oct 18, 2026, 03_19_40 pm-1": {
+      "render 13": {
         "src": "/images/works/microsoft/14.webp",
-        "w": 1600,
-        "h": 900
-      },
-      "chatgpt image oct 18, 2026, 03_19_41 pm-2": {
-        "src": "/images/works/microsoft/15.webp",
-        "w": 1600,
-        "h": 900
-      },
-      "chatgpt image oct 18, 2026, 03_19_42 pm-3": {
-        "src": "/images/works/microsoft/16.webp",
-        "w": 1600,
-        "h": 900
-      },
-      "chatgpt image oct 18, 2026, 03_19_44 pm-4": {
-        "src": "/images/works/microsoft/17.webp",
-        "w": 1600,
-        "h": 900
-      },
-      "chatgpt image oct 18, 2026, 03_19_49 pm-6": {
-        "src": "/images/works/microsoft/18.webp",
         "w": 1600,
         "h": 900
       }

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const ease = [0.22, 1, 0.36, 1];
@@ -35,8 +36,10 @@ export function MaskLine({ children, delay = 0, className }) {
   );
 }
 
-// Image that reveals with a soft scale-down and fade.
+// Image that fades in once, when it has scrolled into view and finished loading
+// (no zoom on reveal, so it never appears to settle twice).
 export function RevealImage({ src, alt = '', className, ratio }) {
+  const [loaded, setLoaded] = useState(false);
   return (
     <motion.div
       className={`img-frame ${ratio ? 'img-frame--fill' : ''} ${className || ''}`}
@@ -46,14 +49,13 @@ export function RevealImage({ src, alt = '', className, ratio }) {
       viewport={{ once: true, margin: '0px 0px -10% 0px' }}
       transition={{ duration: 1, ease }}
     >
-      <motion.img
+      <img
         src={src}
         alt={alt}
         loading="lazy"
-        initial={{ scale: 1.12 }}
-        whileInView={{ scale: 1 }}
-        viewport={{ once: true, margin: '0px 0px -10% 0px' }}
-        transition={{ duration: 1.4, ease }}
+        className={`reveal-img ${loaded ? 'is-loaded' : ''}`}
+        onLoad={() => setLoaded(true)}
+        ref={(el) => el && el.complete && el.naturalWidth && !loaded && setLoaded(true)}
       />
     </motion.div>
   );

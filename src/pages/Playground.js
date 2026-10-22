@@ -3,23 +3,25 @@ import FitText from '../components/FitText';
 import { MaskLine, Reveal, RevealImage } from '../components/Reveal';
 import { playground, profile } from '../data/site';
 import { DESKTOP, useMediaQuery } from '../hooks';
+import { useLang } from '../i18n';
 import './pages.css';
 
 export default function Playground() {
   const isDesktop = useMediaQuery(DESKTOP);
+  const { t } = useLang();
 
   return (
     <Page title={`Playground — ${profile.name}`}>
       <section className="playground container">
-        <h1 className="display playground__title" aria-label="Archive Work">
+        <h1 className="display playground__title" aria-label={t('archiveWork')}>
           {isDesktop ? (
             <MaskLine>
-              <FitText>Archive Work</FitText>
+              <FitText>{t('archiveWork')}</FitText>
             </MaskLine>
           ) : (
             <>
-              <MaskLine>Archive</MaskLine>
-              <MaskLine delay={0.12}>Work</MaskLine>
+              <MaskLine>{t('archive')}</MaskLine>
+              {t('work') !== t('archive') && <MaskLine delay={0.12}>{t('work')}</MaskLine>}
             </>
           )}
         </h1>

@@ -55,7 +55,12 @@
   width: 100%;
   height: auto;
   object-fit: cover;
-  transition: transform 1.2s var(--ease);
+  transition: transform 1.2s var(--ease), opacity 0.8s var(--ease);
+}
+
+/* RevealImage: hidden until the file has loaded, then a single fade. */
+.img-frame img.reveal-img:not(.is-loaded) {
+  opacity: 0;
 }
 
 /* Frames with a fixed aspect ratio crop the image to fill them. */
@@ -401,4 +406,59 @@
 /* A mask around fit text must span the full width so the text can measure it. */
 .mask-line__inner:has(> .fit-text) {
   display: block;
+}
+
+/* ---------- Language switch (globe in the header) ---------- */
+.lang {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.lang__toggle {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  transition: opacity 0.3s var(--ease);
+}
+
+.lang__toggle:hover {
+  opacity: 0.6;
+}
+
+.lang__menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  right: -8px;
+  z-index: 60;
+  min-width: 150px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: var(--bg);
+  border: 1px solid var(--line);
+}
+
+.lang__option {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 15px;
+  text-align: left;
+  color: var(--muted);
+  transition: color 0.2s var(--ease);
+}
+
+.lang__option:hover,
+.lang__option.is-active {
+  color: var(--fg);
+}
+
+.lang__code {
+  font-size: 12px;
+  letter-spacing: 0.06em;
 }

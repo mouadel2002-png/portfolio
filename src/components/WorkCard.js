@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Reveal } from './Reveal';
+import { useLang } from '../i18n';
 
 const ease = [0.22, 1, 0.36, 1];
 
 export default function WorkCard({ work }) {
   const { cover } = work;
+  const { tr } = useLang();
   return (
     <Link to={`/works/${work.slug}`} className="work-card">
       {/* Every card shares one frame ratio; the cover is shown whole (never cropped)
@@ -29,7 +31,7 @@ export default function WorkCard({ work }) {
       </motion.div>
       <Reveal className="work-card__meta" y={16}>
         <h3>{work.title}</h3>
-        {work.category && <h3 className="muted">{work.category}</h3>}
+        {work.category && <h3 className="muted">{tr(work.category)}</h3>}
         {work.year && <h3 className="muted">{work.year}</h3>}
       </Reveal>
     </Link>

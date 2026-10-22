@@ -76,7 +76,9 @@ export const navLinks = [
 //        the others are Sketch / Clay / Final triptychs
 //   { type: 'details', screenshots: [...] }   -> uses `details` rows below
 //   { type: 'interlude', items: [{ file, left, width, drop }] } -> loose pieces between sections
-//   ('wall' = the mixed-size exhibition wall). A project can set hero: 'cover' to show its
+//   ('wall' = the mixed-size exhibition wall; 'justify' = rows of equal height filling the
+//   width, `split: [2, 3]` sets how many per row; inside a frames section a group can also be
+//   { arrange: 'interlude', items: [...] }). A project can set hero: 'cover' to show its
 //   cover at the top even when it has a film.
 // Projects without a layout show all their images as one exhibition wall.
 const projectInfo = {
@@ -227,32 +229,37 @@ const projectInfo = {
       [L('Discipline', 'Discipline'), L('Branding, Packaging, 3D Product Visualization', 'Identité, packaging, visualisation produit 3D')],
     ],
     layout: [
-      { type: 'interlude', items: [{ file: 'gum 01', left: 64, width: 18 }] },
       {
         type: 'frames',
         title: L('Selected Frames', 'Images choisies'),
-        groups: [{ files: ['render 01', 'render 02', 'render 03', 'render 04', 'render 05', 'render 06'], arrange: 'cinema' }],
+        // Renders, with the ads and gums scattered between them.
+        groups: [
+          { files: ['render 01', 'render 02'], arrange: 'cinema' },
+          { arrange: 'interlude', items: [{ file: 'gum 01', left: 52, width: 18 }, { file: 'ad1', width: 22, drop: 160 }] },
+          { files: ['render 03', 'render 04'], arrange: 'cinema' },
+          { arrange: 'interlude', items: [{ file: 'ad2', left: 8, width: 24 }, { file: 'gum 02', width: 16, drop: 220 }] },
+          { files: ['render 05', 'render 06'], arrange: 'cinema' },
+          { arrange: 'interlude', items: [{ file: 'gum 03', left: 30, width: 15, drop: 120 }, { file: 'ad3', width: 24 }] },
+        ],
       },
-      { type: 'interlude', items: [{ file: 'ad1', left: 6, width: 24 }, { file: 'gum 02', width: 16, drop: 220 }] },
       {
         type: 'frames',
-        title: L('Agents', 'Égéries'),
+        title: L('Lifestyle', 'Lifestyle'),
         groups: [
           {
-            // Each product shot sits beside the portrait it goes with.
-            files: ['agent 01', 'agent 1', 'agent 2', 'agent 02', 'agent 03', 'agent 3'],
+            // Each portrait sits beside the product shot it goes with.
+            files: ['agent 1', 'agent 01', 'agent 02', 'agent 2', 'agent 3', 'agent 03'],
             arrange: 'row',
             perRow: 2,
           },
         ],
       },
-      { type: 'interlude', items: [{ file: 'gum 03', left: 18, width: 15 }, { file: 'ad2', width: 26, drop: 140 }] },
       {
         type: 'frames',
         title: L('Branding', 'Identité'),
-        groups: [{ files: ['brand 01', 'brand 02', 'brand 03', 'brand 04', 'brand 05'], arrange: 'wall' }],
+        // Justified rows: every image in a row shares one height and the row fills the width.
+        groups: [{ files: ['brand 01', 'brand 02', 'brand 03', 'brand 04', 'brand 05'], arrange: 'justify', split: [2, 3] }],
       },
-      { type: 'interlude', items: [{ file: 'ad3', left: 58, width: 26 }] },
       { type: 'details' },
     ],
   },
@@ -316,7 +323,7 @@ const projectInfo = {
       {
         type: 'frames',
         title: L('Selected Frames', 'Images choisies'),
-        groups: [{ files: ['cover', 'render 01', 'render 02', 'render 03', 'render 04', 'render 05', 'render 06', 'render 07', 'render 08'], arrange: 'cinema' }],
+        groups: [{ files: ['render 01', 'render 02', 'cover', 'render 03', 'render 04', 'render 05', 'render 06', 'render 07', 'render 08'], arrange: 'cinema' }],
       },
       { type: 'details' },
     ],
@@ -360,7 +367,6 @@ const projectInfo = {
   },
   'once-cherished-now-forsaken': {
     category: L('Short Film', 'Court métrage'),
-    hero: 'cover',
     // DRAFT details, inferred from the files: please confirm (and add Scope / Tools).
     details: [
       [L('Project', 'Projet'), 'Once Cherished Now Forsaken'],

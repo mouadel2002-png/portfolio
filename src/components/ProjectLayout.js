@@ -52,14 +52,25 @@ function ProjectDetails({ details }) {
 // Each piece in a "stagger" line hangs at its own height (px).
 const STAGGER_DROPS = [0, 110, 40, 170];
 
-// Pieces side by side on one line ("row": same size and height; "stagger": varied heights).
+// Pieces side by side on one line ("row": same size and height; "stagger": varied heights;
+// "justify": one shared height per line, widths from each image's shape, filling the width).
+// `split` ([2, 3]) sets how many pieces go on each line; otherwise `perRow` per line.
 // On phones the line becomes a sideways-swipe strip so the pieces stay comparable.
-function FrameLine({ images, arrange, perRow, start, title, onOpen, captions }) {
+function FrameLine({ images, arrange, perRow, split, start, title, onOpen, captions }) {
   const wide = useMediaQuery('(min-width: 810px)');
   const { tr } = useLang();
   const size = perRow || images.length;
   const lines = [];
-  for (let i = 0; i < images.length; i += size) lines.push(images.slice(i, i + size));
+  if (split) {
+    let at = 0;
+    for (const n of split) {
+      if (at < images.length) lines.push(images.slice(at, at + n));
+      at += n;
+    }
+    if (at < images.length) lines.push(images.slice(at));
+  } else {
+    for (let i = 0; i < images.length; i += size) lines.push(images.slice(i, i + size));
+  }
 
   if (!wide) {
     return (
@@ -71,14 +82,19 @@ function FrameLine({ images, arrange, perRow, start, title, onOpen, captions }) 
     );
   }
 
+  let index = 0;
   return lines.map((line, l) => (
-    <div key={l} className={`frame-line frame-line--${arrange} ${line.length < size ? 'is-short' : ''}`}>
+    <div key={l} className={`frame-line frame-line--${arrange} ${!split && line.length < size ? 'is-short' : ''}`}>
       {line.map((img, j) => {
-        const i = l * size + j;
-        const style =
-          arrange === 'stagger'
-            ? { width: `${84 / size}%`, marginTop: `${STAGGER_DROPS[(j + l) % STAGGER_DROPS.length]}px` }
-            : { maxWidth: fitScreen(img) };
+        const i = index++;
+        let style;
+        if (arrange === 'stagger') {
+          style = { width: `${84 / size}%`, marginTop: `${STAGGER_DROPS[(j + l) % STAGGER_DROPS.length]}px` };
+        } else if (arrange === 'justify') {
+          style = { flex: `${(img.w / img.h).toFixed(4)} 1 0`, minWidth: 0 };
+        } else {
+          style = { maxWidth: fitScreen(img) };
+        }
         return (
           <Piece key={img.src} img={img} n={start + i} title={title} caption={tr(captions?.[i])} style={style} onOpen={() => onOpen(i)} />
         );
@@ -90,9 +106,10 @@ function FrameLine({ images, arrange, perRow, start, title, onOpen, captions }) 
 function FramesSection({ section, index, work, start }) {
   const [open, setOpen] = useState(null);
   const { tr } = useLang();
-  const groups = section.groups.map((g) => ({ ...g, images: g.files.map((f) => work.files[f]).filter(Boolean) }));
+  const groups = section.groups.map((g) => ({ ...g, images: (g.files || []).map((f) => work.files[f]).filter(Boolean) }));
   const all = groups.flatMap((g) => g.images);
   let offset = 0;
+  let patternRows = 0; // rows already used by earlier groups with the same pattern
 
   return (
     <section className={`work-section ${section.tone === 'light' ? 'work-section--light' : ''}`}>
@@ -102,27 +119,34 @@ function FramesSection({ section, index, work, start }) {
         const first = offset;
         offset += g.images.length;
         const openAt = (i) => setOpen(first + i);
+        const rowOffset = patternRows;
+        // Skip one extra row each time so a short repeating pattern never lines up twice.
+        if (PATTERNS[g.arrange]) patternRows += Math.ceil(g.images.length / 1.5) + 1;
         return (
-          <div key={g.files.join()} className="frame-group">
+          <div key={(g.files || g.items.map((it) => it.file)).join()} className={`frame-group frame-group--${g.arrange}`}>
             {g.label && (
               <Reveal className="frame-group__head">
                 <h3 className="story__label">{tr(g.label)}</h3>
                 {g.note && <p className="muted">{tr(g.note)}</p>}
               </Reveal>
             )}
-            {g.arrange === 'pairs' || PATTERNS[g.arrange] ? (
+            {g.arrange === 'interlude' ? (
+              <Interlude section={g} work={work} />
+            ) : g.arrange === 'pairs' || PATTERNS[g.arrange] ? (
               <Exhibit
                 images={g.images}
                 title={work.title}
                 pattern={g.arrange === 'pairs' ? PATTERNS.renders : PATTERNS[g.arrange]}
                 start={start + first}
                 onOpen={openAt}
+                offset={rowOffset}
               />
             ) : (
               <FrameLine
                 images={g.images}
                 arrange={g.arrange}
                 perRow={g.perRow}
+                split={g.split}
                 start={start + first}
                 title={work.title}
                 captions={g.captions}
@@ -275,7 +299,7 @@ export default function ProjectLayout({ work }) {
     const props = { section, index: ++number, work };
     if (section.type === 'frames') {
       const first = start;
-      start += section.groups.reduce((n, g) => n + g.files.length, 0);
+      start += section.groups.reduce((n, g) => n + (g.files ? g.files.length : 0), 0);
       return <FramesSection key={i} {...props} start={first} />;
     }
     if (section.type === 'compare') return <CompareSection key={i} {...props} />;

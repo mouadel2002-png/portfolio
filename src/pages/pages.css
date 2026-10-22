@@ -1528,3 +1528,27 @@
     margin-top: 72px;
   }
 }
+
+/* Interludes inside a frames section, and justified rows (e.g. Gummagic branding). */
+.frame-group--interlude .interlude {
+  margin-top: 64px;
+}
+
+.frame-group--interlude + .frame-group,
+.frame-group + .frame-group--interlude {
+  margin-top: 48px;
+}
+
+.frame-group--cinema + .frame-group--cinema {
+  margin-top: 64px;
+}
+
+@media (min-width: 810px) {
+  .frame-line--justify {
+    align-items: flex-start;
+  }
+
+  .frame-line--justify + .frame-line--justify {
+    margin-top: var(--gap);
+  }
+}

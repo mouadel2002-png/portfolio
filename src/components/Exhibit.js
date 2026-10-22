@@ -43,7 +43,8 @@ function mobileStyle(img, i) {
 }
 
 // Pass `onOpen` to make pieces clickable (called with the image's index in `images`).
-export default function Exhibit({ images, title, pattern = PATTERNS.wall, start = 2, className = '', onOpen }) {
+// `offset` starts the pattern at a later row, so consecutive groups don't repeat one another.
+export default function Exhibit({ images, title, pattern = PATTERNS.wall, start = 2, className = '', onOpen, offset = 0 }) {
   const isWideScreen = useMediaQuery('(min-width: 810px)');
 
   if (!isWideScreen) {
@@ -60,7 +61,7 @@ export default function Exhibit({ images, title, pattern = PATTERNS.wall, start 
   const rows = [];
   for (let i = 0, r = 0; i < images.length; r++) {
     const items = [];
-    for (const slot of pattern[r % pattern.length].items) {
+    for (const slot of pattern[(r + offset) % pattern.length].items) {
       if (i >= images.length) break;
       items.push({ img: images[i], n: start + i, slot });
       i += 1;

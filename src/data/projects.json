@@ -817,88 +817,88 @@
     "images": [
       {
         "src": "/images/works/gummagic/01.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      {
-        "src": "/images/works/gummagic/02.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      {
-        "src": "/images/works/gummagic/03.webp",
         "w": 1024,
         "h": 1536
       },
       {
-        "src": "/images/works/gummagic/04.webp",
+        "src": "/images/works/gummagic/02.webp",
         "w": 1600,
         "h": 2419
+      },
+      {
+        "src": "/images/works/gummagic/03.webp",
+        "w": 1600,
+        "h": 2419
+      },
+      {
+        "src": "/images/works/gummagic/04.webp",
+        "w": 1080,
+        "h": 1358
       },
       {
         "src": "/images/works/gummagic/05.webp",
         "w": 1600,
-        "h": 2419
+        "h": 2019
       },
       {
         "src": "/images/works/gummagic/06.webp",
-        "w": 1600,
-        "h": 1600
+        "w": 1080,
+        "h": 1358
       },
       {
         "src": "/images/works/gummagic/07.webp",
         "w": 1600,
-        "h": 1600
+        "h": 2019
       },
       {
         "src": "/images/works/gummagic/08.webp",
-        "w": 1600,
-        "h": 1600
+        "w": 1080,
+        "h": 1358
       },
       {
         "src": "/images/works/gummagic/09.webp",
         "w": 1600,
-        "h": 1600
+        "h": 2019
       },
       {
         "src": "/images/works/gummagic/10.webp",
         "w": 1600,
-        "h": 1600
-      },
-      {
-        "src": "/images/works/gummagic/11.webp",
-        "w": 1600,
         "h": 900
       },
       {
+        "src": "/images/works/gummagic/11.webp",
+        "w": 1122,
+        "h": 1402
+      },
+      {
         "src": "/images/works/gummagic/12.webp",
-        "w": 1600,
-        "h": 1600
+        "w": 1448,
+        "h": 1086
       },
       {
         "src": "/images/works/gummagic/13.webp",
-        "w": 1500,
-        "h": 1500
+        "w": 1254,
+        "h": 1254
       },
       {
         "src": "/images/works/gummagic/14.webp",
+        "w": 1254,
+        "h": 1254
+      },
+      {
+        "src": "/images/works/gummagic/15.webp",
         "w": 1600,
         "h": 1600
       },
       {
-        "src": "/images/works/gummagic/15.webp",
-        "w": 1055,
-        "h": 1491
-      },
-      {
         "src": "/images/works/gummagic/16.webp",
-        "w": 1055,
-        "h": 1491
+        "w": 1600,
+        "h": 1600
       },
       {
         "src": "/images/works/gummagic/17.webp",
-        "w": 1055,
-        "h": 1491
+        "w": 1600,
+        "h": 1600
       },
       {
         "src": "/images/works/gummagic/18.webp",
@@ -927,101 +927,6 @@
       },
       {
         "src": "/images/works/gummagic/23.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      {
-        "src": "/images/works/gummagic/24.webp",
-        "w": 1600,
-        "h": 900
-      },
-      {
-        "src": "/images/works/gummagic/25.webp",
-        "w": 1600,
-        "h": 900
-      },
-      {
-        "src": "/images/works/gummagic/26.webp",
-        "w": 1600,
-        "h": 900
-      },
-      {
-        "src": "/images/works/gummagic/27.webp",
-        "w": 1600,
-        "h": 900
-      },
-      {
-        "src": "/images/works/gummagic/28.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      {
-        "src": "/images/works/gummagic/29.webp",
-        "w": 1080,
-        "h": 1358
-      },
-      {
-        "src": "/images/works/gummagic/30.webp",
-        "w": 1080,
-        "h": 1358
-      },
-      {
-        "src": "/images/works/gummagic/31.webp",
-        "w": 1080,
-        "h": 1358
-      },
-      {
-        "src": "/images/works/gummagic/32.webp",
-        "w": 1600,
-        "h": 1999
-      },
-      {
-        "src": "/images/works/gummagic/33.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      {
-        "src": "/images/works/gummagic/34.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      {
-        "src": "/images/works/gummagic/35.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      {
-        "src": "/images/works/gummagic/36.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      {
-        "src": "/images/works/gummagic/37.webp",
-        "w": 1600,
-        "h": 900
-      },
-      {
-        "src": "/images/works/gummagic/38.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      {
-        "src": "/images/works/gummagic/39.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      {
-        "src": "/images/works/gummagic/40.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      {
-        "src": "/images/works/gummagic/41.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      {
-        "src": "/images/works/gummagic/42.webp",
         "w": 1600,
         "h": 900
       }
@@ -1032,213 +937,118 @@
         "w": 1672,
         "h": 941
       },
-      "ac_00000_00000": {
-        "src": "/images/works/gummagic/01.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      "ac2_00000_00000_00000": {
-        "src": "/images/works/gummagic/02.webp",
-        "w": 1600,
-        "h": 1600
-      },
       "ad1": {
-        "src": "/images/works/gummagic/03.webp",
+        "src": "/images/works/gummagic/01.webp",
         "w": 1024,
         "h": 1536
       },
       "ad2": {
-        "src": "/images/works/gummagic/04.webp",
+        "src": "/images/works/gummagic/02.webp",
         "w": 1600,
         "h": 2419
       },
       "ad3": {
-        "src": "/images/works/gummagic/05.webp",
+        "src": "/images/works/gummagic/03.webp",
         "w": 1600,
         "h": 2419
       },
-      "bleu_00000": {
-        "src": "/images/works/gummagic/06.webp",
-        "w": 1600,
-        "h": 1600
+      "agent 01": {
+        "src": "/images/works/gummagic/04.webp",
+        "w": 1080,
+        "h": 1358
       },
-      "blue gum 1": {
+      "agent 1": {
+        "src": "/images/works/gummagic/05.webp",
+        "w": 1600,
+        "h": 2019
+      },
+      "agent 02": {
+        "src": "/images/works/gummagic/06.webp",
+        "w": 1080,
+        "h": 1358
+      },
+      "agent 2": {
         "src": "/images/works/gummagic/07.webp",
         "w": 1600,
-        "h": 1600
+        "h": 2019
       },
-      "blue gum 2": {
+      "agent 03": {
         "src": "/images/works/gummagic/08.webp",
-        "w": 1600,
-        "h": 1600
+        "w": 1080,
+        "h": 1358
       },
-      "blue gum 3": {
+      "agent 3": {
         "src": "/images/works/gummagic/09.webp",
         "w": 1600,
-        "h": 1600
+        "h": 2019
       },
-      "blue gum 4": {
+      "brand 01": {
         "src": "/images/works/gummagic/10.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      "box 3 gummagic": {
-        "src": "/images/works/gummagic/11.webp",
         "w": 1600,
         "h": 900
       },
-      "box r_00000": {
+      "brand 02": {
+        "src": "/images/works/gummagic/11.webp",
+        "w": 1122,
+        "h": 1402
+      },
+      "brand 03": {
         "src": "/images/works/gummagic/12.webp",
-        "w": 1600,
-        "h": 1600
+        "w": 1448,
+        "h": 1086
       },
-      "box r2": {
+      "brand 04": {
         "src": "/images/works/gummagic/13.webp",
-        "w": 1500,
-        "h": 1500
+        "w": 1254,
+        "h": 1254
       },
-      "box r4": {
+      "brand 05": {
         "src": "/images/works/gummagic/14.webp",
+        "w": 1254,
+        "h": 1254
+      },
+      "gum 01": {
+        "src": "/images/works/gummagic/15.webp",
         "w": 1600,
         "h": 1600
       },
-      "chatgpt image oct 18, 2026, 01_58_14 am-1": {
-        "src": "/images/works/gummagic/15.webp",
-        "w": 1055,
-        "h": 1491
-      },
-      "chatgpt image oct 18, 2026, 01_58_14 am-2": {
+      "gum 02": {
         "src": "/images/works/gummagic/16.webp",
-        "w": 1055,
-        "h": 1491
+        "w": 1600,
+        "h": 1600
       },
-      "chatgpt image oct 18, 2026, 01_58_15 am-3": {
+      "gum 03": {
         "src": "/images/works/gummagic/17.webp",
-        "w": 1055,
-        "h": 1491
+        "w": 1600,
+        "h": 1600
       },
-      "chatgpt image oct 18, 2026, 05_38_45 pm-2": {
+      "render 01": {
         "src": "/images/works/gummagic/18.webp",
         "w": 1600,
         "h": 900
       },
-      "chatgpt image oct 18, 2026, 05_38_47 pm-3": {
+      "render 02": {
         "src": "/images/works/gummagic/19.webp",
         "w": 1600,
         "h": 900
       },
-      "chatgpt image oct 18, 2026, 05_38_48 pm-4": {
+      "render 03": {
         "src": "/images/works/gummagic/20.webp",
         "w": 1600,
         "h": 900
       },
-      "chatgpt image oct 18, 2026, 05_38_50 pm-6": {
+      "render 04": {
         "src": "/images/works/gummagic/21.webp",
         "w": 1600,
         "h": 900
       },
-      "chatgpt image oct 18, 2026, 05_38_52 pm-7": {
+      "render 05": {
         "src": "/images/works/gummagic/22.webp",
         "w": 1600,
         "h": 900
       },
-      "classifi 6": {
+      "render 06": {
         "src": "/images/works/gummagic/23.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      "gu##]_00000": {
-        "src": "/images/works/gummagic/24.webp",
-        "w": 1600,
-        "h": 900
-      },
-      "gummie_00000": {
-        "src": "/images/works/gummagic/25.webp",
-        "w": 1600,
-        "h": 900
-      },
-      "gummies_00000": {
-        "src": "/images/works/gummagic/26.webp",
-        "w": 1600,
-        "h": 900
-      },
-      "gummies#]_00000": {
-        "src": "/images/works/gummagic/27.webp",
-        "w": 1600,
-        "h": 900
-      },
-      "mauve_00000": {
-        "src": "/images/works/gummagic/28.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      "pff1": {
-        "src": "/images/works/gummagic/29.webp",
-        "w": 1080,
-        "h": 1358
-      },
-      "pff2": {
-        "src": "/images/works/gummagic/30.webp",
-        "w": 1080,
-        "h": 1358
-      },
-      "pff3": {
-        "src": "/images/works/gummagic/31.webp",
-        "w": 1080,
-        "h": 1358
-      },
-      "pic": {
-        "src": "/images/works/gummagic/32.webp",
-        "w": 1600,
-        "h": 1999
-      },
-      "pink gum 2": {
-        "src": "/images/works/gummagic/33.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      "pink gum 3": {
-        "src": "/images/works/gummagic/34.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      "pink gum 4": {
-        "src": "/images/works/gummagic/35.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      "pink gum1": {
-        "src": "/images/works/gummagic/36.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      "premium gummy vitamin collection": {
-        "src": "/images/works/gummagic/37.webp",
-        "w": 1600,
-        "h": 900
-      },
-      "purple gum 1": {
-        "src": "/images/works/gummagic/38.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      "purple gum 2": {
-        "src": "/images/works/gummagic/39.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      "purple gum 3": {
-        "src": "/images/works/gummagic/40.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      "render 1_00000": {
-        "src": "/images/works/gummagic/41.webp",
-        "w": 1600,
-        "h": 1600
-      },
-      "rr2r": {
-        "src": "/images/works/gummagic/42.webp",
         "w": 1600,
         "h": 900
       }
@@ -1415,11 +1225,6 @@
         "src": "/images/works/sauvage/08.webp",
         "w": 1600,
         "h": 900
-      },
-      {
-        "src": "/images/works/sauvage/09.webp",
-        "w": 1600,
-        "h": 900
       }
     ],
     "video": {
@@ -1433,48 +1238,43 @@
         "w": 1800,
         "h": 1013
       },
-      "comp 2_0177": {
+      "render 01": {
         "src": "/images/works/sauvage/01.webp",
         "w": 1600,
         "h": 900
       },
-      "comp 4_0285": {
+      "render 02": {
         "src": "/images/works/sauvage/02.webp",
         "w": 1600,
         "h": 900
       },
-      "comp 5_0359": {
+      "render 03": {
         "src": "/images/works/sauvage/03.webp",
         "w": 1600,
         "h": 900
       },
-      "comp 6_0431": {
+      "render 04": {
         "src": "/images/works/sauvage/04.webp",
         "w": 1600,
         "h": 900
       },
-      "comp 7_0478": {
+      "render 05": {
         "src": "/images/works/sauvage/05.webp",
         "w": 1600,
         "h": 900
       },
-      "comp 8_0505": {
+      "render 06": {
         "src": "/images/works/sauvage/06.webp",
         "w": 1600,
         "h": 900
       },
-      "comp 9_0589": {
+      "render 07": {
         "src": "/images/works/sauvage/07.webp",
         "w": 1600,
         "h": 900
       },
-      "comp_0060": {
+      "render 08": {
         "src": "/images/works/sauvage/08.webp",
-        "w": 1600,
-        "h": 900
-      },
-      "comp_0061_0152": {
-        "src": "/images/works/sauvage/09.webp",
         "w": 1600,
         "h": 900
       }
@@ -1528,26 +1328,6 @@
         "src": "/images/works/oulmess/08.webp",
         "w": 1600,
         "h": 900
-      },
-      {
-        "src": "/images/works/oulmess/09.webp",
-        "w": 1600,
-        "h": 900
-      },
-      {
-        "src": "/images/works/oulmess/10.webp",
-        "w": 1600,
-        "h": 900
-      },
-      {
-        "src": "/images/works/oulmess/11.webp",
-        "w": 1600,
-        "h": 900
-      },
-      {
-        "src": "/images/works/oulmess/12.webp",
-        "w": 1600,
-        "h": 900
       }
     ],
     "video": {
@@ -1556,68 +1336,48 @@
       "h": 1080
     },
     "files": {
-      "6": {
-        "src": "/images/works/oulmess/03.webp",
-        "w": 1600,
-        "h": 900
-      },
-      "8": {
-        "src": "/images/works/oulmess/04.webp",
-        "w": 1600,
-        "h": 900
-      },
-      "9": {
-        "src": "/images/works/oulmess/05.webp",
-        "w": 1600,
-        "h": 900
-      },
-      "11": {
-        "src": "/images/works/oulmess/06.webp",
-        "w": 1600,
-        "h": 900
-      },
       "cover": {
         "src": "/images/works/oulmess/cover.webp",
         "w": 1800,
         "h": 1013
       },
-      "3_0123": {
+      "clay 1": {
         "src": "/images/works/oulmess/01.webp",
         "w": 1600,
         "h": 900
       },
-      "5_0410": {
+      "clay 2": {
         "src": "/images/works/oulmess/02.webp",
         "w": 1600,
         "h": 900
       },
-      "chatgpt image oct 18, 2026, 03_38_18 pm-1": {
+      "render 02": {
+        "src": "/images/works/oulmess/03.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "render 03": {
+        "src": "/images/works/oulmess/04.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "render 04": {
+        "src": "/images/works/oulmess/05.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "render 05": {
+        "src": "/images/works/oulmess/06.webp",
+        "w": 1600,
+        "h": 900
+      },
+      "render 06": {
         "src": "/images/works/oulmess/07.webp",
         "w": 1600,
         "h": 900
       },
-      "chatgpt image oct 18, 2026, 03_38_19 pm-2": {
+      "render 07": {
         "src": "/images/works/oulmess/08.webp",
-        "w": 1600,
-        "h": 900
-      },
-      "chatgpt image oct 18, 2026, 03_38_20 pm-3": {
-        "src": "/images/works/oulmess/09.webp",
-        "w": 1600,
-        "h": 900
-      },
-      "chatgpt image oct 18, 2026, 03_38_21 pm-4": {
-        "src": "/images/works/oulmess/10.webp",
-        "w": 1600,
-        "h": 900
-      },
-      "chatgpt image oct 18, 2026, 03_38_22 pm-5": {
-        "src": "/images/works/oulmess/11.webp",
-        "w": 1600,
-        "h": 900
-      },
-      "chatgpt image oct 18, 2026, 03_38_24 pm-6": {
-        "src": "/images/works/oulmess/12.webp",
         "w": 1600,
         "h": 900
       }
@@ -1669,27 +1429,27 @@
         "w": 1800,
         "h": 1013
       },
-      "my film_00321": {
+      "render 01": {
         "src": "/images/works/the-matter/01.webp",
         "w": 1600,
         "h": 900
       },
-      "my film_00365": {
+      "render 02": {
         "src": "/images/works/the-matter/02.webp",
         "w": 1600,
         "h": 900
       },
-      "my film_00533": {
+      "render 03": {
         "src": "/images/works/the-matter/03.webp",
         "w": 1600,
         "h": 900
       },
-      "my film_00786": {
+      "render 04": {
         "src": "/images/works/the-matter/04.webp",
         "w": 1600,
         "h": 900
       },
-      "my film_00864": {
+      "render 05": {
         "src": "/images/works/the-matter/05.webp",
         "w": 1600,
         "h": 900
@@ -1732,22 +1492,22 @@
       "h": 1080
     },
     "files": {
-      "2": {
+      "3": {
         "src": "/images/works/once-cherished-now-forsaken/01.webp",
         "w": 1600,
         "h": 900
       },
-      "3": {
+      "4": {
         "src": "/images/works/once-cherished-now-forsaken/02.webp",
         "w": 1600,
         "h": 900
       },
-      "4": {
+      "5": {
         "src": "/images/works/once-cherished-now-forsaken/03.webp",
         "w": 1600,
         "h": 900
       },
-      "5": {
+      "6": {
         "src": "/images/works/once-cherished-now-forsaken/04.webp",
         "w": 1600,
         "h": 900

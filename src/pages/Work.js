@@ -45,7 +45,7 @@ export default function Work() {
         </div>
         <Reveal className="work__caption">
           <span className="muted">(01)</span>
-          <p className="muted">{work.video ? t('film') : t('cover')}</p>
+          <p className="muted">{work.video && work.hero !== 'cover' ? t('film') : t('cover')}</p>
         </Reveal>
 
         <StoryBlock label={t('projectOverview')} text={work.story?.overview} />

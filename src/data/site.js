@@ -75,6 +75,9 @@ export const navLinks = [
 //     -> the featured shot is one frame with Sketch | Clay | Final dividers to drag,
 //        the others are Sketch / Clay / Final triptychs
 //   { type: 'details', screenshots: [...] }   -> uses `details` rows below
+//   { type: 'interlude', items: [{ file, left, width, drop }] } -> loose pieces between sections
+//   ('wall' = the mixed-size exhibition wall). A project can set hero: 'cover' to show its
+//   cover at the top even when it has a film.
 // Projects without a layout show all their images as one exhibition wall.
 const projectInfo = {
   eden: {
@@ -216,7 +219,43 @@ const projectInfo = {
       { type: 'details', screenshots: ['screenshot 01', 'screenshot 02', 'screenshot 03'] },
     ],
   },
-  gummagic: { category: L('Branding & Packaging', 'Identité & packaging') },
+  gummagic: {
+    category: L('Branding & Packaging', 'Identité & packaging'),
+    // DRAFT details, inferred from the files: please confirm (and add Scope / Tools).
+    details: [
+      [L('Project', 'Projet'), 'Gummagic'],
+      [L('Discipline', 'Discipline'), L('Branding, Packaging, 3D Product Visualization', 'Identité, packaging, visualisation produit 3D')],
+    ],
+    layout: [
+      { type: 'interlude', items: [{ file: 'gum 01', left: 64, width: 18 }] },
+      {
+        type: 'frames',
+        title: L('Selected Frames', 'Images choisies'),
+        groups: [{ files: ['render 01', 'render 02', 'render 03', 'render 04', 'render 05', 'render 06'], arrange: 'cinema' }],
+      },
+      { type: 'interlude', items: [{ file: 'ad1', left: 6, width: 24 }, { file: 'gum 02', width: 16, drop: 220 }] },
+      {
+        type: 'frames',
+        title: L('Agents', 'Égéries'),
+        groups: [
+          {
+            // Each product shot sits beside the portrait it goes with.
+            files: ['agent 01', 'agent 1', 'agent 2', 'agent 02', 'agent 03', 'agent 3'],
+            arrange: 'row',
+            perRow: 2,
+          },
+        ],
+      },
+      { type: 'interlude', items: [{ file: 'gum 03', left: 18, width: 15 }, { file: 'ad2', width: 26, drop: 140 }] },
+      {
+        type: 'frames',
+        title: L('Branding', 'Identité'),
+        groups: [{ files: ['brand 01', 'brand 02', 'brand 03', 'brand 04', 'brand 05'], arrange: 'wall' }],
+      },
+      { type: 'interlude', items: [{ file: 'ad3', left: 58, width: 26 }] },
+      { type: 'details' },
+    ],
+  },
   samsung: {
     category: L('Product Rendering', 'Rendu produit'),
     // One line under "Services" at the top of the project page.
@@ -266,10 +305,76 @@ const projectInfo = {
       { type: 'details', screenshots: ['screen 01', 'screen 02', 'screen 03'] },
     ],
   },
-  sauvage: { category: L('Motion Design', 'Motion design') },
-  oulmess: { category: L('Product Animation', 'Animation produit') },
-  'the-matter': { category: L('Short Film', 'Court métrage') },
-  'once-cherished-now-forsaken': { category: L('Short Film', 'Court métrage') },
+  sauvage: {
+    category: L('Motion Design', 'Motion design'),
+    // DRAFT details, inferred from the files: please confirm (and add Scope / Tools).
+    details: [
+      [L('Project', 'Projet'), 'Dior Sauvage'],
+      [L('Discipline', 'Discipline'), L('3D Motion Design', 'Motion design 3D')],
+    ],
+    layout: [
+      {
+        type: 'frames',
+        title: L('Selected Frames', 'Images choisies'),
+        groups: [{ files: ['cover', 'render 01', 'render 02', 'render 03', 'render 04', 'render 05', 'render 06', 'render 07', 'render 08'], arrange: 'cinema' }],
+      },
+      { type: 'details' },
+    ],
+  },
+  oulmess: {
+    category: L('Product Animation', 'Animation produit'),
+    // DRAFT details, inferred from the files: please confirm (and add Scope / Tools).
+    details: [
+      [L('Project', 'Projet'), 'Oulmès'],
+      [L('Discipline', 'Discipline'), L('3D Product Animation', 'Animation produit 3D')],
+    ],
+    layout: [
+      {
+        type: 'frames',
+        title: L('Selected Frames', 'Images choisies'),
+        groups: [{ files: ['cover', 'render 02', 'render 03', 'render 04', 'render 05', 'render 06', 'render 07'], arrange: 'cinema' }],
+      },
+      {
+        type: 'compare',
+        title: L('Clay / Final', 'Clay / Final'),
+        pairs: [['render 06', 'clay 1'], ['render 04', 'clay 2']],
+      },
+      { type: 'details' },
+    ],
+  },
+  'the-matter': {
+    category: L('Short Film', 'Court métrage'),
+    // DRAFT details, inferred from the files: please confirm (and add Scope / Tools).
+    details: [
+      [L('Project', 'Projet'), 'The Matter'],
+      [L('Discipline', 'Discipline'), L('Short Film', 'Court métrage')],
+    ],
+    layout: [
+      {
+        type: 'frames',
+        title: L('Selected Frames', 'Images choisies'),
+        groups: [{ files: ['cover', 'render 01', 'render 02', 'render 03', 'render 04', 'render 05'], arrange: 'cinema' }],
+      },
+      { type: 'details' },
+    ],
+  },
+  'once-cherished-now-forsaken': {
+    category: L('Short Film', 'Court métrage'),
+    hero: 'cover',
+    // DRAFT details, inferred from the files: please confirm (and add Scope / Tools).
+    details: [
+      [L('Project', 'Projet'), 'Once Cherished Now Forsaken'],
+      [L('Discipline', 'Discipline'), L('Short Film', 'Court métrage')],
+    ],
+    layout: [
+      {
+        type: 'frames',
+        title: L('Selected Frames', 'Images choisies'),
+        groups: [{ files: ['3', '4', '5', '6'], arrange: 'cinema' }],
+      },
+      { type: 'details' },
+    ],
+  },
 };
 
 export const works = projects.map((p) => ({

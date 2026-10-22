@@ -1497,3 +1497,34 @@
     font-size: 14px;
   }
 }
+
+/* ---------- Interludes (single pieces scattered between sections) ---------- */
+.interlude {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 120px;
+}
+
+.interlude__piece {
+  flex: none;
+}
+
+/* Two or more pieces side by side: spread across the width. */
+.interlude:has(.interlude__piece + .interlude__piece) {
+  justify-content: space-between;
+}
+
+/* Pairs shown side by side are centred when capped narrower than the page. */
+@media (min-width: 810px) {
+  .frame-line--row {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 809px) {
+  .interlude {
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 72px;
+  }
+}

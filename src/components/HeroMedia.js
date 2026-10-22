@@ -14,7 +14,8 @@ export default function HeroMedia({ work }) {
   const [muted, setMuted] = useState(true);
   const [viewer, setViewer] = useState(null);
   const { t } = useLang();
-  const media = work.video || work.cover;
+  const film = work.hero === 'cover' ? null : work.video;
+  const media = film || work.cover;
   const ratio = media.w / media.h;
 
   // Start with sound. Browsers only allow that once the visitor has interacted with the
@@ -90,10 +91,10 @@ export default function HeroMedia({ work }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.2, ease, delay: 0.2 }}
     >
-      {work.video ? (
+      {film ? (
         <video
           ref={videoRef}
-          src={work.video.src}
+          src={film.src}
           poster={work.cover.src}
           loop
           playsInline
@@ -105,7 +106,7 @@ export default function HeroMedia({ work }) {
       )}
 
       <div className="hero-media__controls">
-        {work.video && (
+        {film && (
           <button className="hero-media__btn" onClick={toggleSound} aria-pressed={!muted}>
             <span className={`hero-media__dot ${muted ? '' : 'is-on'}`} />
             {muted ? t('soundOff') : t('soundOn')}
@@ -114,13 +115,13 @@ export default function HeroMedia({ work }) {
         <button
           className="hero-media__btn"
           onClick={openFullscreen}
-          aria-label={work.video ? 'Play film full screen' : 'View cover full screen'}
+          aria-label={film ? 'Play film full screen' : 'View cover full screen'}
         >
           <FullscreenIcon /> {t('fullscreen')}
         </button>
       </div>
 
-      {!work.video && (
+      {!film && (
         <Lightbox images={[work.cover]} index={viewer} onChange={setViewer} onClose={() => setViewer(null)} label={work.title} />
       )}
     </motion.div>

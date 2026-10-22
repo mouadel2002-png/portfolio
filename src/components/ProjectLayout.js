@@ -4,7 +4,7 @@ import Compare from './Compare';
 import Stages from './Stages';
 import FilmStrip from './FilmStrip';
 import Lightbox from './Lightbox';
-import { Reveal } from './Reveal';
+import { Reveal, RevealImage } from './Reveal';
 import { useMediaQuery } from '../hooks';
 import { useLang } from '../i18n';
 
@@ -244,10 +244,35 @@ function DetailsSection({ section, index, work }) {
   );
 }
 
+// A few single pieces dropped between sections (no heading), each at its own size/offset.
+function Interlude({ section, work }) {
+  const wide = useMediaQuery('(min-width: 810px)');
+  const items = section.items.map((it) => ({ ...it, img: work.files[it.file] })).filter((it) => it.img);
+  return (
+    <div className="interlude" aria-hidden="true">
+      {items.map((it) => (
+        <div
+          key={it.file}
+          className="interlude__piece"
+          style={
+            wide
+              ? { width: `${it.width}%`, marginLeft: `${it.left}%`, marginTop: it.drop ? `${it.drop}px` : undefined, maxWidth: fitScreen(it.img) }
+              : { width: `${Math.min(it.width * 1.8, 70)}%`, marginLeft: it.left > 40 ? 'auto' : 0 }
+          }
+        >
+          <RevealImage src={it.img.src} alt="" ratio={`${it.img.w} / ${it.img.h}`} />
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function ProjectLayout({ work }) {
   let start = 2; // (01) is the film / cover at the top of the page
+  let number = 0; // section numbers skip interludes
   return work.layout.map((section, i) => {
-    const props = { section, index: i + 1, work };
+    if (section.type === 'interlude') return <Interlude key={i} section={section} work={work} />;
+    const props = { section, index: ++number, work };
     if (section.type === 'frames') {
       const first = start;
       start += section.groups.reduce((n, g) => n + g.files.length, 0);

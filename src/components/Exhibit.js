@@ -116,7 +116,7 @@ export function Piece({ img, n, title, style, onOpen, caption, bare }) {
       }
     : {};
   return (
-    <figure className={`exhibit__piece ${onOpen ? 'is-clickable' : ''}`} style={style} {...clickable}>
+    <figure className={`exhibit__piece ${onOpen ? 'is-clickable' : ''} ${bare ? 'is-bare' : ''}`} style={style} {...clickable}>
       <RevealImage src={img.src} alt={`${title} ${n}`} ratio={`${img.w} / ${img.h}`} />
       {!bare && (
       <figcaption>

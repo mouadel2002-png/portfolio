@@ -1557,3 +1557,9 @@
 .frame-group--tight .exhibit {
   gap: 40px;
 }
+
+/* Loose pieces (cut-outs such as the Gummagic gums) float on the page: no frame fill. */
+.exhibit__piece.is-bare .img-frame,
+.interlude__piece .img-frame {
+  background: transparent;
+}

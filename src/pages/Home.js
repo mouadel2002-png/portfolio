@@ -71,7 +71,7 @@ export default function Home() {
 
       <section className="info container">
         <Reveal className="info__left">
-          <h3>{profile.location}</h3>
+          <h3>{tr(profile.location)}</h3>
           <h3 className="muted">© {profile.year}</h3>
         </Reveal>
         <Reveal className="info__right" delay={0.1}>

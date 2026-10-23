@@ -57,6 +57,17 @@
   pointer-events: none;
 }
 
+/* Tint in the page colour so the headline stays readable in both themes. */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--bg);
+  opacity: 0.55;
+  transition: background-color 0.5s var(--ease);
+}
+
 .hero__services {
   list-style: none;
   margin: 0;
@@ -1562,4 +1573,9 @@
 .exhibit__piece.is-bare .img-frame,
 .interlude__piece .img-frame {
   background: transparent;
+}
+
+/* Multi-paragraph wall text. */
+.story__text p + p {
+  margin-top: 1em;
 }

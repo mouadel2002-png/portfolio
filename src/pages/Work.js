@@ -48,7 +48,11 @@ export default function Work() {
           <p className="muted">{work.video && work.hero !== 'cover' ? t('film') : t('cover')}</p>
         </Reveal>
 
-        <StoryBlock label={t('projectOverview')} text={work.story?.overview} />
+        {work.intro ? (
+          <StoryBlock label={work.intro[0]} text={work.story?.[work.intro[1]]} />
+        ) : (
+          <StoryBlock label={t('projectOverview')} text={work.story?.overview} />
+        )}
 
         {work.about && (
           <div className="grid work__about">
@@ -67,7 +71,11 @@ export default function Work() {
           <Exhibit images={work.images} title={work.title} />
         )}
 
-        <StoryBlock label={t('finalOutput')} text={work.story?.output} closing />
+        {work.outro ? (
+          <StoryBlock label={work.outro[0]} text={work.story?.[work.outro[1]]} closing />
+        ) : (
+          <StoryBlock label={t('finalOutput')} text={work.story?.output} closing />
+        )}
 
         <Link to={`/works/${next.slug}`} className="next-work">
           <span className="muted">{t('nextProject')}</span>

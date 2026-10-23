@@ -22,14 +22,21 @@ export function SectionHead({ index, title, subtitle, count }) {
   );
 }
 
-// A short "wall text" block: small label on the left, paragraph on the right.
+// A short "wall text" block: small label on the left, text on the right. The text can be
+// one paragraph or a list of paragraphs (in either language).
 export function StoryBlock({ label, text, closing }) {
   const { tr } = useLang();
   if (!text) return null;
+  const value = tr(text);
+  const paras = Array.isArray(value) ? value : [value];
   return (
     <Reveal className={`story ${closing ? 'story--closing' : ''}`}>
       <h3 className="story__label muted">{tr(label)}</h3>
-      <p className="story__text">{tr(text)}</p>
+      <div className="story__text">
+        {paras.map((p) => (
+          <p key={p.slice(0, 24)}>{p}</p>
+        ))}
+      </div>
     </Reveal>
   );
 }
@@ -211,6 +218,7 @@ function ShotsSection({ section, index, work }) {
   return (
     <section className="work-section">
       <SectionHead index={index} title={section.title} subtitle={t('fromSketch')} count={shots.length} />
+      {section.text && <StoryBlock label={section.text[0]} text={work.story?.[section.text[1]]} />}
       {featured && (
         <div className="plates">
           <Stages

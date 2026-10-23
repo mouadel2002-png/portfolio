@@ -12,10 +12,10 @@ const SRC = path.resolve(__dirname, '../../..');
 const APP = path.resolve(__dirname, '..');
 const OUT = `${APP}/public/images/works`;
 const VIDEOS = `${APP}/public/videos`;
-// Home page order.
+// Home page order: [folder, title, optional fixed slug for the page address].
 const projects = [
   ['EDEN', 'Eden'], ['GLOBALSTAR', 'Globalstar'], ['microsoft', 'Microsoft'], ['WILSON', 'Wilson'],
-  ['GUMMAGIC', 'Gummagic'], ['SAMSUNG', 'Samsung'], ['SAUVAGE', 'Sauvage'], ['OULMESS', 'Oulmess'],
+  ['GUMMAGIC', 'Gummagic'], ['SAMSUNG', 'Samsung'], ['SAUVAGE', 'Sauvage'], ['OULMESS', 'Oulmès', 'oulmess'],
   ['THE MATTER', 'The Matter'], ['ONCE CHERISHED NOW FORSAKEN', 'Once Cherished Now Forsaken'],
 ];
 // Used only when a folder has no COVER image.
@@ -87,8 +87,8 @@ function encodeShowreel() {
   if (portrait) fs.writeFileSync(`${APP}/src/data/portrait.json`, JSON.stringify(portrait, null, 2) + '\n');
   fs.rmSync(OUT, { recursive: true, force: true });
   const manifest = [];
-  for (const [dir, title] of projects) {
-    const slug = slugify(title);
+  for (const [dir, title, fixedSlug] of projects) {
+    const slug = fixedSlug || slugify(title);
     fs.mkdirSync(`${OUT}/${slug}`, { recursive: true });
     const all = fs.readdirSync(path.join(SRC, dir)).filter((f) => fs.statSync(path.join(SRC, dir, f)).isFile());
     const files = all.filter(isImg).sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));

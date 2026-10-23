@@ -9,10 +9,9 @@ import { archive, profile, works } from '../data/site';
 import { useLang } from '../i18n';
 import './pages.css';
 
-// Three archive images, spread through the archive, as a teaser for the Playground page.
-const archiveImages = archive.filter((a) => a.type === 'image');
-const previewPieces = [0, 1, 2]
-  .map((k) => archiveImages[Math.floor((k * archiveImages.length) / 3)])
+// Hand-picked archive images as a teaser for the Playground page.
+const previewPieces = ['0001', '0137', 'rs0084-0000', 'rs004-0000']
+  .map((id) => archive.find((a) => a.src === `/archive/${id}.webp`))
   .filter(Boolean);
 
 export default function Home() {

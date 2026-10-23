@@ -99,6 +99,12 @@ async function importLogos() {
   console.log(`Client logos: ${logos.length}`);
 }
 
+// Average colour of an image as #rrggbb, used to arrange the archive by colour.
+async function dominant(file) {
+  const { channels } = await sharp(file).resize(64, 64, { fit: 'inside' }).removeAlpha().stats();
+  return '#' + channels.slice(0, 3).map((c) => Math.round(c.mean).toString(16).padStart(2, '0')).join('');
+}
+
 // Playground / archive: WEBSITE/archive -> public/archive (WebP images, 720p H.264 videos with a
 // poster frame) + src/data/archive.json. Videos already encoded are skipped.
 async function importArchive() {
@@ -116,7 +122,7 @@ async function importArchive() {
       const info = await sharp(input, { limitInputPixels: false }).rotate()
         .resize({ width: 1600, height: 1600, fit: 'inside', withoutEnlargement: true })
         .webp({ quality: 80 }).toFile(`${out}/${id}.webp`);
-      items.push({ type: 'image', src: `/archive/${id}.webp`, w: info.width, h: info.height });
+      items.push({ type: 'image', src: `/archive/${id}.webp`, w: info.width, h: info.height, color: await dominant(`${out}/${id}.webp`) });
     } else if (/\.(mp4|mov)$/i.test(f)) {
       const video = `${out}/${id}.mp4`;
       const poster = `${out}/${id}-poster.jpg`;
@@ -129,7 +135,7 @@ async function importArchive() {
       }
       const [w, h] = execFileSync(ffprobe, ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height',
         '-of', 'csv=p=0', video]).toString().trim().split(',').map(Number);
-      items.push({ type: 'video', src: `/archive/${id}.mp4`, poster: `/archive/${id}-poster.jpg`, w, h });
+      items.push({ type: 'video', src: `/archive/${id}.mp4`, poster: `/archive/${id}-poster.jpg`, w, h, color: await dominant(poster) });
     }
   }
   fs.writeFileSync(`${APP}/src/data/archive.json`, JSON.stringify(items, null, 2) + '\n');

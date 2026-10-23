@@ -167,9 +167,19 @@
 .pg-preview__list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  margin-top: 64px;
-  width: calc((100% - var(--gap) * 2) / 3 * 2 + var(--gap));
+  gap: 12px;
+  margin-top: 48px;
+}
+
+.pg-preview__row {
+  display: flex;
+  gap: 12px;
+}
+
+.pg-preview__item {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .pg-preview__item:hover img {
@@ -261,8 +271,7 @@
   padding-top: 20px;
 }
 
-.playground__frame,
-.pg-preview__frame {
+.playground__frame {
   aspect-ratio: 626 / 305;
 }
 
@@ -984,7 +993,6 @@
     padding-top: 100px;
   }
 
-  .pg-preview__list,
   .playground__item {
     width: 100%;
   }
@@ -1093,19 +1101,9 @@
   }
 
   .pg-preview__list {
-    width: 100%;
-    margin-top: 100px;
+    margin-top: 64px;
   }
 
-  .pg-preview__item {
-    width: calc(50% - var(--gap) / 2);
-  }
-
-  .pg-preview__item:nth-child(even) {
-    align-self: flex-end;
-  }
-
-  .pg-preview__frame,
   .playground__frame {
     aspect-ratio: 673 / 445;
   }

@@ -98,11 +98,16 @@ export default function Home() {
             {t('viewAll')}
           </Link>
         </Reveal>
+        {/* Justified rows: every piece at the same height, keeping its own shape. */}
         <div className="pg-preview__list">
-          {previewPieces.map((p) => (
-            <Link to="/playground" key={p.src} className="pg-preview__item">
-              <RevealImage src={p.src} alt="" className="img-frame--fill img-frame--contain pg-preview__frame" />
-            </Link>
+          {(isDesktop ? [previewPieces] : [previewPieces.slice(0, 2), previewPieces.slice(2)]).map((row, i) => (
+            <div key={i} className="pg-preview__row">
+              {row.map((p) => (
+                <Link to="/playground" key={p.src} className="pg-preview__item" style={{ flex: `${p.w / p.h} 1 0` }}>
+                  <RevealImage src={p.src} alt="" ratio={`${p.w} / ${p.h}`} />
+                </Link>
+              ))}
+            </div>
           ))}
         </div>
       </section>

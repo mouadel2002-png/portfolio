@@ -1,0 +1,392 @@
+[
+  {
+    "type": "video",
+    "src": "/archive/0001.mp4",
+    "poster": "/archive/0001-poster.jpg",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "type": "image",
+    "src": "/archive/0001.webp",
+    "w": 1600,
+    "h": 900
+  },
+  {
+    "type": "image",
+    "src": "/archive/1.webp",
+    "w": 1600,
+    "h": 1600
+  },
+  {
+    "type": "image",
+    "src": "/archive/2.webp",
+    "w": 1600,
+    "h": 1600
+  },
+  {
+    "type": "image",
+    "src": "/archive/3.webp",
+    "w": 1600,
+    "h": 1600
+  },
+  {
+    "type": "image",
+    "src": "/archive/4.webp",
+    "w": 1600,
+    "h": 1600
+  },
+  {
+    "type": "video",
+    "src": "/archive/5.mp4",
+    "poster": "/archive/5-poster.jpg",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "type": "video",
+    "src": "/archive/6.mp4",
+    "poster": "/archive/6-poster.jpg",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "type": "video",
+    "src": "/archive/7.mp4",
+    "poster": "/archive/7-poster.jpg",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "type": "image",
+    "src": "/archive/7.webp",
+    "w": 1080,
+    "h": 1080
+  },
+  {
+    "type": "image",
+    "src": "/archive/10.webp",
+    "w": 1600,
+    "h": 1600
+  },
+  {
+    "type": "image",
+    "src": "/archive/80s-artwork.webp",
+    "w": 1189,
+    "h": 1600
+  },
+  {
+    "type": "image",
+    "src": "/archive/0137.webp",
+    "w": 900,
+    "h": 1600
+  },
+  {
+    "type": "image",
+    "src": "/archive/0147.webp",
+    "w": 900,
+    "h": 1600
+  },
+  {
+    "type": "video",
+    "src": "/archive/adsphere-export-3.mp4",
+    "poster": "/archive/adsphere-export-3-poster.jpg",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "type": "image",
+    "src": "/archive/art1.webp",
+    "w": 1500,
+    "h": 1069
+  },
+  {
+    "type": "image",
+    "src": "/archive/bab-mekness-1.webp",
+    "w": 1600,
+    "h": 900
+  },
+  {
+    "type": "video",
+    "src": "/archive/biscuit-exp.mp4",
+    "poster": "/archive/biscuit-exp-poster.jpg",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "type": "video",
+    "src": "/archive/bmw5.mp4",
+    "poster": "/archive/bmw5-poster.jpg",
+    "w": 404,
+    "h": 720
+  },
+  {
+    "type": "image",
+    "src": "/archive/brutalism.webp",
+    "w": 750,
+    "h": 1334
+  },
+  {
+    "type": "image",
+    "src": "/archive/c1.webp",
+    "w": 1600,
+    "h": 900
+  },
+  {
+    "type": "image",
+    "src": "/archive/c2.webp",
+    "w": 1600,
+    "h": 900
+  },
+  {
+    "type": "image",
+    "src": "/archive/c3.webp",
+    "w": 1600,
+    "h": 900
+  },
+  {
+    "type": "image",
+    "src": "/archive/chatgpt-image-oct-12-2026-05-11-36-pm-6.webp",
+    "w": 1122,
+    "h": 1402
+  },
+  {
+    "type": "image",
+    "src": "/archive/chatgpt-image-oct-12-2026-05-11-39-pm-7.webp",
+    "w": 1122,
+    "h": 1402
+  },
+  {
+    "type": "image",
+    "src": "/archive/chatgpt-image-oct-12-2026-05-52-46-pm-2.webp",
+    "w": 1254,
+    "h": 1254
+  },
+  {
+    "type": "image",
+    "src": "/archive/chatgpt-image-oct-12-2026-05-52-47-pm-3.webp",
+    "w": 1254,
+    "h": 1254
+  },
+  {
+    "type": "image",
+    "src": "/archive/chatgpt-image-oct-12-2026-05-52-48-pm-4.webp",
+    "w": 1254,
+    "h": 1254
+  },
+  {
+    "type": "video",
+    "src": "/archive/clocks-done.mp4",
+    "poster": "/archive/clocks-done-poster.jpg",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "type": "image",
+    "src": "/archive/comp-00053.webp",
+    "w": 900,
+    "h": 1600
+  },
+  {
+    "type": "video",
+    "src": "/archive/destruction-el-hafa-1.mp4",
+    "poster": "/archive/destruction-el-hafa-1-poster.jpg",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "type": "video",
+    "src": "/archive/dynamic-bland-4.mp4",
+    "poster": "/archive/dynamic-bland-4-poster.jpg",
+    "w": 404,
+    "h": 720
+  },
+  {
+    "type": "video",
+    "src": "/archive/export.mp4",
+    "poster": "/archive/export-poster.jpg",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "type": "video",
+    "src": "/archive/fence.mp4",
+    "poster": "/archive/fence-poster.jpg",
+    "w": 720,
+    "h": 720
+  },
+  {
+    "type": "video",
+    "src": "/archive/jull.mp4",
+    "poster": "/archive/jull-poster.jpg",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "type": "video",
+    "src": "/archive/mahfoda-last-export.mp4",
+    "poster": "/archive/mahfoda-last-export-poster.jpg",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "type": "image",
+    "src": "/archive/post-1.webp",
+    "w": 1080,
+    "h": 1080
+  },
+  {
+    "type": "image",
+    "src": "/archive/post-46.webp",
+    "w": 1080,
+    "h": 1080
+  },
+  {
+    "type": "image",
+    "src": "/archive/post-tst-19.webp",
+    "w": 1080,
+    "h": 1080
+  },
+  {
+    "type": "image",
+    "src": "/archive/post-tst-31.webp",
+    "w": 1080,
+    "h": 1080
+  },
+  {
+    "type": "image",
+    "src": "/archive/post-tst-45.webp",
+    "w": 1080,
+    "h": 1080
+  },
+  {
+    "type": "image",
+    "src": "/archive/post-tst-46.webp",
+    "w": 1080,
+    "h": 1080
+  },
+  {
+    "type": "image",
+    "src": "/archive/poster.webp",
+    "w": 1297,
+    "h": 1600
+  },
+  {
+    "type": "image",
+    "src": "/archive/rendu-image-01.webp",
+    "w": 1600,
+    "h": 900
+  },
+  {
+    "type": "image",
+    "src": "/archive/rendu-image-02.webp",
+    "w": 1600,
+    "h": 900
+  },
+  {
+    "type": "image",
+    "src": "/archive/route-66-art-work.webp",
+    "w": 1215,
+    "h": 1600
+  },
+  {
+    "type": "image",
+    "src": "/archive/rs004-0000.webp",
+    "w": 1600,
+    "h": 900
+  },
+  {
+    "type": "image",
+    "src": "/archive/rs0084-0000.webp",
+    "w": 1600,
+    "h": 900
+  },
+  {
+    "type": "image",
+    "src": "/archive/saadane.webp",
+    "w": 1600,
+    "h": 904
+  },
+  {
+    "type": "video",
+    "src": "/archive/sculp-render.mp4",
+    "poster": "/archive/sculp-render-poster.jpg",
+    "w": 404,
+    "h": 720
+  },
+  {
+    "type": "image",
+    "src": "/archive/souk2.webp",
+    "w": 1080,
+    "h": 1080
+  },
+  {
+    "type": "image",
+    "src": "/archive/stairs.webp",
+    "w": 1116,
+    "h": 1037
+  },
+  {
+    "type": "image",
+    "src": "/archive/statue-poster.webp",
+    "w": 1200,
+    "h": 1600
+  },
+  {
+    "type": "image",
+    "src": "/archive/tableau.webp",
+    "w": 1183,
+    "h": 1600
+  },
+  {
+    "type": "image",
+    "src": "/archive/time.webp",
+    "w": 1600,
+    "h": 900
+  },
+  {
+    "type": "video",
+    "src": "/archive/uk-gg-2.mp4",
+    "poster": "/archive/uk-gg-2-poster.jpg",
+    "w": 408,
+    "h": 720
+  },
+  {
+    "type": "image",
+    "src": "/archive/untitled.webp",
+    "w": 960,
+    "h": 540
+  },
+  {
+    "type": "image",
+    "src": "/archive/untitled5.webp",
+    "w": 1600,
+    "h": 900
+  },
+  {
+    "type": "image",
+    "src": "/archive/untitled6.webp",
+    "w": 1600,
+    "h": 900
+  },
+  {
+    "type": "video",
+    "src": "/archive/whatsapp-video-2024-10-02-at-12-39-57.mp4",
+    "poster": "/archive/whatsapp-video-2024-10-02-at-12-39-57-poster.jpg",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "type": "video",
+    "src": "/archive/whatsapp-video-2024-10-02-at-12-42-11.mp4",
+    "poster": "/archive/whatsapp-video-2024-10-02-at-12-42-11-poster.jpg",
+    "w": 404,
+    "h": 720
+  },
+  {
+    "type": "image",
+    "src": "/archive/yango-post-1.webp",
+    "w": 1600,
+    "h": 1600
+  }
+]

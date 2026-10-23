@@ -4,7 +4,8 @@ import { useLang } from '../i18n';
 
 const ease = [0.22, 1, 0.36, 1];
 
-// Full-screen image viewer. `index` is the open image (null = closed); arrows and Esc work too.
+// Full-screen viewer for images and videos. `index` is the open item (null = closed); arrows and
+// Esc work too. Videos ({ type: 'video' }) play with controls and start muted.
 export default function Lightbox({ images, index, onChange, onClose, label }) {
   const open = index !== null && images[index];
   const { t } = useLang();
@@ -41,16 +42,34 @@ export default function Lightbox({ images, index, onChange, onClose, label }) {
           transition={{ duration: 0.4 }}
           onClick={onClose}
         >
-          <motion.img
-            key={images[index].src}
-            src={images[index].src}
-            alt={`${label} ${index + 1}`}
-            className="lightbox__img"
-            initial={{ opacity: 0, scale: 0.97 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, ease }}
-            onClick={(e) => e.stopPropagation()}
-          />
+          {images[index].type === 'video' ? (
+            <motion.video
+              key={images[index].src}
+              src={images[index].src}
+              poster={images[index].poster}
+              className="lightbox__img"
+              controls
+              autoPlay
+              muted
+              loop
+              playsInline
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, ease }}
+              onClick={(e) => e.stopPropagation()}
+            />
+          ) : (
+            <motion.img
+              key={images[index].src}
+              src={images[index].src}
+              alt={`${label} ${index + 1}`}
+              className="lightbox__img"
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, ease }}
+              onClick={(e) => e.stopPropagation()}
+            />
+          )}
           <div className="lightbox__bar" onClick={(e) => e.stopPropagation()}>
             <span>
               {label}{' '}

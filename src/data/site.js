@@ -1,8 +1,8 @@
 // All site content lives here — edit this file to make the portfolio yours.
 import projects from './projects.json';
 import portrait from './portrait.json';
+import archive from './archive.json';
 
-const img = (id) => `https://framerusercontent.com/images/${id}`;
 // Text shown in both languages: L(english, french). Plain strings are the same in both.
 const L = (en, fr) => ({ en, fr });
 
@@ -14,9 +14,9 @@ export const profile = {
   email: 'hello@mouadtahri.com',
   year: new Date().getFullYear(),
   services: [
-    L('Branding', 'Identité de marque'),
     L('Creative Direction', 'Direction créative'),
-    L('UI/UX Design', 'Design UI/UX'),
+    L('3D Motion & Design', 'Motion & design 3D'),
+    L('Graphic Design', 'Design graphique'),
   ],
   intro: L(
     "I bring a dynamic and impactful approach to brand design, focusing on creating identities that vividly communicate a business's essence to its intended audience.",
@@ -526,26 +526,15 @@ export const works = projects.map((p) => ({
   ...p,
 }));
 
-// `side` places the image in the left or right half of the page on the Playground page.
-export const playground = [
-  { title: 'Personal Photography', image: img('6JAFxzqSYxPBhrztwhAWAXuO4s.jpg'), side: 'right' },
-  { title: 'Puke Logo', image: img('it0kUZYjd8ViYJAHLowAx4csOEY.png'), side: 'left' },
-  { title: 'Personal Photography', image: img('TAP9dayZQH6bpFyDmbSsgQbPVbc.jpg'), side: 'left' },
-  { title: 'Renders 02', image: img('WpWKgwy66uh6uY0OuKSSncrq0.jpg'), side: 'right' },
-  { title: 'Type Exploration', image: img('OEuU07NI7FNxRfaD6RfSwe6vbc.jpg'), side: 'left' },
-  { title: 'Renders 01', image: img('3PeEhcaMDNujnUJz86bWxo80w.jpg'), side: 'right' },
-  { title: 'Studio Cool 3D Rendering', image: img('lN6ni95OOxhK0IzABcCdd0s4.jpg'), side: 'left' },
-  { title: 'Personal Photography', image: img('PrnTkbZ3iHIVDxBqF6xIGv8FLKI.jpg'), side: 'right' },
-  { title: 'Oscar Olsson / Disco Volante', image: img('3PeEhcaMDNujnUJz86bWxo80w.jpg'), side: 'left' },
-];
+// Playground / archive: unfinished and unpresented work from WEBSITE/archive
+// (imported by `npm run import-projects` into src/data/archive.json).
+export { archive };
 
-// Gallery page: renders from each project, stored in public/images/gallery.
-const galleryCounts = { eden: 8, globalstar: 7, microsoft: 7, wilson: 7 };
-const galleryTitles = { eden: 'Eden', globalstar: 'Globalstar', microsoft: 'Microsoft', wilson: 'Wilson' };
-
-export const gallery = Object.entries(galleryCounts).flatMap(([project, count]) =>
-  Array.from({ length: count }, (_, i) => ({
-    project: galleryTitles[project],
-    image: `/images/gallery/${project}-${String(i + 1).padStart(2, '0')}.webp`,
-  }))
-);
+// Gallery page: every project's Selected Frames, in project order.
+export const gallery = works.flatMap((w) => {
+  const frames = (w.layout || []).find((sec) => sec.type === 'frames');
+  const images = frames
+    ? frames.groups.flatMap((g) => (g.files || []).map((f) => w.files[f])).filter(Boolean)
+    : w.images;
+  return images.map((img) => ({ project: w.title, image: img.src, w: img.w, h: img.h }));
+});

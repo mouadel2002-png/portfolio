@@ -84,7 +84,7 @@ export default function Gallery() {
                 aria-label={`Open ${g.project} image`}
               >
                 <span className="img-frame">
-                  <img src={g.image} alt={`${g.project} render`} loading="lazy" />
+                  <img src={g.image} alt={`${g.project} render`} width={g.w} height={g.h} loading="lazy" />
                 </span>
                 <span className="gallery__caption muted">{g.project}</span>
               </motion.button>

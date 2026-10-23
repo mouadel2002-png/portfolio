@@ -5,9 +5,15 @@ import { DESKTOP, useMediaQuery } from '../hooks';
 import WorkCard from '../components/WorkCard';
 import Clients from '../components/Clients';
 import { MaskLine, Reveal, RevealImage } from '../components/Reveal';
-import { playground, profile, works } from '../data/site';
+import { archive, profile, works } from '../data/site';
 import { useLang } from '../i18n';
 import './pages.css';
+
+// Three archive images, spread through the archive, as a teaser for the Playground page.
+const archiveImages = archive.filter((a) => a.type === 'image');
+const previewPieces = [0, 1, 2]
+  .map((k) => archiveImages[Math.floor((k * archiveImages.length) / 3)])
+  .filter(Boolean);
 
 export default function Home() {
   const isDesktop = useMediaQuery(DESKTOP);
@@ -93,9 +99,9 @@ export default function Home() {
           </Link>
         </Reveal>
         <div className="pg-preview__list">
-          {playground.slice(0, 3).map((p, i) => (
-            <Link to="/playground" key={i} className="pg-preview__item">
-              <RevealImage src={p.image} alt={p.title} className="img-frame--fill img-frame--contain pg-preview__frame" />
+          {previewPieces.map((p) => (
+            <Link to="/playground" key={p.src} className="pg-preview__item">
+              <RevealImage src={p.src} alt="" className="img-frame--fill img-frame--contain pg-preview__frame" />
             </Link>
           ))}
         </div>

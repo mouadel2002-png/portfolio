@@ -90,7 +90,7 @@ async function importLogos() {
   fs.mkdirSync(out, { recursive: true });
   const logos = [];
   for (const f of fs.readdirSync(dir).filter(isImg).sort()) {
-    const name = f.replace(/.[^.]+$/, '');
+    const name = f.replace(/\.[^.]+$/, '');
     const slug = slugify(name);
     const info = await sharp(path.join(dir, f)).png().toFile(`${out}/${slug}.png`);
     logos.push({ name: name.charAt(0) + name.slice(1).toLowerCase(), src: `/images/clients/${slug}.png`, w: info.width, h: info.height });
@@ -99,8 +99,47 @@ async function importLogos() {
   console.log(`Client logos: ${logos.length}`);
 }
 
+// Playground / archive: WEBSITE/archive -> public/archive (WebP images, 720p H.264 videos with a
+// poster frame) + src/data/archive.json. Videos already encoded are skipped.
+async function importArchive() {
+  const dir = path.join(SRC, 'archive');
+  if (!fs.existsSync(dir)) return;
+  const out = `${APP}/public/archive`;
+  fs.mkdirSync(out, { recursive: true });
+  const items = [];
+  const files = fs.readdirSync(dir).filter((f) => fs.statSync(path.join(dir, f)).isFile())
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+  for (const f of files) {
+    const id = slugify(f.replace(/\.[^.]+$/, '')) || 'item';
+    const input = path.join(dir, f);
+    if (isImg(f)) {
+      const info = await sharp(input, { limitInputPixels: false }).rotate()
+        .resize({ width: 1600, height: 1600, fit: 'inside', withoutEnlargement: true })
+        .webp({ quality: 80 }).toFile(`${out}/${id}.webp`);
+      items.push({ type: 'image', src: `/archive/${id}.webp`, w: info.width, h: info.height });
+    } else if (/\.(mp4|mov)$/i.test(f)) {
+      const video = `${out}/${id}.mp4`;
+      const poster = `${out}/${id}-poster.jpg`;
+      if (!fs.existsSync(video) || fs.statSync(video).mtimeMs < fs.statSync(input).mtimeMs) {
+        execFileSync(ffmpeg, ['-y', '-v', 'error', '-i', input,
+          '-vf', "scale='min(1280,iw)':'min(720,ih)':force_original_aspect_ratio=decrease,scale=trunc(iw/2)*2:trunc(ih/2)*2",
+          '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '28', '-pix_fmt', 'yuv420p',
+          '-c:a', 'aac', '-b:a', '96k', '-movflags', '+faststart', video]);
+        execFileSync(ffmpeg, ['-y', '-v', 'error', '-ss', '1', '-i', video, '-frames:v', '1', '-q:v', '4', poster]);
+      }
+      const [w, h] = execFileSync(ffprobe, ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height',
+        '-of', 'csv=p=0', video]).toString().trim().split(',').map(Number);
+      items.push({ type: 'video', src: `/archive/${id}.mp4`, poster: `/archive/${id}-poster.jpg`, w, h });
+    }
+  }
+  fs.writeFileSync(`${APP}/src/data/archive.json`, JSON.stringify(items, null, 2) + '\n');
+  const mb = fs.readdirSync(out).reduce((t, f) => t + fs.statSync(`${out}/${f}`).size, 0) / 1048576;
+  console.log(`Archive: ${items.filter((i) => i.type === 'image').length} images, ${items.filter((i) => i.type === 'video').length} videos, ${mb.toFixed(1)}MB`);
+}
+
 (async () => {
   encodeShowreel();
+  await importArchive();
   await importLogos();
   const portrait = await encodePortrait();
   if (portrait) fs.writeFileSync(`${APP}/src/data/portrait.json`, JSON.stringify(portrait, null, 2) + '\n');

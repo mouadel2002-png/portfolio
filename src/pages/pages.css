@@ -1579,3 +1579,88 @@
 .story__text p + p {
   margin-top: 1em;
 }
+
+/* ---------- Client logos (white band, endless marquee) ---------- */
+.clients {
+  margin-top: 140px;
+  padding: 36px 0 44px;
+  background: #ffffff;
+  color: #111111;
+}
+
+.clients__label {
+  padding: 0 var(--gutter);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #6b6b6b;
+}
+
+.clients__viewport {
+  margin-top: 28px;
+  overflow: hidden;
+  -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.clients__track {
+  display: flex;
+  align-items: center;
+  gap: 88px;
+  width: max-content;
+  margin: 0;
+  padding: 0 44px;
+  list-style: none;
+  animation: clients-scroll 36s linear infinite;
+}
+
+.clients:hover .clients__track {
+  animation-play-state: paused;
+}
+
+.clients__item {
+  flex: none;
+  display: flex;
+  align-items: center;
+  height: 64px;
+}
+
+.clients__item img {
+  display: block;
+}
+
+@keyframes clients-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clients__track {
+    animation: none;
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 809px) {
+  .clients {
+    margin-top: 96px;
+    padding: 28px 0 32px;
+  }
+
+  .clients__track {
+    gap: 56px;
+  }
+
+  .clients__item {
+    zoom: 0.78;
+  }
+}
+
+@media (min-width: 1200px) {
+  .clients {
+    margin-top: 200px;
+  }
+}

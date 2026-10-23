@@ -19,6 +19,7 @@ const UI = {
   archive: { en: 'Archive', fr: 'Archives' },
   work: { en: 'Work', fr: 'Projets' },
   contact: { en: 'Contact', fr: 'Contact' },
+  clients: { en: 'Trusted by', fr: 'Ils m’ont fait confiance' },
   contactLine1: { en: 'Have a project in mind?', fr: 'Un projet en tête ?' },
   contactLine2: { en: 'Let’s create it.', fr: 'Créons-le ensemble.' },
   experience: { en: 'Experience', fr: 'Expérience' },

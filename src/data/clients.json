@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Adsphere",
+    "src": "/images/clients/adsphere.png",
+    "w": 120,
+    "h": 72
+  },
+  {
+    "name": "Dalia",
+    "src": "/images/clients/dalia.png",
+    "w": 120,
+    "h": 88
+  },
+  {
+    "name": "Eden",
+    "src": "/images/clients/eden.png",
+    "w": 120,
+    "h": 49
+  },
+  {
+    "name": "Globalstar",
+    "src": "/images/clients/globalstar.png",
+    "w": 120,
+    "h": 32
+  },
+  {
+    "name": "Inwi",
+    "src": "/images/clients/inwi.png",
+    "w": 120,
+    "h": 30
+  },
+  {
+    "name": "Lukoil",
+    "src": "/images/clients/lukoil.png",
+    "w": 120,
+    "h": 30
+  },
+  {
+    "name": "Oulmes",
+    "src": "/images/clients/oulmes.png",
+    "w": 120,
+    "h": 49
+  },
+  {
+    "name": "Sanlam",
+    "src": "/images/clients/sanlam.png",
+    "w": 120,
+    "h": 28
+  },
+  {
+    "name": "Total",
+    "src": "/images/clients/total.png",
+    "w": 120,
+    "h": 74
+  }
+]

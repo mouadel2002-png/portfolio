@@ -14,8 +14,8 @@ const OUT = `${APP}/public/images/works`;
 const VIDEOS = `${APP}/public/videos`;
 // Home page order: [folder, title, optional fixed slug for the page address].
 const projects = [
-  ['EDEN', 'Eden'], ['GLOBALSTAR', 'Globalstar'], ['microsoft', 'Microsoft'], ['WILSON', 'Wilson'],
-  ['GUMMAGIC', 'Gummagic'], ['SAMSUNG', 'Samsung'], ['SAUVAGE', 'Sauvage'], ['OULMESS', 'Oulmès', 'oulmess'],
+  ['GUMMAGIC', 'Gummagic'], ['OULMESS', 'Oulmès', 'oulmess'], ['EDEN', 'Eden'], ['GLOBALSTAR', 'Globalstar'],
+  ['microsoft', 'Microsoft'], ['WILSON', 'Wilson'], ['SAMSUNG', 'Samsung'], ['SAUVAGE', 'Sauvage'],
   ['THE MATTER', 'The Matter'], ['ONCE CHERISHED NOW FORSAKEN', 'Once Cherished Now Forsaken'],
 ];
 // Used only when a folder has no COVER image.
@@ -81,8 +81,27 @@ function encodeShowreel() {
   console.log(`Showreel: ${Math.round(fs.statSync(out).size / 1024)}KB`);
 }
 
+// Client logos for the home page: WEBSITE/logos/*.png -> public/images/clients + src/data/clients.json.
+async function importLogos() {
+  const dir = path.join(SRC, 'logos');
+  if (!fs.existsSync(dir)) return;
+  const out = `${APP}/public/images/clients`;
+  fs.rmSync(out, { recursive: true, force: true });
+  fs.mkdirSync(out, { recursive: true });
+  const logos = [];
+  for (const f of fs.readdirSync(dir).filter(isImg).sort()) {
+    const name = f.replace(/.[^.]+$/, '');
+    const slug = slugify(name);
+    const info = await sharp(path.join(dir, f)).png().toFile(`${out}/${slug}.png`);
+    logos.push({ name: name.charAt(0) + name.slice(1).toLowerCase(), src: `/images/clients/${slug}.png`, w: info.width, h: info.height });
+  }
+  fs.writeFileSync(`${APP}/src/data/clients.json`, JSON.stringify(logos, null, 2) + '\n');
+  console.log(`Client logos: ${logos.length}`);
+}
+
 (async () => {
   encodeShowreel();
+  await importLogos();
   const portrait = await encodePortrait();
   if (portrait) fs.writeFileSync(`${APP}/src/data/portrait.json`, JSON.stringify(portrait, null, 2) + '\n');
   fs.rmSync(OUT, { recursive: true, force: true });

@@ -3,6 +3,7 @@ import Page from '../components/Page';
 import FitText from '../components/FitText';
 import { DESKTOP, useMediaQuery } from '../hooks';
 import WorkCard from '../components/WorkCard';
+import Clients from '../components/Clients';
 import { MaskLine, Reveal, RevealImage } from '../components/Reveal';
 import { playground, profile, works } from '../data/site';
 import { useLang } from '../i18n';
@@ -68,6 +69,8 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <Clients />
 
       <section className="info container">
         <Reveal className="info__left">

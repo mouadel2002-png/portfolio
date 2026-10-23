@@ -94,12 +94,11 @@ const projectInfo = {
       life: L(["The products were built and rendered in 3D, giving us control over every aspect of their presentation, from the smallest packaging detail to the lighting and final composition. Working within Eden’s brand direction, we developed the visuals to maintain consistency across the different product types while allowing each one to be presented clearly and on its own terms.","This approach also made it possible to create website-ready imagery without relying entirely on traditional product photography."], ["Les produits ont été modélisés et rendus en 3D, ce qui nous a permis de maîtriser chaque aspect de leur présentation, du plus petit détail d’emballage jusqu’à l’éclairage et la composition finale. En suivant la direction de marque d’Eden, nous avons développé des visuels cohérents d’un type de produit à l’autre, tout en présentant chacun clairement et selon ses propres codes.","Cette approche a aussi permis de créer des images prêtes pour le site sans dépendre entièrement de la photographie produit traditionnelle."]),
       result: L("A collection of realistic, carefully art-directed product renders designed to bring Eden’s product range to life online. The project explored how 3D visualization can combine technical precision with a more considered visual sensibility, creating imagery that feels tangible, refined, and consistent with the brand.", "Une collection de rendus produits réalistes et soigneusement dirigés, conçus pour donner vie à la gamme Eden en ligne. Le projet a exploré la manière dont la visualisation 3D peut allier précision technique et sensibilité visuelle plus réfléchie, pour des images tangibles, raffinées et fidèles à la marque."),
     },
-    // DRAFT details, inferred from the files (Blender screenshots): please confirm.
     details: [
       [L('Project', 'Projet'), 'Eden'],
-      [L('Discipline', 'Discipline'), L('3D Product Visualization, Packaging', 'Visualisation produit 3D, packaging')],
+      [L('Discipline', 'Discipline'), L('3D Product Visualization', 'Visualisation produit 3D')],
       [L('Scope', 'Périmètre'), L('Modeling, Texturing, Lighting, Rendering', 'Modélisation, texturing, éclairage, rendu')],
-      [L('Tools', 'Outils'), 'Blender'],
+      [L('Tools', 'Outils'), 'Blender, Cycles, Photoshop'],
     ],
     layout: [
       {
@@ -134,14 +133,11 @@ const projectInfo = {
       life: L(["Working alongside the Globalstar team, we translated the technical workflow into a series of 3D visuals, carefully considering the movement of the robots, the layout of the warehouse, and the sequence of operations. The focus was on making each stage visually understandable while maintaining a consistent, polished technological aesthetic.","Every scene had a purpose: to explain a process, reveal a connection, or help the viewer understand how the different parts of the system interact."], ["Aux côtés de l’équipe Globalstar, nous avons traduit le processus technique en une série de visuels 3D, en réfléchissant avec soin au mouvement des robots, à l’agencement de l’entrepôt et à l’enchaînement des opérations. L’enjeu était de rendre chaque étape visuellement compréhensible tout en gardant une esthétique technologique cohérente et soignée.","Chaque scène avait un but : expliquer un processus, révéler un lien ou aider le spectateur à comprendre comment les différentes parties du système interagissent."]),
       result: L("The project became a visual exploration of connected automation, using 3D visualization to make an intricate industrial process more tangible and accessible. By combining a sleek technological aesthetic with a clear operational narrative, we brought the warehouse system to life as more than a collection of machines — as a coordinated network designed to move, sort, store, and deliver.", "Le projet est devenu une exploration visuelle de l’automatisation connectée, utilisant la visualisation 3D pour rendre un processus industriel complexe plus tangible et accessible. En associant une esthétique technologique épurée à un récit opérationnel clair, nous avons donné vie à l’entrepôt non comme un simple ensemble de machines, mais comme un réseau coordonné conçu pour déplacer, trier, stocker et livrer."),
     },
-    // DRAFT details, inferred from the files: please confirm (and add Tools).
     details: [
       [L('Project', 'Projet'), 'Globalstar'],
       [L('Discipline', 'Discipline'), L('3D Animation, Storyboarding', 'Animation 3D, storyboard')],
-      [
-        L('Scope', 'Périmètre'),
-        L('Storyboard, Modeling, Animation, Lighting, Rendering', 'Storyboard, modélisation, animation, éclairage, rendu'),
-      ],
+      [L('Scope', 'Périmètre'), L('Storyboard, Modeling, Animation, Lighting, Rendering, Color Grading', 'Storyboard, modélisation, animation, éclairage, rendu, étalonnage')],
+      [L('Tools', 'Outils'), 'Blender, Octane'],
     ],
     layout: [
       {
@@ -201,14 +197,11 @@ const projectInfo = {
       life: L("Through 3D animation, we visualized how files move through the OneDrive system, from organization on a device to synchronization with the cloud. Each sequence helped break down the technology into understandable visual steps, revealing the process happening behind everyday digital interactions.", "Grâce à l’animation 3D, nous avons visualisé le parcours des fichiers dans OneDrive, de leur organisation sur un appareil jusqu’à leur synchronisation avec le cloud. Chaque séquence décompose la technologie en étapes visuelles compréhensibles, révélant le processus à l’œuvre derrière nos gestes numériques du quotidien."),
       result: L("A technology-focused commercial that turns an invisible digital workflow into a clear, engaging visual experience, making the functionality behind Microsoft OneDrive easier to understand through 3D motion design.", "Une publicité technologique qui transforme un flux de travail numérique invisible en une expérience visuelle claire et engageante, rendant le fonctionnement de Microsoft OneDrive plus facile à comprendre grâce au motion design 3D."),
     },
-    // DRAFT details, inferred from the files: please confirm (and add Tools).
     details: [
       [L('Project', 'Projet'), 'Microsoft'],
       [L('Discipline', 'Discipline'), L('3D Motion Design', 'Motion design 3D')],
-      [
-        L('Scope', 'Périmètre'),
-        L('Modeling, Texturing, Animation, Lighting, Rendering, Compositing', 'Modélisation, texturing, animation, éclairage, rendu, compositing'),
-      ],
+      [L('Scope', 'Périmètre'), L('Modeling, Texturing, Animation, Lighting, Rendering, Compositing', 'Modélisation, texturing, animation, éclairage, rendu, compositing')],
+      [L('Tools', 'Outils'), 'Blender, Cycles, After Effects'],
     ],
     layout: [
       {
@@ -264,12 +257,11 @@ const projectInfo = {
         'Une collection de rendus 3D aboutis qui explore le tennis sous l’angle du produit. En combinant détails précis, lumière dramatique et forts contrastes de couleurs, le projet crée une identité visuelle énergique et contemporaine, ancrée dans la performance et le design de l’équipement Wilson.'
       ),
     },
-    // DRAFT details, inferred from the files (Cinema 4D screenshots): please confirm.
     details: [
       [L('Project', 'Projet'), 'Wilson'],
       [L('Discipline', 'Discipline'), L('3D Product Visualization', 'Visualisation produit 3D')],
       [L('Scope', 'Périmètre'), L('Modeling, Texturing, Lighting, Rendering', 'Modélisation, texturing, éclairage, rendu')],
-      [L('Tools', 'Outils'), 'Cinema 4D'],
+      [L('Tools', 'Outils'), 'Cinema 4D, Octane'],
     ],
     layout: [
       {
@@ -308,10 +300,11 @@ const projectInfo = {
       life: L(["Through 3D modeling, material exploration, lighting, and rendering, we translated the concept into a vivid, tactile visual world. A lot of the work was about finding the right balance: keeping the gummies and packaging believable while pushing the colors, lighting, and atmosphere just enough to give the visuals their own character.","For me, the interesting part was seeing all these decisions come together, from the smallest detail of the product to the larger brand experience."], ["Grâce à la modélisation 3D, à l’exploration des matières, à l’éclairage et au rendu, nous avons traduit le concept en un univers visuel vivant et tactile. Une grande partie du travail consistait à trouver le bon équilibre : garder des gummies et un packaging crédibles tout en poussant juste assez les couleurs, la lumière et l’atmosphère pour donner du caractère aux visuels.","Pour moi, le plus intéressant a été de voir toutes ces décisions se rejoindre, du plus petit détail du produit jusqu’à l’expérience de marque dans son ensemble."]),
       result: L("Gummagic became an exploration of how product design, branding, and visual storytelling can work together. A colorful world built around a simple idea: making vitamins feel a little more alive, a little more playful, and a lot more fun.", "Gummagic est devenu une exploration de la manière dont design produit, identité de marque et narration visuelle peuvent fonctionner ensemble. Un univers coloré construit autour d’une idée simple : rendre les vitamines un peu plus vivantes, un peu plus ludiques et beaucoup plus amusantes."),
     },
-    // DRAFT details, inferred from the files: please confirm (and add Scope / Tools).
     details: [
       [L('Project', 'Projet'), 'Gummagic'],
       [L('Discipline', 'Discipline'), L('Branding, Packaging, 3D Product Visualization', 'Identité, packaging, visualisation produit 3D')],
+      [L('Scope', 'Périmètre'), L('3D Modeling, Texturing, Lighting, Rendering, Package Design', 'Modélisation 3D, texturing, éclairage, rendu, design de packaging')],
+      [L('Tools', 'Outils'), 'Blender, Cycles, Photoshop, Illustrator'],
     ],
     layout: [
       {
@@ -413,10 +406,11 @@ const projectInfo = {
       life: L("Through 3D product visualization and rhythm-driven animation, the bottle becomes the centerpiece of the experience. Imagery inspired by the fragrance notes adds atmosphere and depth, while controlled lighting, refined compositions, and precise timing preserve the product’s luxurious presence throughout the sequence.", "Grâce à la visualisation produit 3D et à une animation portée par le rythme, le flacon devient la pièce maîtresse de l’expérience. Des images inspirées des notes du parfum ajoutent atmosphère et profondeur, tandis qu’un éclairage maîtrisé, des compositions raffinées et un timing précis préservent la présence luxueuse du produit tout au long de la séquence."),
       result: L("A contemporary 3D showcase that combines bold motion with understated luxury, bringing together fragrance-inspired storytelling and premium product presentation in a visual experience that feels both energetic and sophisticated.", "Une vitrine 3D contemporaine qui allie mouvement audacieux et luxe discret, réunissant une narration inspirée du parfum et une présentation produit haut de gamme dans une expérience visuelle à la fois énergique et sophistiquée."),
     },
-    // DRAFT details, inferred from the files: please confirm (and add Scope / Tools).
     details: [
       [L('Project', 'Projet'), 'Dior Sauvage'],
       [L('Discipline', 'Discipline'), L('3D Motion Design', 'Motion design 3D')],
+      [L('Scope', 'Périmètre'), L('Modeling, Texturing, Animation, Lighting, Rendering, Compositing', 'Modélisation, texturing, animation, éclairage, rendu, compositing')],
+      [L('Tools', 'Outils'), 'Blender, Cycles, After Effects'],
     ],
     layout: [
       {
@@ -438,10 +432,11 @@ const projectInfo = {
       direction: L("The direction focused on vibrant visuals, dynamic movement, and a lively commercial rhythm. The idea was to give each flavor a strong visual presence while staying true to the brand’s identity, creating a refreshing, modern look suited to television advertising.", "La direction s’est concentrée sur des visuels éclatants, un mouvement dynamique et un rythme publicitaire vivant. L’idée était de donner à chaque saveur une forte présence visuelle tout en restant fidèle à l’identité de la marque, pour un rendu rafraîchissant et moderne adapté à la publicité télévisée."),
       result: L("An energetic product commercial designed to celebrate Oulmès’ new flavors through bold visuals and a fresh, contemporary feel.", "Une publicité produit énergique, pensée pour célébrer les nouvelles saveurs d’Oulmès à travers des visuels audacieux et un ton frais et contemporain."),
     },
-    // DRAFT details, inferred from the files: please confirm (and add Scope / Tools).
     details: [
       [L('Project', 'Projet'), 'Oulmès'],
       [L('Discipline', 'Discipline'), L('3D Product Animation', 'Animation produit 3D')],
+      [L('Scope', 'Périmètre'), L('Modeling, Texturing, Animation, Lighting, Rendering, Compositing', 'Modélisation, texturing, animation, éclairage, rendu, compositing')],
+      [L('Tools', 'Outils'), 'Blender, Cycles, After Effects'],
     ],
     layout: [
       {
@@ -469,10 +464,11 @@ const projectInfo = {
       life: L("Through 3D world-building, environmental composition, lighting, and cinematic framing, the project explores how atmosphere can tell a story. Each shot contributes to the feeling of discovering a distant world, setting the tone for a larger narrative about humanity’s future beyond Earth.", "À travers la création d’un monde en 3D, la composition des environnements, l’éclairage et le cadrage cinématographique, le projet explore la manière dont une atmosphère peut raconter une histoire. Chaque plan participe à la sensation de découvrir un monde lointain et donne le ton d’un récit plus vaste sur l’avenir de l’humanité au-delà de la Terre."),
       result: L("A cinematic 3D trailer that uses visual storytelling to explore life on Mars, blending science-fiction world-building with an atmospheric approach to create a glimpse into a possible future.", "Une bande-annonce 3D cinématographique qui utilise la narration visuelle pour explorer la vie sur Mars, mêlant construction d’univers de science-fiction et approche atmosphérique pour offrir un aperçu d’un futur possible."),
     },
-    // DRAFT details, inferred from the files: please confirm (and add Scope / Tools).
     details: [
       [L('Project', 'Projet'), 'The Matter'],
       [L('Discipline', 'Discipline'), L('Short Film', 'Court métrage')],
+      [L('Scope', 'Périmètre'), L('Modeling, Texturing, Animation, Lighting, Rendering, Compositing', 'Modélisation, texturing, animation, éclairage, rendu, compositing')],
+      [L('Tools', 'Outils'), 'Blender, Cycles, After Effects'],
     ],
     layout: [
       {
@@ -497,10 +493,11 @@ const projectInfo = {
       life: L("Through 3D modeling, texturing, lighting, and composition, I explored how small details can carry meaning. Each element contributes to the history of the space, creating a sense of presence despite the absence of its owner. The scene was designed to reward observation, allowing the viewer to piece together their own interpretation.", "À travers la modélisation 3D, le texturing, l’éclairage et la composition, j’ai exploré la façon dont de petits détails peuvent porter du sens. Chaque élément contribue à l’histoire du lieu, créant une impression de présence malgré l’absence de son propriétaire. La scène a été pensée pour récompenser l’observation, laissant chacun reconstituer sa propre interprétation."),
       result: L("A personal exploration of storytelling through 3D art, built around the idea that a scene doesn’t need to explain everything to say something. Sometimes, what has been left behind is more intriguing than what we can see.", "Une exploration personnelle de la narration par l’art 3D, fondée sur l’idée qu’une scène n’a pas besoin de tout expliquer pour dire quelque chose. Parfois, ce qui a été laissé derrière soi est plus intrigant que ce que l’on voit."),
     },
-    // DRAFT details, inferred from the files: please confirm (and add Scope / Tools).
     details: [
       [L('Project', 'Projet'), 'Once Cherished Now Forsaken'],
       [L('Discipline', 'Discipline'), L('Short Film', 'Court métrage')],
+      [L('Scope', 'Périmètre'), L('Modeling, Texturing, Animation, Lighting, Rendering, Compositing', 'Modélisation, texturing, animation, éclairage, rendu, compositing')],
+      [L('Tools', 'Outils'), 'Blender, Cycles, After Effects'],
     ],
     layout: [
       {

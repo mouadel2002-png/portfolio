@@ -1413,6 +1413,14 @@
   gap: 0.7em;
 }
 
+.contact__socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-top: 32px;
+  font-size: 16px;
+}
+
 @media (min-width: 1200px) {
   .contact {
     padding-top: 220px;

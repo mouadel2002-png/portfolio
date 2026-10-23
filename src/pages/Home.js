@@ -4,6 +4,7 @@ import FitText from '../components/FitText';
 import { DESKTOP, useMediaQuery } from '../hooks';
 import WorkCard from '../components/WorkCard';
 import Clients from '../components/Clients';
+import Contact from '../components/Contact';
 import { MaskLine, Reveal, RevealImage } from '../components/Reveal';
 import { archive, profile, works } from '../data/site';
 import { useLang } from '../i18n';
@@ -106,21 +107,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="contact container" id="contact">
-        <Reveal className="contact__label muted">{t('contact')}</Reveal>
-        <h2 className="contact__title">
-          <MaskLine>{t('contactLine1')}</MaskLine>
-          <MaskLine delay={0.1}>{t('contactLine2')}</MaskLine>
-        </h2>
-        <Reveal delay={0.2}>
-          <a href={`mailto:${profile.email}`} className="contact__email">
-            {profile.email}
-            <span className="contact__arrow" aria-hidden="true">
-              →
-            </span>
-          </a>
-        </Reveal>
-      </section>
+      <Contact />
     </Page>
   );
 }

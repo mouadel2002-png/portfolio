@@ -1,5 +1,6 @@
 import Page from '../components/Page';
 import FitText from '../components/FitText';
+import Contact from '../components/Contact';
 import { MaskLine, Reveal, RevealImage } from '../components/Reveal';
 import { experiences, profile } from '../data/site';
 import { useLang } from '../i18n';
@@ -61,6 +62,8 @@ export default function About() {
           ))}
         </div>
       </section>
+
+      <Contact />
     </Page>
   );
 }

@@ -11,7 +11,7 @@ export const profile = {
   role: L('Digital Designer', 'Designer Numérique'),
   location: L('Casablanca, Morocco', 'Casablanca, Maroc'),
   // Placeholder: replace with your real address.
-  email: 'hello@mouadtahri.com',
+  email: 'mouadel2002@gmail.com',
   year: new Date().getFullYear(),
   services: [
     L('Creative Direction', 'Direction créative'),
@@ -45,9 +45,8 @@ export const experiences = [
 ];
 
 export const socials = [
-  { label: 'Linkedin', href: 'https://www.linkedin.com/' },
-  { label: 'Instagram', href: 'https://www.instagram.com/' },
-  { label: 'Behance', href: 'https://www.behance.net/' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/mouad-tahri-b5b906245/' },
+  { label: 'Behance', href: 'https://www.behance.net/mouadtahri' },
 ];
 
 export const navLinks = [

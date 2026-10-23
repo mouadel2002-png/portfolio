@@ -167,19 +167,9 @@
 .pg-preview__list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
   margin-top: 48px;
-}
-
-.pg-preview__row {
-  display: flex;
-  gap: 12px;
-}
-
-.pg-preview__item {
-  display: block;
-  min-width: 0;
-  overflow: hidden;
+  width: calc((100% - var(--gap) * 2) / 3 * 2 + var(--gap));
 }
 
 .pg-preview__item:hover img {
@@ -271,7 +261,8 @@
   padding-top: 20px;
 }
 
-.playground__frame {
+.playground__frame,
+.pg-preview__frame {
   aspect-ratio: 626 / 305;
 }
 
@@ -993,6 +984,7 @@
     padding-top: 100px;
   }
 
+  .pg-preview__list,
   .playground__item {
     width: 100%;
   }
@@ -1097,13 +1089,28 @@
   }
 
   .pg-preview {
-    padding-top: 160px;
+    padding-top: 140px;
   }
 
   .pg-preview__list {
-    margin-top: 64px;
+    width: 100%;
+    margin-top: 56px;
   }
 
+  .pg-preview__item {
+    width: calc(50% - var(--gap) / 2);
+  }
+
+  /* Each piece rises beside the previous one, so the zigzag interlocks instead of stacking. */
+  .pg-preview__item + .pg-preview__item {
+    margin-top: -18%;
+  }
+
+  .pg-preview__item:nth-child(even) {
+    align-self: flex-end;
+  }
+
+  .pg-preview__frame,
   .playground__frame {
     aspect-ratio: 673 / 445;
   }

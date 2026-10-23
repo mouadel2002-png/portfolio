@@ -100,7 +100,7 @@ export default function Home() {
         </Reveal>
         <div className="pg-preview__list">
           {previewPieces.map((p) => (
-            <Link to="/playground" key={p.src} className="pg-preview__item">
+            <Link to="/playground" key={p.src} className={`pg-preview__item${p.h > p.w ? ' pg-preview__item--tall' : ''}`}>
               <RevealImage src={p.src} alt="" className="img-frame--fill img-frame--contain pg-preview__frame" />
             </Link>
           ))}

@@ -17,41 +17,20 @@ function seeded(seed) {
   };
 }
 
-// #rrggbb -> hue (0-360), saturation and lightness (0-1).
-function hsl(hex) {
-  const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255);
-  const max = Math.max(r, g, b);
-  const min = Math.min(r, g, b);
-  const l = (max + min) / 2;
-  const d = max - min;
-  if (!d) return { h: 0, s: 0, l };
-  const s = d / (1 - Math.abs(2 * l - 1));
-  let h = max === r ? ((g - b) / d) % 6 : max === g ? (b - r) / d + 2 : (r - g) / d + 4;
-  h = (h * 60 + 360) % 360;
-  return { h, s, l };
-}
-
-// A colour journey: darks first, then warm reds and browns, greens, blues, greys, and light pieces last.
-function colourRank(hex) {
-  const { h, s, l } = hsl(hex || '#808080');
-  if (l < 0.12) return l;
-  if (l > 0.72) return 5 + l;
-  if (s < 0.12) return 4 + l;
-  return 1 + ((h + 30) % 360) / 120;
-}
-
 // Shape classes share one width range, so pieces of the same shape read at the same size.
 const WIDTH = { wide: [30, 36], square: [19, 24], tall: [14, 18] };
 const shape = (it) => (it.w / it.h > 1.3 ? 'wide' : it.w / it.h < 0.85 ? 'tall' : 'square');
 const ALIGN = ['flex-start', 'center', 'flex-end'];
 const JUSTIFY = ['space-between', 'space-around', 'space-evenly'];
 
-// Mostly random order with only a faint drift from dark to light, then lay out row by row.
+// Fully shuffled (Fisher-Yates), then laid out row by row.
 function arrange(items) {
-  const rand = seeded(20261028);
-  const list = items
-    .map((it) => ({ ...it, rank: colourRank(it.color) + rand() * 3 }))
-    .sort((a, b) => a.rank - b.rank);
+  const rand = seeded(731);
+  const list = [...items];
+  for (let i = list.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [list[i], list[j]] = [list[j], list[i]];
+  }
   const rows = [];
   let row = { pieces: [], used: 0 };
   list.forEach((it) => {

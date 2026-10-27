@@ -66,9 +66,9 @@ function encodeVideo(input, slug) {
   return { src: `/videos/${slug}.mp4`, w, h, kb: Math.round(fs.statSync(out).size / 1024) };
 }
 
-// Landing-page background: WEBSITE/SHOWREEL.mp4 -> silent, looping web video plus a poster frame.
+// Landing-page background: WEBSITE/HERO SHOWREEL.mp4 -> silent, looping web video plus a poster frame.
 function encodeShowreel() {
-  const input = path.join(SRC, 'SHOWREEL.mp4');
+  const input = path.join(SRC, 'HERO SHOWREEL.mp4');
   const out = `${VIDEOS}/showreel.mp4`;
   if (!fs.existsSync(input)) return;
   fs.mkdirSync(VIDEOS, { recursive: true });

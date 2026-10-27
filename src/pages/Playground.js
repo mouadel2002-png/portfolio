@@ -46,11 +46,11 @@ const shape = (it) => (it.w / it.h > 1.3 ? 'wide' : it.w / it.h < 0.85 ? 'tall' 
 const ALIGN = ['flex-start', 'center', 'flex-end'];
 const JUSTIFY = ['space-between', 'space-around', 'space-evenly'];
 
-// Order by colour (lightly shuffled within neighbours), then lay out row by row.
+// Mostly random order with only a faint drift from dark to light, then lay out row by row.
 function arrange(items) {
   const rand = seeded(20261028);
   const list = items
-    .map((it) => ({ ...it, rank: colourRank(it.color) + rand() * 0.6 }))
+    .map((it) => ({ ...it, rank: colourRank(it.color) + rand() * 3 }))
     .sort((a, b) => a.rank - b.rank);
   const rows = [];
   let row = { pieces: [], used: 0 };

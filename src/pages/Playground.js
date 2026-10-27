@@ -48,9 +48,9 @@ const JUSTIFY = ['space-between', 'space-around', 'space-evenly'];
 
 // Order by colour (lightly shuffled within neighbours), then lay out row by row.
 function arrange(items) {
-  const rand = seeded(20261023);
+  const rand = seeded(20261028);
   const list = items
-    .map((it) => ({ ...it, rank: colourRank(it.color) + rand() * 0.35 }))
+    .map((it) => ({ ...it, rank: colourRank(it.color) + rand() * 0.6 }))
     .sort((a, b) => a.rank - b.rank);
   const rows = [];
   let row = { pieces: [], used: 0 };

@@ -21,9 +21,16 @@ export default function FitText({ children, className }) {
     // Re-fit once the web font arrives; the fallback font has different widths.
     document.fonts?.ready.then(fit);
     document.fonts?.addEventListener?.('loadingdone', fit);
-    const ro = new ResizeObserver(fit);
+    // Resize on the next frame: changing the font size inside the observer callback triggers
+    // "ResizeObserver loop completed with undelivered notifications".
+    let frame;
+    const ro = new ResizeObserver(() => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(fit);
+    });
     ro.observe(box);
     return () => {
+      cancelAnimationFrame(frame);
       ro.disconnect();
       document.fonts?.removeEventListener?.('loadingdone', fit);
     };

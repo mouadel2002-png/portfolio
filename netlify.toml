@@ -1,0 +1,11 @@
+# Netlify: build the React app and serve the build folder.
+[build]
+  command = "npm run build"
+  publish = "build"
+
+# Single-page app: every address (e.g. /playground, /work/gummagic) loads index.html,
+# so refreshing or opening a deep link never shows a 404.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
